@@ -1,0 +1,24 @@
+{
+  "entity_id": "ORION-MEDICAL-COMPARISON_EXAMPLE-AZURE_SURESSCAN_VS_CONVENTIONAL_PACEMAKERS",
+  "entity_type": "comparison_example",
+  "name": "Azure SureScan vs Conventional Pacemakers Comparison",
+  "description": "Azure SureScan addresses three risks during MRI compared to conventional pacemakers: reed switch activation causing asynchronous pacing, lead tip heating, and magnetic torque. It does this through controlled SureScan mode, filtered feedthrough, and device design. Conventional devices have no mechanism to mitigate lead heating and must be excluded from MRI environments entirely.",
+  "domain": [
+    "medical_devices",
+    "MRI"
+  ],
+  "relationships": [
+    {
+      "type": "refines",
+      "target": "ORION-MEDICAL-IMPLEMENTATION_OPS-CONVENTIONAL_PACEMAKER_MRI_SCANNING"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.778,
+  "last_updated": "2026-04-14T04:37:33+00:00"
+}

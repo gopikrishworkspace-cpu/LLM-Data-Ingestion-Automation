@@ -1,0 +1,25 @@
+{
+  "entity_id": "ORION-MD-ACCEPTANCE_CRITERIA-REGULATORY_APPROVALS_AZURE_SURESSCAN",
+  "entity_type": "acceptance_criteria",
+  "name": "Regulatory Approvals for Azure SureScan Pacemaker",
+  "description": "The Azure SureScan pacemaker has received FDA clearance under 510(k) K163240, CE marking for European markets, and IEC 60601-2-33 approval. It also complies with ASTM F2503 for MR Conditional labeling.",
+  "domain": [
+    "medical_devices",
+    "pacemakers",
+    "regulations"
+  ],
+  "relationships": [
+    {
+      "type": "enables",
+      "target": "ORION-MD-NEGATIVE_BOUNDARY-MR_SAFE_STATUS_AZURE_SURESSCAN"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.7
+  },
+  "status": "canonical",
+  "_quality_score": 0.732,
+  "last_updated": "2026-04-14T05:20:31+00:00"
+}

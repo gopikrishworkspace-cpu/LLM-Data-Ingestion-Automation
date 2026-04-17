@@ -1,0 +1,24 @@
+{
+  "entity_id": "NEGATIVE-NON-SURESCAN-MRI",
+  "entity_type": "negative_boundary",
+  "name": "Non-SureScan Leads and MRI Contraindications",
+  "description": "If any implanted lead is not SureScan-certified or if co-implants like ICDs, neurostimulators, or cochlear implants are not MRI-conditional, full-body MRI is contraindicated. Epicardial leads are also not SureScan-compatible.",
+  "domain": [
+    "medical_devices",
+    "pacemakers"
+  ],
+  "relationships": [
+    {
+      "type": "contrasts_with",
+      "target": "TERMINOL-SURESCAN"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.732,
+  "last_updated": "2026-04-14T04:37:33+00:00"
+}

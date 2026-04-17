@@ -1,0 +1,33 @@
+{
+  "entity_id": "ORION-MEDICAL-ARCHITECTURE-AZURE-MRI-SURESCAN-PACEMAKER",
+  "entity_type": "architecture",
+  "name": "Azure MRI SureScan Pacemaker Architecture",
+  "description": "This architecture integrates BlueSync wireless technology to enable both clinician tablet-based programming and patient or caregiver app-based remote monitoring. It incorporates embedded algorithms for atrial fibrillation detection and management, supporting real-time data transmission and remote device adjustments. Operation requires compatible tablets and secure app environments, and is limited by device compatibility and data security requirements.",
+  "domain": [
+    "medical devices",
+    "cardiac electrophysiology",
+    "remote monitoring"
+  ],
+  "relationships": [
+    {
+      "type": "enables",
+      "target": "ORION-MEDICAL-IMPLEMENTATION-TABLET-APP-REMOTE-MONITORING"
+    },
+    {
+      "type": "depends_on",
+      "target": "ORION-MEDICAL-ARCHITECTURE-UPDATED-HARDWARE-REDUCED-DRAIN"
+    },
+    {
+      "type": "implements",
+      "target": "ORION-MEDICAL-PRODUCT-THEORY-AF-EPISODE-DETECTION-ALGORITHMS"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.97,
+  "last_updated": "2026-04-16T06:57:09+00:00"
+}

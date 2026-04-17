@@ -1,0 +1,28 @@
+{
+  "entity_id": "ORION-MD-ACCEPTANCE_CRITERIA-REGULATORY_STATUS-AZURE_SURESSCAN",
+  "entity_type": "acceptance_criteria",
+  "name": "Regulatory Approval of Azure SureScan",
+  "description": "Azure SureScan is a medical device that has received regulatory approval. It is FDA-cleared under 510(k) K163240, CE marked for European markets, and approved under IEC 60601-2-33.",
+  "domain": [
+    "medical_devices",
+    "regulations"
+  ],
+  "relationships": [
+    {
+      "type": "fails_under",
+      "target": "ORION-MD-REGULATION-FDA_CLEARANCE"
+    },
+    {
+      "type": "applies_to",
+      "target": "ORION-MD-DEVICE-AZURE_SURESSCAN"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.804,
+  "last_updated": "2026-04-14T04:37:33+00:00"
+}

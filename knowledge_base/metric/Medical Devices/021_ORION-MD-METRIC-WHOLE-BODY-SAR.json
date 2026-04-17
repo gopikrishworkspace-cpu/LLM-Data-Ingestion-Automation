@@ -1,0 +1,24 @@
+{
+  "entity_id": "ORION-MD-METRIC-WHOLE-BODY-SAR",
+  "entity_type": "metric",
+  "name": "Whole-body Specific Absorption Rate (SAR)",
+  "description": "The whole-body SAR must be less than or equal to 2.0 Watts per kilogram (W/kg) for the SureScan system, ensuring safe and effective MRI scanning.",
+  "domain": [
+    "Medical Devices",
+    "MRI Scanning"
+  ],
+  "relationships": [
+    {
+      "type": "fails_under",
+      "target": "ORION-MD-NEGATIVE-ABANDONED-LEADS"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.7
+  },
+  "status": "canonical",
+  "_quality_score": 0.656,
+  "last_updated": "2026-04-14T04:37:33+00:00"
+}

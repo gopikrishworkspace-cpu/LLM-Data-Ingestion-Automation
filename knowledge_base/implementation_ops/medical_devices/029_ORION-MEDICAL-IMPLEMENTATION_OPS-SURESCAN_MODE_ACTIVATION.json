@@ -1,0 +1,28 @@
+{
+  "entity_id": "ORION-MEDICAL-IMPLEMENTATION_OPS-SURESCAN_MODE_ACTIVATION",
+  "entity_type": "implementation_ops",
+  "name": "Controlled Activation of SureScan Mode",
+  "description": "Activating the controlled SureScan mode before scanning prevents pacing inhibition, rate fluctuation, or device damage during MRI scanning. This mechanism is crucial for pacemakers equipped with Azure SureScan technology.",
+  "domain": [
+    "medical_devices",
+    "pacemakers"
+  ],
+  "relationships": [
+    {
+      "type": "causes",
+      "target": "ORION-MEDICAL-FAILURE_CASE-HIGH_THORACIC_SAR_AND_LEAD_TIP_HEATING"
+    },
+    {
+      "type": "contrasts_with",
+      "target": "ORION-MEDICAL-COMPARISON_EXAMPLE-AZURE_SURESSCAN_VS_CONVENTIONAL_PACEMAKERS"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.815,
+  "last_updated": "2026-04-14T04:37:33+00:00"
+}

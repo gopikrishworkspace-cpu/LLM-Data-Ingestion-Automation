@@ -1,0 +1,29 @@
+{
+  "entity_id": "ORION-MD-COMPARISON_EXAMPLE-AZURE_VS_TRADITIONAL",
+  "entity_type": "comparison",
+  "name": "Comparison between Azure MRI Surescan Pacemaker and Traditional Pacemakers during MRI Scans",
+  "description": "During MRI scans, the Azure MRI Surescan Pacemaker offers a significant advantage over traditional pacemakers. While traditional pacemakers may malfunction or overheat during an MRI scan, the Azure MRI Surescan Pacemaker uses proprietary technology to adjust its settings and minimize these risks, ensuring patient safety.",
+  "domain": [
+    "Medical Devices",
+    "Pacemakers",
+    "MRI Safety"
+  ],
+  "relationships": [
+    {
+      "type": "contrasts_with",
+      "target": "ORION-MD-NEGATIVE_BOUNDARY-TRADITIONAL_PACEMAKERS"
+    },
+    {
+      "type": "enables",
+      "target": "ORION-MD-PRODUCT-AZURE_MRI_SURESCAN_PACEMAKER"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.85,
+    "relationships": 0.8
+  },
+  "status": "canonical",
+  "_quality_score": 0.815,
+  "last_updated": "2026-04-13T07:03:05+00:00"
+}

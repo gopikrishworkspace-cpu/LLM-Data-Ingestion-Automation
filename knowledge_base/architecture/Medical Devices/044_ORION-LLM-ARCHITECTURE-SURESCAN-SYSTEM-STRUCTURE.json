@@ -1,0 +1,24 @@
+{
+  "entity_id": "ORION-LLM-ARCHITECTURE-SURESCAN-SYSTEM-STRUCTURE",
+  "entity_type": "architecture",
+  "name": "SureScan System Architecture",
+  "description": "The SureScan system employs Filtered feedthrough technology, magnetic switch detection, and SureScan mode operation to ensure MRI compatibility. This architecture is applicable when the MRI field strength is either 1.5T or 3.0T.",
+  "domain": [
+    "Medical Devices",
+    "MRI Scanning"
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "ORION-LLM-IMPLEMENTATION_OPS-PROGRAMMING-AND-INTERROGATION-OF-DEVICE"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.732,
+  "last_updated": "2026-04-14T05:20:31+00:00"
+}

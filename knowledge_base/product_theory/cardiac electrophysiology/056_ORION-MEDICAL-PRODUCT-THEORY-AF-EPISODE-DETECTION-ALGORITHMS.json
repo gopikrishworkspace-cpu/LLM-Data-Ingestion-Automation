@@ -1,0 +1,33 @@
+{
+  "entity_id": "ORION-MEDICAL-PRODUCT-THEORY-AF-EPISODE-DETECTION-ALGORITHMS",
+  "entity_type": "product_theory",
+  "name": "Atrial Fibrillation Episode Detection and Management Algorithms",
+  "description": "These algorithms continuously analyze cardiac electrical signals using pattern recognition to identify atrial fibrillation episodes, maximizing positive predictive value to reduce false positives. They include interventions such as Reactive ATP to deliver anti-tachycardia pacing when arrhythmia patterns are detected. Their performance depends on the quality of sensed signals and specificity of detection criteria, and may be limited by signal noise or atypical arrhythmias.",
+  "domain": [
+    "cardiac electrophysiology",
+    "medical devices",
+    "signal processing"
+  ],
+  "relationships": [
+    {
+      "type": "enables",
+      "target": "ORION-MEDICAL-METRIC-AF-EPISODE-DETECTION-PPV"
+    },
+    {
+      "type": "implements",
+      "target": "ORION-MEDICAL-PRODUCT-THEORY-REACTIVE-ATP-ALGORITHM"
+    },
+    {
+      "type": "implements",
+      "target": "ORION-MEDICAL-PRODUCT-THEORY-MVP-ALGORITHM-RV-PACING"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.97,
+  "last_updated": "2026-04-16T06:57:09+00:00"
+}

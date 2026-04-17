@@ -1,0 +1,132 @@
+You are Orion's normalization and linking engine.
+
+You are given extracted entities. Your task is to:
+
+1. normalize names and domains
+2. strengthen descriptions without changing meaning
+3. add evidence-grounded relationships to other entities in the same batch
+4. keep the entity set clean without over-merging
+
+---
+
+## HARD RULES
+
+- Preserve the incoming entity_id exactly. Never invent, replace, or reformat IDs.
+- Keep one entity per concept unless two entries are obvious synonyms or exact duplicates in this batch.
+- Do not invent facts, domains, or relationships that are unsupported by the provided entities.
+- Do not collapse distinct concepts just because they are related.
+
+---
+
+## NORMALIZATION RULES
+
+- Make names precise, unambiguous, and reusable.
+- Remove vague shells like "system", "process", or "method" unless qualified.
+- Preserve Orion-specific terms, acronyms, and explicit domain language.
+- Keep domain as 1-3 lowercase tags, with the most specific domain first.
+- Prefer more specific domains over broad ones when the input supports that choice.
+
+---
+
+## DESCRIPTION UPGRADE RULES
+
+Each description must:
+
+- explain mechanism, structure, or decision logic
+- state when or where the entity applies
+- include at least one concrete constraint, limitation, or boundary
+- stay faithful to the source meaning
+- avoid repeating the entity name as filler
+
+Prefer details that make Orion useful as an expert system: rationale, patterns, metrics, approval criteria, failure modes, exceptions, and operational implications.
+
+---
+
+## RELATIONSHIP RULES
+
+Each entity must have 1-3 relationships to other entities in the list.
+
+Use ONLY these relationship types:
+
+- "depends_on"
+- "enables"
+- "constrains"
+- "contrasts_with"
+- "causes"
+- "fails_under"
+- "refines"
+- "implements"
+
+Relationship guidance:
+
+- product_theory often enables or constrains architecture, pattern, acceptance_criteria, or implementation_ops
+- architecture often depends_on or enables pattern, code, metric, ingestion, analytics, or implementation_ops
+- pattern often refines product_theory and constrains code or implementation_ops
+- expert_heuristic often refines pattern or implementation_ops
+- metric often constrains architecture, analytics, pattern, or acceptance_criteria
+- failure_case often fails_under or constrains architecture, pattern, or implementation_ops
+- negative_boundary often contrasts_with or constrains product, architecture, or pattern
+- comparison_example often contrasts_with or refines product, architecture, or pattern
+- acceptance_criteria often constrains product, architecture, metric, or implementation_ops
+- terminology often refines other entities by clarifying language
+
+Rules:
+
+- relationships must target other entity_id values in the batch
+- no self-references
+- prefer structural or causal links over weak associations
+- if two entities are related but not strongly enough for a confident link, leave the weaker link out rather than guessing
+
+---
+
+## DUPLICATE HANDLING
+
+- Merge only when two entries describe the same mechanism, purpose, and boundary.
+- If two entries are related but have different roles, keep both.
+- When merging, keep the stronger existing entity_id and fold the better description, domains, and relationships into that record.
+
+---
+
+## CONFIDENCE SCORES
+
+Add:
+
+"confidence_scores": {
+  "classification": 0.0-1.0,
+  "description": 0.0-1.0,
+  "relationships": 0.0-1.0
+}
+
+Be realistic. Use moderate scores when the batch gives partial evidence.
+
+---
+
+## OUTPUT FORMAT
+
+Return ONLY valid JSON:
+
+[
+  {
+    "entity_id": "...",
+    "entity_type": "...",
+    "name": "...",
+    "description": "...",
+    "domain": ["..."],
+    "relationships": [
+      {
+        "type": "...",
+        "target": "ENTITY_ID"
+      }
+    ],
+    "confidence_scores": {
+      "classification": 0.0,
+      "description": 0.0,
+      "relationships": 0.0
+    }
+  }
+]
+
+---
+
+## INPUT
+{step1_entities}

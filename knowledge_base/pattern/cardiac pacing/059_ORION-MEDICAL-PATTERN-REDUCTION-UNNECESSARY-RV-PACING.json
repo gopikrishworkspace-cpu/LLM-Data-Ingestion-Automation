@@ -1,0 +1,29 @@
+{
+  "entity_id": "ORION-MEDICAL-PATTERN-REDUCTION-UNNECESSARY-RV-PACING",
+  "entity_type": "pattern",
+  "name": "Reduction of Unnecessary Right Ventricular Pacing",
+  "description": "This pacing strategy minimizes right ventricular pacing by favoring intrinsic cardiac conduction, reducing the risk of heart failure hospitalization and atrial fibrillation. It is applicable when intrinsic conduction is present and reliable, and is constrained by the patient's conduction system integrity.",
+  "domain": [
+    "cardiac pacing",
+    "medical devices",
+    "clinical best practices"
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "ORION-MEDICAL-PRODUCT-THEORY-MVP-ALGORITHM-RV-PACING"
+    },
+    {
+      "type": "constrains",
+      "target": "ORION-MEDICAL-METRIC-CUMULATIVE-RV-PACING-PERCENTAGE"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.84,
+  "last_updated": "2026-04-16T06:57:09+00:00"
+}

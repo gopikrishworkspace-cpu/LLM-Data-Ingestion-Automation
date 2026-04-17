@@ -1,0 +1,24 @@
+{
+  "entity_id": "ORION-LLM-IMPLEMENTATION_OPS-PROGRAMMING-AND-INTERROGATION-OF-DEVICE",
+  "entity_type": "implementation_ops",
+  "name": "Programming and Interrogation of Device",
+  "description": "The device is programmed via the Medtronic CareLink 2.0 Programmer, and before MRI, a clinician must confirm all implanted leads are SureScan-compatible, enable SureScan mode, set the SureScan pacing rate, and after the scan, disable SureScan mode and restore nominal programming.",
+  "domain": [
+    "Medical Devices",
+    "MRI Scanning"
+  ],
+  "relationships": [
+    {
+      "type": "causes",
+      "target": "ORION-LLM-ARCHITECTURE-SURESCAN-SYSTEM-STRUCTURE"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.685,
+  "last_updated": "2026-04-14T05:20:31+00:00"
+}

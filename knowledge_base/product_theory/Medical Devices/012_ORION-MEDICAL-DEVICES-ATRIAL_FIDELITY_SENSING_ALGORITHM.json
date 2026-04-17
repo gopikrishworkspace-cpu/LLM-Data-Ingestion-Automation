@@ -1,0 +1,24 @@
+{
+  "entity_id": "ORION-MEDICAL-DEVICES-ATRIAL_FIDELITY_SENSING_ALGORITHM",
+  "entity_type": "product_theory",
+  "name": "Atrial Fidelity Sensing Algorithm",
+  "description": "Algorithm used in the Azure MRI SureScan Pacemaker to improve atrial signal detection, reducing inappropriate mode switching in patients with atrial fibrillation. Applies to pacemakers with this specific algorithm. Limitations: Requires proper calibration and patient monitoring.",
+  "domain": [
+    "Medical Devices",
+    "Cardiology"
+  ],
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "ORION-MEDICAL-DEVICES-AZURE_MRI_SURESCAN_TECHNOLOGY"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.778,
+  "last_updated": "2026-04-14T04:37:33+00:00"
+}

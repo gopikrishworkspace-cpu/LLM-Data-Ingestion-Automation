@@ -1,0 +1,28 @@
+{
+  "entity_id": "ORION-MD-NEGATIVE-ABANDONED-LEADS",
+  "entity_type": "negative_boundary",
+  "name": "Contraindications for MRI Scanning",
+  "description": "Abandoned leads (non-SureScan) contraindicate MRI scanning, as they may heat up and cause harm to the patient during the scan.",
+  "domain": [
+    "Medical Devices",
+    "MRI Scanning"
+  ],
+  "relationships": [
+    {
+      "type": "contrasts_with",
+      "target": "ORION-MD-ARCHITECTURE-MRI-FIELD-STRENGTH"
+    },
+    {
+      "type": "fails_under",
+      "target": "ORION-MD-METRIC-WHOLE-BODY-SAR"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.7
+  },
+  "status": "canonical",
+  "_quality_score": 0.729,
+  "last_updated": "2026-04-14T04:37:33+00:00"
+}

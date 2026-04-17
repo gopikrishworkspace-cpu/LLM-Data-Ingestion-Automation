@@ -1,0 +1,29 @@
+{
+  "entity_id": "PATTERN-4841312915eb",
+  "entity_type": "pattern",
+  "name": "Reactive ATP algorithm for AT/AF reduction",
+  "description": "An exclusive algorithm in Azure MRI SureScan pacemakers designed to reduce the risk and duration of atrial tachycardia/atrial fibrillation (AT/AF) episodes. It demonstrates a 36% relative reduction in AT/AF episodes lasting more than 7 days, based on clinical evidence. The algorithm is limited to patients with AT/AF and is only available on compatible devices, with effectiveness bounded by device compatibility and patient selection.",
+  "domain": [
+    "cardiology",
+    "medical_devices",
+    "analytics"
+  ],
+  "relationships": [
+    {
+      "type": "refines",
+      "target": "PRODUCT-89edab6a9a20"
+    },
+    {
+      "type": "constrains",
+      "target": "METRIC-afb5d317eff9"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.97,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.887,
+  "last_updated": "2026-04-16T09:21:40+00:00"
+}

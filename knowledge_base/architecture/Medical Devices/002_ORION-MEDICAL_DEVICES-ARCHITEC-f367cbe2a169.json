@@ -1,0 +1,25 @@
+{
+  "entity_id": "ORION-MEDICAL_DEVICES-ARCHITEC-f367cbe2a169",
+  "entity_type": "architecture",
+  "name": "Azure MRI Surescan Pacemaker System Architecture",
+  "description": "The Azure MRI Surescan pacemaker system architecture is a critical component of the technology, designed to ensure safe operation of the pacemaker during MRI scans. It consists of a pacemaker device implanted in the patient's body, an external programming device used to program and interrogate the pacemaker, and a radiofrequency shield that protects the pacemaker from magnetic fields generated during an MRI scan. This design minimizes the risk of malfunction due to interference with the magnetic field, enabling continuous monitoring and adjustment of its performance as needed.",
+  "domain": [
+    "Medical Devices",
+    "Pacemakers",
+    "MRI Safety"
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "ORION-LLM-PATTERN-CONTEXT-WINDOW-CHUNKING"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.85,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.778,
+  "last_updated": "2026-04-10T06:44:21+00:00"
+}

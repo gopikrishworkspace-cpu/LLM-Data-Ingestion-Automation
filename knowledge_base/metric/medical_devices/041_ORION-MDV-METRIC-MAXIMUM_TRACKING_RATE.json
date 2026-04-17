@@ -1,0 +1,30 @@
+{
+  "entity_id": "ORION-MDV-METRIC-MAXIMUM_TRACKING_RATE",
+  "entity_type": "metric",
+  "name": "Maximum Tracking Rate",
+  "description": "The maximum tracking rate of the Azure MRI SureScan Pacemaker, which is 175 ppm. This value represents the highest rate at which the pacemaker can accurately track the patient's heart rhythm.",
+  "domain": [
+    "medical_devices",
+    "pacemakers"
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.5
+  },
+  "relationships": [
+    {
+      "type": "constrains",
+      "target": "ORION-MDV-PRODUCT_THEORY-RATE_RESPONSE",
+      "_auto_generated": true
+    },
+    {
+      "type": "depends_on",
+      "target": "ORION-MD-NEGATIVE_BOUNDARY-MR_SAFE_STATUS_AZURE_SURESSCAN",
+      "_auto_generated": true
+    }
+  ],
+  "status": "canonical",
+  "_quality_score": 0.81,
+  "last_updated": "2026-04-14T05:20:31+00:00"
+}

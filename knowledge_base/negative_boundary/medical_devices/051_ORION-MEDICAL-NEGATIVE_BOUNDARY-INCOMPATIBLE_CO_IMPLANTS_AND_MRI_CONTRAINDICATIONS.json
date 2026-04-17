@@ -1,0 +1,24 @@
+{
+  "entity_id": "ORION-MEDICAL-NEGATIVE_BOUNDARY-INCOMPATIBLE_CO_IMPLANTS_AND_MRI_CONTRAINDICATIONS",
+  "entity_type": "negative_boundary",
+  "name": "Incompatible Co-Implants and MRI Contraindications",
+  "description": "ICDs, neurostimulators, or cochlear implants that are not MRI-conditional contraindicate scanning regardless of pacemaker conditionality.",
+  "domain": [
+    "medical_devices",
+    "pacemakers"
+  ],
+  "relationships": [
+    {
+      "type": "contrasts_with",
+      "target": "ORION-MEDICAL-NEGATIVE_BOUNDARY-NON_SURESCAN_LEADS_AND_MRI_CONTRAINDICATIONS"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.652,
+  "last_updated": "2026-04-14T05:20:31+00:00"
+}

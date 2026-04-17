@@ -1,0 +1,30 @@
+{
+  "entity_id": "ORION-MD-METRIC-REPLACEMENT_INDICATOR",
+  "entity_type": "metric",
+  "name": "Replacement Indicator",
+  "description": "Method used by the Azure MRI SureScan Pacemaker to signal elective replacement at 5 years remaining battery life. Applies specifically to the Azure MRI SureScan Pacemaker.",
+  "domain": [
+    "medical_devices",
+    "pacemakers"
+  ],
+  "relationships": [
+    {
+      "type": "refines",
+      "target": "ORION-MD-METRIC-BATTERY_LONGEVITY",
+      "_auto_generated": true
+    },
+    {
+      "type": "refines",
+      "target": "ORION-MD-METRIC-BATTERY_LONGEVITY",
+      "_auto_generated": true
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.5
+  },
+  "status": "canonical",
+  "_quality_score": 0.8,
+  "last_updated": "2026-04-14T05:20:31+00:00"
+}

@@ -1,0 +1,29 @@
+{
+  "entity_id": "ARCHITEC-3eec7a341127",
+  "entity_type": "architecture",
+  "name": "BlueSync technology",
+  "description": "A secure remote management architecture enabling tablet-based programming and app-based monitoring for the Azure MRI SureScan pacemaker. It allows clinicians and patients to interact with the device remotely, but operation is restricted to compatible tablets and apps. The architecture is integral to device management and is bounded by software and hardware compatibility.",
+  "domain": [
+    "medical_devices",
+    "pacemaker",
+    "remote_monitoring"
+  ],
+  "relationships": [
+    {
+      "type": "enables",
+      "target": "PRODUCT-89edab6a9a20"
+    },
+    {
+      "type": "depends_on",
+      "target": "ARCHITEC-bf2dab51a751"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.97,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.887,
+  "last_updated": "2026-04-16T09:21:40+00:00"
+}

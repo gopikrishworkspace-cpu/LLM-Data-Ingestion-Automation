@@ -1,0 +1,37 @@
+[
+  {
+    "registry_key": "medical_devices::comparison_example::ORION-MEDICAL-COMPARISON_EXAMPLE-AZURE_SURESSCAN_VS_CONVENTIONAL_PACEMAKERS",
+    "message": "Confidence tie on critical field 'name' for medical_devices::comparison_example::ORION-MEDICAL-COMPARISON_EXAMPLE-AZURE_SURESSCAN_VS_CONVENTIONAL_PACEMAKERS: existing='Azure SureScan vs Conventional Pacemakers Comparison' vs incoming='Azure SureScan vs Conventional Pacemakers' (both conf=0.0)",
+    "timestamp": "2026-04-14T05:20:31+00:00",
+    "incoming_entity": {
+      "entity_id": "ORION-MEDICAL-COMPARISON_EXAMPLE-AZURE_SURESSCAN_VS_CONVENTIONAL_PACEMAKERS",
+      "entity_type": "comparison_example",
+      "name": "Azure SureScan vs Conventional Pacemakers",
+      "description": "The Azure SureScan pacemaker addresses three risks during MRI that conventional pacemakers face: reed switch activation causing asynchronous pacing, lead tip heating causing thermal injury to myocardial tissue, and magnetic torque causing mechanical stress. Unlike conventional devices, the Azure SureScan has a controlled SureScan mode, filtered feedthrough, and specific device design to mitigate these risks.",
+      "domain": [
+        "medical_devices",
+        "pacemakers",
+        "MRI"
+      ],
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "ORION-MD-PRODUCT_THEORY-ATRIAL_FIDELITY_SENSING_ALGORITHM",
+          "_auto_generated": true
+        },
+        {
+          "type": "depends_on",
+          "target": "ORION-MD-PRODUCT_THEORY-ATRIAL_FIDELITY_SENSING_ALGORITHM",
+          "_auto_generated": true
+        }
+      ],
+      "confidence_scores": {
+        "classification": 0.9,
+        "description": 0.8,
+        "relationships": 0.5
+      },
+      "status": "canonical",
+      "_quality_score": 0.815
+    }
+  }
+]

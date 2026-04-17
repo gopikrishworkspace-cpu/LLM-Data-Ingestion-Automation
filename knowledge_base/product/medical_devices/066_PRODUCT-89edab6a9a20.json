@@ -1,0 +1,33 @@
+{
+  "entity_id": "PRODUCT-89edab6a9a20",
+  "entity_type": "product",
+  "name": "Azure MRI SureScan pacemaker",
+  "description": "A cardiovascular implantable electronic device equipped with BlueSync technology for tablet-based programming and app-based remote monitoring. It incorporates proprietary algorithms to manage atrial fibrillation (AF) in pacemaker patients, targeting those at risk of AF. Remote capabilities are limited to compatible tablets and apps, and the device is constrained by patient eligibility and hardware compatibility.",
+  "domain": [
+    "medical_devices",
+    "cardiology",
+    "pacemaker"
+  ],
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "ARCHITEC-3eec7a341127"
+    },
+    {
+      "type": "enables",
+      "target": "PATTERN-11353a7dbcf8"
+    },
+    {
+      "type": "enables",
+      "target": "PATTERN-4841312915eb"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.98,
+    "relationships": 0.95
+  },
+  "status": "canonical",
+  "_quality_score": 0.97,
+  "last_updated": "2026-04-16T09:21:40+00:00"
+}

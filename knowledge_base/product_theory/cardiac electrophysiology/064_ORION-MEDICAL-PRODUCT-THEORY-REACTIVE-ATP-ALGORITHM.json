@@ -1,0 +1,25 @@
+{
+  "entity_id": "ORION-MEDICAL-PRODUCT-THEORY-REACTIVE-ATP-ALGORITHM",
+  "entity_type": "product_theory",
+  "name": "Reactive Anti-Tachycardia Pacing Algorithm",
+  "description": "This algorithm delivers anti-tachycardia pacing in response to detected arrhythmia patterns, aiming to terminate or reduce the duration of atrial tachyarrhythmia or atrial fibrillation episodes. Its effectiveness is dependent on accurate arrhythmia detection and timely intervention, and may be limited by patient-specific arrhythmia characteristics and device programming.",
+  "domain": [
+    "cardiac electrophysiology",
+    "medical devices",
+    "algorithms"
+  ],
+  "relationships": [
+    {
+      "type": "enables",
+      "target": "ORION-MEDICAL-METRIC-RELATIVE-REDUCTION-AT-AF-REACTIVE-ATP"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.95,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.744,
+  "last_updated": "2026-04-16T06:57:09+00:00"
+}

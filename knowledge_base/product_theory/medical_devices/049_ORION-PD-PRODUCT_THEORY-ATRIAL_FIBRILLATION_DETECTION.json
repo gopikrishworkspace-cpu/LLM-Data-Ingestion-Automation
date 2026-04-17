@@ -1,0 +1,24 @@
+{
+  "entity_id": "ORION-PD-PRODUCT_THEORY-ATRIAL_FIBRILLATION_DETECTION",
+  "entity_type": "product_theory",
+  "name": "Atrial Fibrillation Detection (Atrial Fidelity) in Pacemakers",
+  "description": "The Atrial Fidelity algorithm in the Azure pacemaker enhances atrial sensing electrode sensitivity to distinguish true atrial fibrillation from far-field R-wave oversensing. When AF is detected, the device mode-switches from tracking (DDD) to non-tracking (DDI/VVI) to prevent inappropriate high-rate ventricular pacing triggered by fibrillatory atrial signals.",
+  "domain": [
+    "medical_devices",
+    "pacemakers"
+  ],
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "ORION-PD-PRODUCT_THEORY-ACCELEROMETER_BASED_RATE_RESPONSE"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.7
+  },
+  "status": "canonical",
+  "_quality_score": 0.732,
+  "last_updated": "2026-04-14T05:20:31+00:00"
+}

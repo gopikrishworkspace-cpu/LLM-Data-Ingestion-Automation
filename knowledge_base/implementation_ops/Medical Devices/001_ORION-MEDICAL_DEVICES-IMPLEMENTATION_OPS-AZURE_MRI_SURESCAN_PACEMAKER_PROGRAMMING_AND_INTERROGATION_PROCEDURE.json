@@ -1,0 +1,24 @@
+{
+  "entity_id": "ORION-MEDICAL_DEVICES-IMPLEMENTATION_OPS-AZURE_MRI_SURESCAN_PACEMAKER_PROGRAMMING_AND_INTERROGATION_PROCEDURE",
+  "entity_type": "implementation_ops",
+  "name": "Azure MRI Surescan Pacemaker Programming and Interrogation Procedure",
+  "description": "The Azure MRI Surescan pacemaker programming and interrogation procedure involves connecting an external programming device to the patient, following a specific set of steps as guided by the device's software. The operator communicates with the pacemaker via radiofrequency signals to retrieve data, adjust settings, and verify proper operation. This process ensures safe and effective communication between the pacemaker and the programming device during MRI scans.",
+  "domain": [
+    "Medical Devices",
+    "Pacemakers"
+  ],
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "ORION-MEDICAL_DEVICES-ARCHITECTURE-AZURE_MRI_SURESCAN_PACEMAKER_SYSTEM_STRUCTURE"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.85,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.778,
+  "last_updated": "2026-04-10T06:44:21+00:00"
+}

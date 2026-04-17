@@ -1,0 +1,24 @@
+{
+  "entity_id": "ORION-MEDICAL-FAILURE_CASE-HIGH_THORACIC_SAR_AND_LEAD_TIP_HEATING",
+  "entity_type": "failure_case",
+  "name": "High Thoracic SAR and Lead Tip Heating Risk",
+  "description": "Scans exceeding 2.0 W/kg risk lead tip heating even with filtered feedthrough technology due to high thoracic SAR. This failure case is relevant for pacemakers equipped with Azure SureScan technology.",
+  "domain": [
+    "medical_devices",
+    "pacemakers"
+  ],
+  "relationships": [
+    {
+      "type": "fails_under",
+      "target": "ORION-MEDICAL-IMPLEMENTATION_OPS-CONVENTIONAL_PACEMAKER_MRI_SCANNING"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.732,
+  "last_updated": "2026-04-14T04:37:33+00:00"
+}

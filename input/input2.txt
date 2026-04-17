@@ -1,0 +1,38 @@
+﻿Pacemakers
+
+Azure™ MRI SureScan™ pacemaker
+The Azure™ MRI SureScan™ pacemaker manages atrial fibrillation (AF) in pacemaker patients with tablet-based programming and app-based remote monitoring.
+
+
+Ordering information
+Contact a representative
+Indications, Safety, and Warnings
+Description
+The Azure™ MRI SureScan™ pacemaker is enabled with BlueSync™ technology, allowing for tablet-based programming and app-based remote monitoring. The device includes exclusive algorithms to manage atrial fibrillation (AF) in pacemaker patients.
+
+Atrial fibrillation is prevalent and clinically challenging
+One in three cardiovascular implantable electronic device (CIED) patients will develop new onset AF within the first 2.5 years of implant.1
+Atrial fibrillation increases the risk of heart failure by more than three-fold.2
+Atrial fibrillation patients3 experience a five-fold increase for ischemic stroke risk.
+Features
+Detects AF episodes
+Highest published AF episode detection accuracy (PPV)†,‡,4–7
+
+95–96% AF episode detection accuracy (PPV)5–7
+
+Reduces AF risk and duration
+Exclusive algorithms demonstrated to reduce the risk and the duration of AF
+
+36% relative reduction in AT/AF episodes > 7 days with Reactive ATP™ algorithm‡,8
+
+Reduces unnecessary RV9 pacing with the MVP™ feature
+Right-ventricular (RV) pacing is associated with an increased risk of heart failure (HF) hospitalization.10
+
+RV pacing is associated with a 1% increase in risk of AF for each 1% increase in cumulative RV pacing.10
+
+MVP algorithm reduces unnecessary RV pacing by 99%.9
+Improves device longevity
+Updated hardware architecture optimizes circuity to reduce current circuitry drain and improve longevity.11
+
+Reimagined connectivity with BlueSync™ technology
+BlueSync™ technology within Azure™ enables secure, wireless communication.

@@ -1,0 +1,24 @@
+{
+  "entity_id": "ORION-MD-ARCHITEC-SURESCAN_SYSTEM",
+  "entity_type": "architecture",
+  "name": "SureScan System Structure",
+  "description": "The SureScan system consists of Filtered feedthrough technology, magnetic switch detection, and SureScan mode operation components that work together to enable MRI conditionality.",
+  "domain": [
+    "Medical Devices",
+    "MRI Scanning"
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "ORION-MD-PRODUCT_THEORY-MRI_CONDITIONALITY"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.8,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.674,
+  "last_updated": "2026-04-14T04:37:33+00:00"
+}

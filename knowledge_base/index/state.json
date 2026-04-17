@@ -1,0 +1,826 @@
+{
+  "current_count": 79,
+  "registry": {
+    "Medical Devices::implementation_ops::ORION-MEDICAL_DEVICES-IMPLEMENTATION_OPS-AZURE_MRI_SURESCAN_PACEMAKER_PROGRAMMING_AND_INTERROGATION_PROCEDURE": {
+      "file_name": "001_ORION-MEDICAL_DEVICES-IMPLEMENTATION_OPS-AZURE_MRI_SURESCAN_PACEMAKER_PROGRAMMING_AND_INTERROGATION_PROCEDURE.json",
+      "entity_type": "implementation_ops",
+      "domain": [
+        "Medical Devices",
+        "Pacemakers"
+      ],
+      "path": "implementation_ops/Medical Devices/001_ORION-MEDICAL_DEVICES-IMPLEMENTATION_OPS-AZURE_MRI_SURESCAN_PACEMAKER_PROGRAMMING_AND_INTERROGATION_PROCEDURE.json",
+      "last_updated": "2026-04-10T06:44:21+00:00"
+    },
+    "Medical Devices::architecture::ORION-MEDICAL_DEVICES-ARCHITEC-f367cbe2a169": {
+      "file_name": "002_ORION-MEDICAL_DEVICES-ARCHITEC-f367cbe2a169.json",
+      "entity_type": "architecture",
+      "domain": [
+        "Medical Devices",
+        "Pacemakers",
+        "MRI Safety"
+      ],
+      "path": "architecture/Medical Devices/002_ORION-MEDICAL_DEVICES-ARCHITEC-f367cbe2a169.json",
+      "last_updated": "2026-04-10T06:44:21+00:00"
+    },
+    "Medical Devices::negative_boundary::ORION-NEGATIVE_BOUNDARY-AZURE_MRI_SURESCAN_PACEMAKER_FAILURES": {
+      "file_name": "003_ORION-NEGATIVE_BOUNDARY-AZURE_MRI_SURESCAN_PACEMAKER_FAILURES.json",
+      "entity_type": "negative_boundary",
+      "domain": [
+        "Medical Devices",
+        "Pacemakers",
+        "MRI Safety"
+      ],
+      "path": "negative_boundary/Medical Devices/003_ORION-NEGATIVE_BOUNDARY-AZURE_MRI_SURESCAN_PACEMAKER_FAILURES.json",
+      "last_updated": "2026-04-10T06:44:21+00:00"
+    },
+    "Medical Devices::product::ORION-MD-PRODUCT-AZURE_MRI_SURESCAN_PACEMAKER": {
+      "file_name": "004_ORION-MD-PRODUCT-AZURE_MRI_SURESCAN_PACEMAKER.json",
+      "entity_type": "product",
+      "domain": [
+        "Medical Devices",
+        "Pacemakers",
+        "MRI Safety"
+      ],
+      "path": "product/Medical Devices/004_ORION-MD-PRODUCT-AZURE_MRI_SURESCAN_PACEMAKER.json",
+      "last_updated": "2026-04-13T07:03:05+00:00"
+    },
+    "Medical Devices::architecture::ORION-MD-ARCHITECTURE-AZURE_MRI_SURESCAN": {
+      "file_name": "005_ORION-MD-ARCHITECTURE-AZURE_MRI_SURESCAN.json",
+      "entity_type": "architecture",
+      "domain": [
+        "Medical Devices",
+        "Pacemakers",
+        "MRI Safety"
+      ],
+      "path": "architecture/Medical Devices/005_ORION-MD-ARCHITECTURE-AZURE_MRI_SURESCAN.json",
+      "last_updated": "2026-04-13T07:03:05+00:00"
+    },
+    "Medical Devices::pattern::ORION-MD-PATTERN-SAFE_MRI_SCANNING": {
+      "file_name": "006_ORION-MD-PATTERN-SAFE_MRI_SCANNING.json",
+      "entity_type": "pattern",
+      "domain": [
+        "Medical Devices",
+        "Pacemakers",
+        "MRI Safety"
+      ],
+      "path": "pattern/Medical Devices/006_ORION-MD-PATTERN-SAFE_MRI_SCANNING.json",
+      "last_updated": "2026-04-13T07:03:05+00:00"
+    },
+    "Medical Devices::metric::ORION-MD-METRIC-RISK_OF_PACEMAKER_FAILURE": {
+      "file_name": "007_ORION-MD-METRIC-RISK_OF_PACEMAKER_FAILURE.json",
+      "entity_type": "metric",
+      "domain": [
+        "Medical Devices",
+        "Pacemakers",
+        "MRI Safety"
+      ],
+      "path": "metric/Medical Devices/007_ORION-MD-METRIC-RISK_OF_PACEMAKER_FAILURE.json",
+      "last_updated": "2026-04-13T07:03:05+00:00"
+    },
+    "Medical Devices::comparison::ORION-MD-COMPARISON_EXAMPLE-AZURE_VS_TRADITIONAL": {
+      "file_name": "008_ORION-MD-COMPARISON_EXAMPLE-AZURE_VS_TRADITIONAL.json",
+      "entity_type": "comparison",
+      "domain": [
+        "Medical Devices",
+        "Pacemakers",
+        "MRI Safety"
+      ],
+      "path": "comparison/Medical Devices/008_ORION-MD-COMPARISON_EXAMPLE-AZURE_VS_TRADITIONAL.json",
+      "last_updated": "2026-04-13T07:03:05+00:00"
+    },
+    "Medical Devices::negative_boundary::ORION-MD-NEGATIVE_BOUNDARY-AZURE_LIMITATIONS": {
+      "file_name": "009_ORION-MD-NEGATIVE_BOUNDARY-AZURE_LIMITATIONS.json",
+      "entity_type": "negative_boundary",
+      "domain": [
+        "Medical Devices",
+        "Pacemakers",
+        "MRI Safety"
+      ],
+      "path": "negative_boundary/Medical Devices/009_ORION-MD-NEGATIVE_BOUNDARY-AZURE_LIMITATIONS.json",
+      "last_updated": "2026-04-13T07:03:05+00:00"
+    },
+    "Medical Devices::negative_boundary::ORION-MD-NEGATIVE_BOUNDARY-TRADITIONAL_PACEMAKERS": {
+      "file_name": "010_ORION-MD-NEGATIVE_BOUNDARY-TRADITIONAL_PACEMAKERS.json",
+      "entity_type": "negative_boundary",
+      "domain": [
+        "Medical Devices",
+        "Pacemakers",
+        "MRI Safety"
+      ],
+      "path": "negative_boundary/Medical Devices/010_ORION-MD-NEGATIVE_BOUNDARY-TRADITIONAL_PACEMAKERS.json",
+      "last_updated": "2026-04-13T07:03:05+00:00"
+    },
+    "Medical Devices::product_theory::ORION-MEDICAL-DEVICES-AZURE_MRI_SURESCAN_TECHNOLOGY": {
+      "file_name": "011_ORION-MEDICAL-DEVICES-AZURE_MRI_SURESCAN_TECHNOLOGY.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "Medical Devices",
+        "Electromagnetism"
+      ],
+      "path": "product_theory/Medical Devices/011_ORION-MEDICAL-DEVICES-AZURE_MRI_SURESCAN_TECHNOLOGY.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "Medical Devices::product_theory::ORION-MEDICAL-DEVICES-ATRIAL_FIDELITY_SENSING_ALGORITHM": {
+      "file_name": "012_ORION-MEDICAL-DEVICES-ATRIAL_FIDELITY_SENSING_ALGORITHM.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "Medical Devices",
+        "Cardiology"
+      ],
+      "path": "product_theory/Medical Devices/012_ORION-MEDICAL-DEVICES-ATRIAL_FIDELITY_SENSING_ALGORITHM.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "Medical Devices::architecture::ORION-ELECTRONICS-AZURE_MRI_SURESCAN_PACEMAKER_STRUCTURE": {
+      "file_name": "013_ORION-ELECTRONICS-AZURE_MRI_SURESCAN_PACEMAKER_STRUCTURE.json",
+      "entity_type": "architecture",
+      "domain": [
+        "Medical Devices",
+        "Electronics"
+      ],
+      "path": "architecture/Medical Devices/013_ORION-ELECTRONICS-AZURE_MRI_SURESCAN_PACEMAKER_STRUCTURE.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "Medical Devices::metric::ORION-ENERGY-BATTERY_LONGEVITY": {
+      "file_name": "014_ORION-ENERGY-BATTERY_LONGEVITY.json",
+      "entity_type": "metric",
+      "domain": [
+        "Medical Devices",
+        "Energy"
+      ],
+      "path": "metric/Medical Devices/014_ORION-ENERGY-BATTERY_LONGEVITY.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "Medical Devices::metric::ORION-DIAGNOSTICS-REPLACEMENT_INDICATOR": {
+      "file_name": "015_ORION-DIAGNOSTICS-REPLACEMENT_INDICATOR.json",
+      "entity_type": "metric",
+      "domain": [
+        "Medical Devices",
+        "Diagnostics"
+      ],
+      "path": "metric/Medical Devices/015_ORION-DIAGNOSTICS-REPLACEMENT_INDICATOR.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "Medical Devices::product_theory::ORION-MD-PRODUCT_THEORY-PACING_MODES": {
+      "file_name": "016_ORION-MD-PRODUCT_THEORY-PACING_MODES.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "Medical Devices",
+        "Cardiology"
+      ],
+      "path": "product_theory/Medical Devices/016_ORION-MD-PRODUCT_THEORY-PACING_MODES.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "Medical Devices::metric::ORION-MD-METRIC-MAXIMUM_TRACKING_RATE": {
+      "file_name": "017_ORION-MD-METRIC-MAXIMUM_TRACKING_RATE.json",
+      "entity_type": "metric",
+      "domain": [
+        "Medical Devices",
+        "Cardiology"
+      ],
+      "path": "metric/Medical Devices/017_ORION-MD-METRIC-MAXIMUM_TRACKING_RATE.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "Medical Devices::product_theory::ORION-MD-PRODUCT_THEORY-MRI_CONDITIONALITY": {
+      "file_name": "018_ORION-MD-PRODUCT_THEORY-MRI_CONDITIONALITY.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "Medical Devices",
+        "MRI Scanning"
+      ],
+      "path": "product_theory/Medical Devices/018_ORION-MD-PRODUCT_THEORY-MRI_CONDITIONALITY.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "Medical Devices::architecture::ORION-MD-ARCHITEC-SURESCAN_SYSTEM": {
+      "file_name": "019_ORION-MD-ARCHITEC-SURESCAN_SYSTEM.json",
+      "entity_type": "architecture",
+      "domain": [
+        "Medical Devices",
+        "MRI Scanning"
+      ],
+      "path": "architecture/Medical Devices/019_ORION-MD-ARCHITEC-SURESCAN_SYSTEM.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "Medical Devices::architecture::ORION-MD-ARCHITECTURE-MRI-FIELD-STRENGTH": {
+      "file_name": "020_ORION-MD-ARCHITECTURE-MRI-FIELD-STRENGTH.json",
+      "entity_type": "architecture",
+      "domain": [
+        "Medical Devices",
+        "MRI Scanning"
+      ],
+      "path": "architecture/Medical Devices/020_ORION-MD-ARCHITECTURE-MRI-FIELD-STRENGTH.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "Medical Devices::metric::ORION-MD-METRIC-WHOLE-BODY-SAR": {
+      "file_name": "021_ORION-MD-METRIC-WHOLE-BODY-SAR.json",
+      "entity_type": "metric",
+      "domain": [
+        "Medical Devices",
+        "MRI Scanning"
+      ],
+      "path": "metric/Medical Devices/021_ORION-MD-METRIC-WHOLE-BODY-SAR.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "Medical Devices::metric::ORION-MD-METRIC-GRADIENT-SLEW-RATE": {
+      "file_name": "022_ORION-MD-METRIC-GRADIENT-SLEW-RATE.json",
+      "entity_type": "metric",
+      "domain": [
+        "Medical Devices",
+        "MRI Scanning"
+      ],
+      "path": "metric/Medical Devices/022_ORION-MD-METRIC-GRADIENT-SLEW-RATE.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "Medical Devices::implementation_ops::ORION-MD-IMPLEMEN-PROGRAMMING": {
+      "file_name": "023_ORION-MD-IMPLEMEN-PROGRAMMING.json",
+      "entity_type": "implementation_ops",
+      "domain": [
+        "Medical Devices",
+        "MRI Scanning"
+      ],
+      "path": "implementation_ops/Medical Devices/023_ORION-MD-IMPLEMEN-PROGRAMMING.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "Medical Devices::negative_boundary::ORION-MD-NEGATIVE-ABANDONED-LEADS": {
+      "file_name": "024_ORION-MD-NEGATIVE-ABANDONED-LEADS.json",
+      "entity_type": "negative_boundary",
+      "domain": [
+        "Medical Devices",
+        "MRI Scanning"
+      ],
+      "path": "negative_boundary/Medical Devices/024_ORION-MD-NEGATIVE-ABANDONED-LEADS.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "Medical Devices::terminology::TERMINOL-MEDICAL-DEFINITIONS": {
+      "file_name": "025_TERMINOL-MEDICAL-DEFINITIONS.json",
+      "entity_type": "terminology",
+      "domain": [
+        "Medical Devices",
+        "MRI Scanning"
+      ],
+      "path": "terminology/Medical Devices/025_TERMINOL-MEDICAL-DEFINITIONS.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "medical_devices::product_theory::PRODUCT_-ACCELEROMETER-RATE-RESPONSE": {
+      "file_name": "026_PRODUCT_-ACCELEROMETER-RATE-RESPONSE.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "medical_devices",
+        "pacemakers"
+      ],
+      "path": "product_theory/medical_devices/026_PRODUCT_-ACCELEROMETER-RATE-RESPONSE.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "medical_devices::product_theory::PRODUCT_-ATRIAL-FIDELITY": {
+      "file_name": "027_PRODUCT_-ATRIAL-FIDELITY.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "medical_devices",
+        "pacemakers"
+      ],
+      "path": "product_theory/medical_devices/027_PRODUCT_-ATRIAL-FIDELITY.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "medical_devices::negative_boundary::NEGATIVE-NON-SURESCAN-MRI": {
+      "file_name": "028_NEGATIVE-NON-SURESCAN-MRI.json",
+      "entity_type": "negative_boundary",
+      "domain": [
+        "medical_devices",
+        "pacemakers"
+      ],
+      "path": "negative_boundary/medical_devices/028_NEGATIVE-NON-SURESCAN-MRI.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "medical_devices::implementation_ops::ORION-MEDICAL-IMPLEMENTATION_OPS-SURESCAN_MODE_ACTIVATION": {
+      "file_name": "029_ORION-MEDICAL-IMPLEMENTATION_OPS-SURESCAN_MODE_ACTIVATION.json",
+      "entity_type": "implementation_ops",
+      "domain": [
+        "medical_devices",
+        "pacemakers"
+      ],
+      "path": "implementation_ops/medical_devices/029_ORION-MEDICAL-IMPLEMENTATION_OPS-SURESCAN_MODE_ACTIVATION.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "medical_devices::failure_case::ORION-MEDICAL-FAILURE_CASE-HIGH_THORACIC_SAR_AND_LEAD_TIP_HEATING": {
+      "file_name": "030_ORION-MEDICAL-FAILURE_CASE-HIGH_THORACIC_SAR_AND_LEAD_TIP_HEATING.json",
+      "entity_type": "failure_case",
+      "domain": [
+        "medical_devices",
+        "pacemakers"
+      ],
+      "path": "failure_case/medical_devices/030_ORION-MEDICAL-FAILURE_CASE-HIGH_THORACIC_SAR_AND_LEAD_TIP_HEATING.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "medical_devices::comparison_example::ORION-MEDICAL-COMPARISON_EXAMPLE-AZURE_SURESSCAN_VS_CONVENTIONAL_PACEMAKERS": {
+      "file_name": "031_ORION-MEDICAL-COMPARISON_EXAMPLE-AZURE_SURESSCAN_VS_CONVENTIONAL_PACEMAKERS.json",
+      "entity_type": "comparison_example",
+      "domain": [
+        "medical_devices",
+        "MRI"
+      ],
+      "path": "comparison_example/medical_devices/031_ORION-MEDICAL-COMPARISON_EXAMPLE-AZURE_SURESSCAN_VS_CONVENTIONAL_PACEMAKERS.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "medical_devices::negative_boundary::ORION-MEDICAL-NEGATIVE_BOUNDARY-AZURE_SURESSCAN_MR_SAFE_STATUS": {
+      "file_name": "032_ORION-MEDICAL-NEGATIVE_BOUNDARY-AZURE_SURESSCAN_MR_SAFE_STATUS.json",
+      "entity_type": "negative_boundary",
+      "domain": [
+        "medical_devices",
+        "MRI"
+      ],
+      "path": "negative_boundary/medical_devices/032_ORION-MEDICAL-NEGATIVE_BOUNDARY-AZURE_SURESSCAN_MR_SAFE_STATUS.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "medical_devices::acceptance_criteria::ORION-MD-ACCEPTANCE_CRITERIA-REGULATORY_STATUS-AZURE_SURESSCAN": {
+      "file_name": "033_ORION-MD-ACCEPTANCE_CRITERIA-REGULATORY_STATUS-AZURE_SURESSCAN.json",
+      "entity_type": "acceptance_criteria",
+      "domain": [
+        "medical_devices",
+        "regulations"
+      ],
+      "path": "acceptance_criteria/medical_devices/033_ORION-MD-ACCEPTANCE_CRITERIA-REGULATORY_STATUS-AZURE_SURESSCAN.json",
+      "last_updated": "2026-04-14T04:37:33+00:00"
+    },
+    "medical_devices::product_theory::ORION-MD-PRODUCT_THEORY-AZURE_MRI_SURESCAN_TECHNOLOGY": {
+      "file_name": "034_ORION-MD-PRODUCT_THEORY-AZURE_MRI_SURESCAN_TECHNOLOGY.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "medical_devices",
+        "pacemakers",
+        "MRI"
+      ],
+      "path": "product_theory/medical_devices/034_ORION-MD-PRODUCT_THEORY-AZURE_MRI_SURESCAN_TECHNOLOGY.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical_devices::product_theory::ORION-MD-PRODUCT_THEORY-ATRIAL_FIDELITY_SENSING_ALGORITHM": {
+      "file_name": "035_ORION-MD-PRODUCT_THEORY-ATRIAL_FIDELITY_SENSING_ALGORITHM.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "medical_devices",
+        "pacemakers",
+        "atrial_fibrillation"
+      ],
+      "path": "product_theory/medical_devices/035_ORION-MD-PRODUCT_THEORY-ATRIAL_FIDELITY_SENSING_ALGORITHM.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical_devices::architecture::ORION-MD-ARCHITECTURE-AZURE_MRI_SURESCAN_PACEMAKER_STRUCTURE": {
+      "file_name": "036_ORION-MD-ARCHITECTURE-AZURE_MRI_SURESCAN_PACEMAKER_STRUCTURE.json",
+      "entity_type": "architecture",
+      "domain": [
+        "medical_devices",
+        "pacemakers",
+        "MRI"
+      ],
+      "path": "architecture/medical_devices/036_ORION-MD-ARCHITECTURE-AZURE_MRI_SURESCAN_PACEMAKER_STRUCTURE.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical_devices::metric::ORION-MD-METRIC-BATTERY_LONGEVITY": {
+      "file_name": "037_ORION-MD-METRIC-BATTERY_LONGEVITY.json",
+      "entity_type": "metric",
+      "domain": [
+        "medical_devices",
+        "pacemakers",
+        "batteries"
+      ],
+      "path": "metric/medical_devices/037_ORION-MD-METRIC-BATTERY_LONGEVITY.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical_devices::metric::ORION-MD-METRIC-REPLACEMENT_INDICATOR": {
+      "file_name": "038_ORION-MD-METRIC-REPLACEMENT_INDICATOR.json",
+      "entity_type": "metric",
+      "domain": [
+        "medical_devices",
+        "pacemakers"
+      ],
+      "path": "metric/medical_devices/038_ORION-MD-METRIC-REPLACEMENT_INDICATOR.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical_devices::product_theory::ORION-MDV-PRODUCT_THEORY-PACING_MODES": {
+      "file_name": "039_ORION-MDV-PRODUCT_THEORY-PACING_MODES.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "medical_devices",
+        "pacemakers"
+      ],
+      "path": "product_theory/medical_devices/039_ORION-MDV-PRODUCT_THEORY-PACING_MODES.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical_devices::product_theory::ORION-MDV-PRODUCT_THEORY-RATE_RESPONSE": {
+      "file_name": "040_ORION-MDV-PRODUCT_THEORY-RATE_RESPONSE.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "medical_devices",
+        "pacemakers"
+      ],
+      "path": "product_theory/medical_devices/040_ORION-MDV-PRODUCT_THEORY-RATE_RESPONSE.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical_devices::metric::ORION-MDV-METRIC-MAXIMUM_TRACKING_RATE": {
+      "file_name": "041_ORION-MDV-METRIC-MAXIMUM_TRACKING_RATE.json",
+      "entity_type": "metric",
+      "domain": [
+        "medical_devices",
+        "pacemakers"
+      ],
+      "path": "metric/medical_devices/041_ORION-MDV-METRIC-MAXIMUM_TRACKING_RATE.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical_devices::metric::ORION-MDV-METRIC-DEVICE_DIMENSIONS": {
+      "file_name": "042_ORION-MDV-METRIC-DEVICE_DIMENSIONS.json",
+      "entity_type": "metric",
+      "domain": [
+        "medical_devices",
+        "pacemakers"
+      ],
+      "path": "metric/medical_devices/042_ORION-MDV-METRIC-DEVICE_DIMENSIONS.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "Medical Devices::product_theory::ORION-MDV-PRODUCT_THEORY-MRI_CONDITIONALITY": {
+      "file_name": "043_ORION-MDV-PRODUCT_THEORY-MRI_CONDITIONALITY.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "Medical Devices",
+        "MRI Scanning"
+      ],
+      "path": "product_theory/Medical Devices/043_ORION-MDV-PRODUCT_THEORY-MRI_CONDITIONALITY.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "Medical Devices::architecture::ORION-LLM-ARCHITECTURE-SURESCAN-SYSTEM-STRUCTURE": {
+      "file_name": "044_ORION-LLM-ARCHITECTURE-SURESCAN-SYSTEM-STRUCTURE.json",
+      "entity_type": "architecture",
+      "domain": [
+        "Medical Devices",
+        "MRI Scanning"
+      ],
+      "path": "architecture/Medical Devices/044_ORION-LLM-ARCHITECTURE-SURESCAN-SYSTEM-STRUCTURE.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "Medical Devices::architecture::ORION-LLM-METRIC-MRI-FIELD-STRENGTH": {
+      "file_name": "045_ORION-LLM-METRIC-MRI-FIELD-STRENGTH.json",
+      "entity_type": "architecture",
+      "domain": [
+        "Medical Devices",
+        "MRI Scanning"
+      ],
+      "path": "architecture/Medical Devices/045_ORION-LLM-METRIC-MRI-FIELD-STRENGTH.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "Medical Devices::implementation_ops::ORION-LLM-IMPLEMENTATION_OPS-PROGRAMMING-AND-INTERROGATION-OF-DEVICE": {
+      "file_name": "046_ORION-LLM-IMPLEMENTATION_OPS-PROGRAMMING-AND-INTERROGATION-OF-DEVICE.json",
+      "entity_type": "implementation_ops",
+      "domain": [
+        "Medical Devices",
+        "MRI Scanning"
+      ],
+      "path": "implementation_ops/Medical Devices/046_ORION-LLM-IMPLEMENTATION_OPS-PROGRAMMING-AND-INTERROGATION-OF-DEVICE.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "Medical Devices::terminology::ORION-MD-TERMINOLOGY-SPECIFIC_TERMS": {
+      "file_name": "047_ORION-MD-TERMINOLOGY-SPECIFIC_TERMS.json",
+      "entity_type": "terminology",
+      "domain": [
+        "Medical Devices",
+        "MRI Scanning"
+      ],
+      "path": "terminology/Medical Devices/047_ORION-MD-TERMINOLOGY-SPECIFIC_TERMS.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical_devices::product_theory::ORION-PD-PRODUCT_THEORY-ACCELEROMETER_BASED_RATE_RESPONSE": {
+      "file_name": "048_ORION-PD-PRODUCT_THEORY-ACCELEROMETER_BASED_RATE_RESPONSE.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "medical_devices",
+        "pacemakers"
+      ],
+      "path": "product_theory/medical_devices/048_ORION-PD-PRODUCT_THEORY-ACCELEROMETER_BASED_RATE_RESPONSE.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical_devices::product_theory::ORION-PD-PRODUCT_THEORY-ATRIAL_FIBRILLATION_DETECTION": {
+      "file_name": "049_ORION-PD-PRODUCT_THEORY-ATRIAL_FIBRILLATION_DETECTION.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "medical_devices",
+        "pacemakers"
+      ],
+      "path": "product_theory/medical_devices/049_ORION-PD-PRODUCT_THEORY-ATRIAL_FIBRILLATION_DETECTION.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical_devices::negative_boundary::ORION-MEDICAL-NEGATIVE_BOUNDARY-NON_SURESCAN_LEADS_AND_MRI_CONTRAINDICATIONS": {
+      "file_name": "050_ORION-MEDICAL-NEGATIVE_BOUNDARY-NON_SURESCAN_LEADS_AND_MRI_CONTRAINDICATIONS.json",
+      "entity_type": "negative_boundary",
+      "domain": [
+        "medical_devices",
+        "pacemakers"
+      ],
+      "path": "negative_boundary/medical_devices/050_ORION-MEDICAL-NEGATIVE_BOUNDARY-NON_SURESCAN_LEADS_AND_MRI_CONTRAINDICATIONS.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical_devices::negative_boundary::ORION-MEDICAL-NEGATIVE_BOUNDARY-INCOMPATIBLE_CO_IMPLANTS_AND_MRI_CONTRAINDICATIONS": {
+      "file_name": "051_ORION-MEDICAL-NEGATIVE_BOUNDARY-INCOMPATIBLE_CO_IMPLANTS_AND_MRI_CONTRAINDICATIONS.json",
+      "entity_type": "negative_boundary",
+      "domain": [
+        "medical_devices",
+        "pacemakers"
+      ],
+      "path": "negative_boundary/medical_devices/051_ORION-MEDICAL-NEGATIVE_BOUNDARY-INCOMPATIBLE_CO_IMPLANTS_AND_MRI_CONTRAINDICATIONS.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical_devices::negative_boundary::ORION-MEDICAL-NEGATIVE_BOUNDARY-IMPROPER_SURESCAN_ACTIVATION_AND_RISKS": {
+      "file_name": "052_ORION-MEDICAL-NEGATIVE_BOUNDARY-IMPROPER_SURESCAN_ACTIVATION_AND_RISKS.json",
+      "entity_type": "negative_boundary",
+      "domain": [
+        "medical_devices",
+        "pacemakers"
+      ],
+      "path": "negative_boundary/medical_devices/052_ORION-MEDICAL-NEGATIVE_BOUNDARY-IMPROPER_SURESCAN_ACTIVATION_AND_RISKS.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical_devices::negative_boundary::ORION-MD-NEGATIVE_BOUNDARY-MR_SAFE_STATUS_AZURE_SURESSCAN": {
+      "file_name": "053_ORION-MD-NEGATIVE_BOUNDARY-MR_SAFE_STATUS_AZURE_SURESSCAN.json",
+      "entity_type": "negative_boundary",
+      "domain": [
+        "medical_devices",
+        "pacemakers",
+        "MRI"
+      ],
+      "path": "negative_boundary/medical_devices/053_ORION-MD-NEGATIVE_BOUNDARY-MR_SAFE_STATUS_AZURE_SURESSCAN.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical_devices::acceptance_criteria::ORION-MD-ACCEPTANCE_CRITERIA-REGULATORY_APPROVALS_AZURE_SURESSCAN": {
+      "file_name": "054_ORION-MD-ACCEPTANCE_CRITERIA-REGULATORY_APPROVALS_AZURE_SURESSCAN.json",
+      "entity_type": "acceptance_criteria",
+      "domain": [
+        "medical_devices",
+        "pacemakers",
+        "regulations"
+      ],
+      "path": "acceptance_criteria/medical_devices/054_ORION-MD-ACCEPTANCE_CRITERIA-REGULATORY_APPROVALS_AZURE_SURESSCAN.json",
+      "last_updated": "2026-04-14T05:20:31+00:00"
+    },
+    "medical devices::architecture::ORION-MEDICAL-ARCHITECTURE-AZURE-MRI-SURESCAN-PACEMAKER": {
+      "file_name": "055_ORION-MEDICAL-ARCHITECTURE-AZURE-MRI-SURESCAN-PACEMAKER.json",
+      "entity_type": "architecture",
+      "domain": [
+        "medical devices",
+        "cardiac electrophysiology",
+        "remote monitoring"
+      ],
+      "path": "architecture/medical devices/055_ORION-MEDICAL-ARCHITECTURE-AZURE-MRI-SURESCAN-PACEMAKER.json",
+      "last_updated": "2026-04-16T06:57:09+00:00"
+    },
+    "cardiac electrophysiology::product_theory::ORION-MEDICAL-PRODUCT-THEORY-AF-EPISODE-DETECTION-ALGORITHMS": {
+      "file_name": "056_ORION-MEDICAL-PRODUCT-THEORY-AF-EPISODE-DETECTION-ALGORITHMS.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "cardiac electrophysiology",
+        "medical devices",
+        "signal processing"
+      ],
+      "path": "product_theory/cardiac electrophysiology/056_ORION-MEDICAL-PRODUCT-THEORY-AF-EPISODE-DETECTION-ALGORITHMS.json",
+      "last_updated": "2026-04-16T06:57:09+00:00"
+    },
+    "medical devices::metric::ORION-MEDICAL-METRIC-AF-EPISODE-DETECTION-PPV": {
+      "file_name": "057_ORION-MEDICAL-METRIC-AF-EPISODE-DETECTION-PPV.json",
+      "entity_type": "metric",
+      "domain": [
+        "medical devices",
+        "cardiac monitoring",
+        "diagnostic accuracy"
+      ],
+      "path": "metric/medical devices/057_ORION-MEDICAL-METRIC-AF-EPISODE-DETECTION-PPV.json",
+      "last_updated": "2026-04-16T06:57:09+00:00"
+    },
+    "medical devices::implementation_ops::ORION-MEDICAL-IMPLEMENTATION-TABLET-APP-REMOTE-MONITORING": {
+      "file_name": "058_ORION-MEDICAL-IMPLEMENTATION-TABLET-APP-REMOTE-MONITORING.json",
+      "entity_type": "implementation_ops",
+      "domain": [
+        "medical devices",
+        "remote healthcare",
+        "clinical operations"
+      ],
+      "path": "implementation_ops/medical devices/058_ORION-MEDICAL-IMPLEMENTATION-TABLET-APP-REMOTE-MONITORING.json",
+      "last_updated": "2026-04-16T06:57:09+00:00"
+    },
+    "cardiac pacing::pattern::ORION-MEDICAL-PATTERN-REDUCTION-UNNECESSARY-RV-PACING": {
+      "file_name": "059_ORION-MEDICAL-PATTERN-REDUCTION-UNNECESSARY-RV-PACING.json",
+      "entity_type": "pattern",
+      "domain": [
+        "cardiac pacing",
+        "medical devices",
+        "clinical best practices"
+      ],
+      "path": "pattern/cardiac pacing/059_ORION-MEDICAL-PATTERN-REDUCTION-UNNECESSARY-RV-PACING.json",
+      "last_updated": "2026-04-16T06:57:09+00:00"
+    },
+    "cardiac electrophysiology::metric::ORION-MEDICAL-METRIC-RELATIVE-REDUCTION-AT-AF-REACTIVE-ATP": {
+      "file_name": "060_ORION-MEDICAL-METRIC-RELATIVE-REDUCTION-AT-AF-REACTIVE-ATP.json",
+      "entity_type": "metric",
+      "domain": [
+        "cardiac electrophysiology",
+        "medical devices",
+        "outcomes measurement"
+      ],
+      "path": "metric/cardiac electrophysiology/060_ORION-MEDICAL-METRIC-RELATIVE-REDUCTION-AT-AF-REACTIVE-ATP.json",
+      "last_updated": "2026-04-16T06:57:09+00:00"
+    },
+    "cardiology::metric::ORION-MEDICAL-METRIC-CUMULATIVE-RV-PACING-PERCENTAGE": {
+      "file_name": "061_ORION-MEDICAL-METRIC-CUMULATIVE-RV-PACING-PERCENTAGE.json",
+      "entity_type": "metric",
+      "domain": [
+        "cardiology",
+        "medical devices"
+      ],
+      "path": "metric/cardiology/061_ORION-MEDICAL-METRIC-CUMULATIVE-RV-PACING-PERCENTAGE.json",
+      "last_updated": "2026-04-16T06:57:09+00:00"
+    },
+    "cardiology::product_theory::ORION-MEDICAL-PRODUCT-THEORY-MVP-ALGORITHM-RV-PACING": {
+      "file_name": "062_ORION-MEDICAL-PRODUCT-THEORY-MVP-ALGORITHM-RV-PACING.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "cardiology",
+        "medical devices",
+        "algorithms"
+      ],
+      "path": "product_theory/cardiology/062_ORION-MEDICAL-PRODUCT-THEORY-MVP-ALGORITHM-RV-PACING.json",
+      "last_updated": "2026-04-16T06:57:09+00:00"
+    },
+    "medical devices::architecture::ORION-MEDICAL-ARCHITECTURE-UPDATED-HARDWARE-REDUCED-DRAIN": {
+      "file_name": "063_ORION-MEDICAL-ARCHITECTURE-UPDATED-HARDWARE-REDUCED-DRAIN.json",
+      "entity_type": "architecture",
+      "domain": [
+        "medical devices",
+        "hardware design"
+      ],
+      "path": "architecture/medical devices/063_ORION-MEDICAL-ARCHITECTURE-UPDATED-HARDWARE-REDUCED-DRAIN.json",
+      "last_updated": "2026-04-16T06:57:09+00:00"
+    },
+    "cardiac electrophysiology::product_theory::ORION-MEDICAL-PRODUCT-THEORY-REACTIVE-ATP-ALGORITHM": {
+      "file_name": "064_ORION-MEDICAL-PRODUCT-THEORY-REACTIVE-ATP-ALGORITHM.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "cardiac electrophysiology",
+        "medical devices",
+        "algorithms"
+      ],
+      "path": "product_theory/cardiac electrophysiology/064_ORION-MEDICAL-PRODUCT-THEORY-REACTIVE-ATP-ALGORITHM.json",
+      "last_updated": "2026-04-16T06:57:09+00:00"
+    },
+    "medical devices::architecture::ORION-MEDICAL-ARCHITECTURE-BLUESYNC-SECURE-WIRELESS-COMMUNICATION": {
+      "file_name": "065_ORION-MEDICAL-ARCHITECTURE-BLUESYNC-SECURE-WIRELESS-COMMUNICATION.json",
+      "entity_type": "architecture",
+      "domain": [
+        "medical devices",
+        "wireless communication",
+        "security"
+      ],
+      "path": "architecture/medical devices/065_ORION-MEDICAL-ARCHITECTURE-BLUESYNC-SECURE-WIRELESS-COMMUNICATION.json",
+      "last_updated": "2026-04-16T06:57:09+00:00"
+    },
+    "medical_devices::product::PRODUCT-89edab6a9a20": {
+      "file_name": "066_PRODUCT-89edab6a9a20.json",
+      "entity_type": "product",
+      "domain": [
+        "medical_devices",
+        "cardiology",
+        "pacemaker"
+      ],
+      "path": "product/medical_devices/066_PRODUCT-89edab6a9a20.json",
+      "last_updated": "2026-04-16T09:21:40+00:00"
+    },
+    "medical_devices::architecture::ARCHITEC-3eec7a341127": {
+      "file_name": "067_ARCHITEC-3eec7a341127.json",
+      "entity_type": "architecture",
+      "domain": [
+        "medical_devices",
+        "pacemaker",
+        "remote_monitoring"
+      ],
+      "path": "architecture/medical_devices/067_ARCHITEC-3eec7a341127.json",
+      "last_updated": "2026-04-16T09:21:40+00:00"
+    },
+    "cardiology::pattern::PATTERN-11353a7dbcf8": {
+      "file_name": "068_PATTERN-11353a7dbcf8.json",
+      "entity_type": "pattern",
+      "domain": [
+        "cardiology",
+        "analytics",
+        "medical_devices"
+      ],
+      "path": "pattern/cardiology/068_PATTERN-11353a7dbcf8.json",
+      "last_updated": "2026-04-16T09:21:40+00:00"
+    },
+    "cardiology::metric::METRIC-1b902a43c171": {
+      "file_name": "069_METRIC-1b902a43c171.json",
+      "entity_type": "metric",
+      "domain": [
+        "cardiology",
+        "analytics",
+        "medical_devices"
+      ],
+      "path": "metric/cardiology/069_METRIC-1b902a43c171.json",
+      "last_updated": "2026-04-16T09:21:40+00:00"
+    },
+    "cardiology::pattern::PATTERN-4841312915eb": {
+      "file_name": "070_PATTERN-4841312915eb.json",
+      "entity_type": "pattern",
+      "domain": [
+        "cardiology",
+        "medical_devices",
+        "analytics"
+      ],
+      "path": "pattern/cardiology/070_PATTERN-4841312915eb.json",
+      "last_updated": "2026-04-16T09:21:40+00:00"
+    },
+    "cardiology::pattern::PATTERN-0caf4e1c0595": {
+      "file_name": "071_PATTERN-0caf4e1c0595.json",
+      "entity_type": "pattern",
+      "domain": [
+        "cardiology",
+        "medical_devices",
+        "pacemaker"
+      ],
+      "path": "pattern/cardiology/071_PATTERN-0caf4e1c0595.json",
+      "last_updated": "2026-04-16T09:21:40+00:00"
+    },
+    "cardiology::metric::METRIC-c5313cc009a8": {
+      "file_name": "072_METRIC-c5313cc009a8.json",
+      "entity_type": "metric",
+      "domain": [
+        "cardiology",
+        "analytics",
+        "medical_devices"
+      ],
+      "path": "metric/cardiology/072_METRIC-c5313cc009a8.json",
+      "last_updated": "2026-04-16T09:21:40+00:00"
+    },
+    "cardiology::metric::METRIC-afb5d317eff9": {
+      "file_name": "073_METRIC-afb5d317eff9.json",
+      "entity_type": "metric",
+      "domain": [
+        "cardiology",
+        "medical_devices",
+        "analytics"
+      ],
+      "path": "metric/cardiology/073_METRIC-afb5d317eff9.json",
+      "last_updated": "2026-04-16T09:21:40+00:00"
+    },
+    "cardiology::product_theory::METRIC-9896a717c288": {
+      "file_name": "074_METRIC-9896a717c288.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "cardiology",
+        "analytics",
+        "medical_devices"
+      ],
+      "path": "product_theory/cardiology/074_METRIC-9896a717c288.json",
+      "last_updated": "2026-04-16T09:21:40+00:00"
+    },
+    "cardiology::product_theory::METRIC-d6f7ddd30a83": {
+      "file_name": "075_METRIC-d6f7ddd30a83.json",
+      "entity_type": "product_theory",
+      "domain": [
+        "cardiology",
+        "analytics",
+        "medical_devices"
+      ],
+      "path": "product_theory/cardiology/075_METRIC-d6f7ddd30a83.json",
+      "last_updated": "2026-04-16T09:21:40+00:00"
+    },
+    "cardiology::metric::METRIC-0f664cbb877c": {
+      "file_name": "076_METRIC-0f664cbb877c.json",
+      "entity_type": "metric",
+      "domain": [
+        "cardiology"
+      ],
+      "path": "metric/cardiology/076_METRIC-0f664cbb877c.json",
+      "last_updated": "2026-04-16T09:21:40+00:00"
+    },
+    "cardiology::pattern::PATTERN-fb3a2775da14": {
+      "file_name": "077_PATTERN-fb3a2775da14.json",
+      "entity_type": "pattern",
+      "domain": [
+        "cardiology"
+      ],
+      "path": "pattern/cardiology/077_PATTERN-fb3a2775da14.json",
+      "last_updated": "2026-04-16T09:21:40+00:00"
+    },
+    "medical_devices::architecture::ARCHITEC-bf2dab51a751": {
+      "file_name": "078_ARCHITEC-bf2dab51a751.json",
+      "entity_type": "architecture",
+      "domain": [
+        "medical_devices"
+      ],
+      "path": "architecture/medical_devices/078_ARCHITEC-bf2dab51a751.json",
+      "last_updated": "2026-04-16T09:21:40+00:00"
+    },
+    "medical_devices::product::PRODUCT-9f3a38eec571": {
+      "file_name": "079_PRODUCT-9f3a38eec571.json",
+      "entity_type": "product",
+      "domain": [
+        "medical_devices",
+        "security"
+      ],
+      "path": "product/medical_devices/079_PRODUCT-9f3a38eec571.json",
+      "last_updated": "2026-04-16T09:21:40+00:00"
+    }
+  }
+}

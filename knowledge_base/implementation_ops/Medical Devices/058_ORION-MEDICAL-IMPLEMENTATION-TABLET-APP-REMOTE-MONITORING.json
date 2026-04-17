@@ -1,0 +1,25 @@
+{
+  "entity_id": "ORION-MEDICAL-IMPLEMENTATION-TABLET-APP-REMOTE-MONITORING",
+  "entity_type": "implementation_ops",
+  "name": "Tablet-Based Programming and App-Based Remote Monitoring",
+  "description": "This operational approach allows clinicians to wirelessly configure pacemaker settings via compatible tablets and enables patients or caregivers to transmit device and cardiac data securely through a mobile application. It streamlines clinical workflow and supports ongoing arrhythmia management, but requires secure wireless protocols, user authentication, and is limited by device compatibility and network connectivity.",
+  "domain": [
+    "medical devices",
+    "remote healthcare",
+    "clinical operations"
+  ],
+  "relationships": [
+    {
+      "type": "enables",
+      "target": "ORION-MEDICAL-ARCHITECTURE-AZURE-MRI-SURESCAN-PACEMAKER"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.757,
+  "last_updated": "2026-04-16T06:57:09+00:00"
+}

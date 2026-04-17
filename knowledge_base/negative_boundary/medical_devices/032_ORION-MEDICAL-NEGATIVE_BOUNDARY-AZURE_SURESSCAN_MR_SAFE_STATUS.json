@@ -1,0 +1,30 @@
+{
+  "entity_id": "ORION-MEDICAL-NEGATIVE_BOUNDARY-AZURE_SURESSCAN_MR_SAFE_STATUS",
+  "entity_type": "negative_boundary",
+  "name": "Azure SureScan MR Conditional Status",
+  "description": "Azure SureScan is not labeled as MR Safe, it is only MR Conditional and safe only under the specific scanning conditions described in product labeling. This boundary condition applies to pacemakers equipped with Azure SureScan technology.",
+  "domain": [
+    "medical_devices",
+    "MRI"
+  ],
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "ORION-MEDICAL-FAILURE_CASE-HIGH_THORACIC_SAR_AND_LEAD_TIP_HEATING",
+      "_auto_generated": true
+    },
+    {
+      "type": "depends_on",
+      "target": "ORION-MEDICAL-IMPLEMENTATION_OPS-SURESCAN_MODE_ACTIVATION",
+      "_auto_generated": true
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.8,
+    "description": 0.7,
+    "relationships": 0.5
+  },
+  "status": "canonical",
+  "_quality_score": 0.79,
+  "last_updated": "2026-04-14T04:37:33+00:00"
+}

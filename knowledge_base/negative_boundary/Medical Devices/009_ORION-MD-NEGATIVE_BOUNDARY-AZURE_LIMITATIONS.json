@@ -1,0 +1,25 @@
+{
+  "entity_id": "ORION-MD-NEGATIVE_BOUNDARY-AZURE_LIMITATIONS",
+  "entity_type": "negative_boundary",
+  "name": "Limitations of Azure MRI Surescan Pacemaker during MRI Scans",
+  "description": "The Azure MRI Surescan Pacemaker has certain limitations during MRI scans. While it minimizes the risk of malfunction or overheating, it may not be compatible with all types of MRI scanners or procedures. It is essential to consult with healthcare professionals to ensure compatibility before undergoing an MRI scan.",
+  "domain": [
+    "Medical Devices",
+    "Pacemakers",
+    "MRI Safety"
+  ],
+  "relationships": [
+    {
+      "type": "fails_under",
+      "target": "ORION-MD-PRODUCT-AZURE_MRI_SURESCAN_PACEMAKER"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.9,
+    "description": 0.85,
+    "relationships": 0.8
+  },
+  "status": "canonical",
+  "_quality_score": 0.778,
+  "last_updated": "2026-04-13T07:03:05+00:00"
+}

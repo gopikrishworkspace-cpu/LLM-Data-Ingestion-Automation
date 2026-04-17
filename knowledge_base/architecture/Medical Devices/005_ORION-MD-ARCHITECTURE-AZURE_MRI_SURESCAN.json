@@ -1,0 +1,25 @@
+{
+  "entity_id": "ORION-MD-ARCHITECTURE-AZURE_MRI_SURESCAN",
+  "entity_type": "architecture",
+  "name": "Azure MRI Surescan Pacemaker System Architecture",
+  "description": "The Azure MRI Surescan Pacemaker system architecture consists of the pacemaker device implanted in the patient's body, an external MRI scanner, and proprietary software that enables communication between the two. The pacemaker is equipped with a sensor to detect when an MRI scan is about to start, and the software adjusts the pacemaker's settings accordingly.",
+  "domain": [
+    "Medical Devices",
+    "Pacemakers",
+    "MRI Safety"
+  ],
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "ORION-MD-PRODUCT-AZURE_MRI_SURESCAN_PACEMAKER"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 0.95,
+    "description": 0.9,
+    "relationships": 0.85
+  },
+  "status": "canonical",
+  "_quality_score": 0.744,
+  "last_updated": "2026-04-13T07:03:05+00:00"
+}
