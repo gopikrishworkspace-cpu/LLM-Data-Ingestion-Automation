@@ -22,7 +22,7 @@ Input Document → Chunking → Step 1: Extract → Step 2: Normalize → Step 3
 ├── pipeline.py         # 4-step pipeline orchestrator
 ├── fetcher.py          # URL fetching and HTML-to-text conversion
 ├── chunking.py         # PDF/DOCX/PPTX/TXT extraction and text chunking
-├── llm_client.py       # LLM clients (Ollama local / Medtronic GPT cloud)
+├── llm_client.py       # LLM client (Medtronic GPT cloud)
 ├── storage.py          # Atomic file I/O, conflict detection, confidence-based merging
 ├── validation.py       # Type correction, scoring, relationship enrichment, dedup clustering
 ├── prompt/             # System prompts for each pipeline step

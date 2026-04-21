@@ -1,5 +1,5 @@
 {
-  "current_count": 12,
+  "current_count": 25,
   "registry": {
     "medical_devices::product::PRODUCT-89edab6a9a20": {
       "file_name": "001_PRODUCT-89edab6a9a20.json",
@@ -129,6 +129,140 @@
       ],
       "path": "product/medical_devices/012_PRODUCT-9f3a38eec571.json",
       "last_updated": "2026-04-21T05:08:25+00:00"
+    },
+    "medical_devices::product::PRODUCT-76a01a7c248c": {
+      "file_name": "013_PRODUCT-76a01a7c248c.json",
+      "entity_type": "product",
+      "domain": [
+        "medical_devices",
+        "cardiology",
+        "mri"
+      ],
+      "path": "product/medical_devices/013_PRODUCT-76a01a7c248c.json",
+      "last_updated": "2026-04-21T05:45:41+00:00"
+    },
+    "medical_devices::architecture::ARCHITEC-c6f3fab3676c": {
+      "file_name": "014_ARCHITEC-c6f3fab3676c.json",
+      "entity_type": "architecture",
+      "domain": [
+        "medical_devices",
+        "hardware"
+      ],
+      "path": "architecture/medical_devices/014_ARCHITEC-c6f3fab3676c.json",
+      "last_updated": "2026-04-21T05:45:41+00:00"
+    },
+    "cardiology::pattern::PATTERN-19470df97dbd": {
+      "file_name": "015_PATTERN-19470df97dbd.json",
+      "entity_type": "pattern",
+      "domain": [
+        "cardiology",
+        "medical_devices"
+      ],
+      "path": "pattern/cardiology/015_PATTERN-19470df97dbd.json",
+      "last_updated": "2026-04-21T05:45:41+00:00"
+    },
+    "medical_devices::metric::METRIC-cbd661176829": {
+      "file_name": "016_METRIC-cbd661176829.json",
+      "entity_type": "metric",
+      "domain": [
+        "medical_devices",
+        "cardiology"
+      ],
+      "path": "metric/medical_devices/016_METRIC-cbd661176829.json",
+      "last_updated": "2026-04-21T05:45:41+00:00"
+    },
+    "cardiology::metric::METRIC-1054b33df1ed": {
+      "file_name": "017_METRIC-1054b33df1ed.json",
+      "entity_type": "metric",
+      "domain": [
+        "cardiology",
+        "analytics"
+      ],
+      "path": "metric/cardiology/017_METRIC-1054b33df1ed.json",
+      "last_updated": "2026-04-21T05:45:41+00:00"
+    },
+    "cardiology::pattern::PATTERN-8003a525c4f6": {
+      "file_name": "018_PATTERN-8003a525c4f6.json",
+      "entity_type": "pattern",
+      "domain": [
+        "cardiology",
+        "medical_devices"
+      ],
+      "path": "pattern/cardiology/018_PATTERN-8003a525c4f6.json",
+      "last_updated": "2026-04-21T05:45:41+00:00"
+    },
+    "cardiology::metric::METRIC-9a77983edca6": {
+      "file_name": "019_METRIC-9a77983edca6.json",
+      "entity_type": "metric",
+      "domain": [
+        "cardiology",
+        "analytics"
+      ],
+      "path": "metric/cardiology/019_METRIC-9a77983edca6.json",
+      "last_updated": "2026-04-21T05:45:41+00:00"
+    },
+    "medical_devices::acceptance_criteria::ACCEPTAN-f6c57f6a0a6e": {
+      "file_name": "020_ACCEPTAN-f6c57f6a0a6e.json",
+      "entity_type": "acceptance_criteria",
+      "domain": [
+        "medical_devices",
+        "mri",
+        "security"
+      ],
+      "path": "acceptance_criteria/medical_devices/020_ACCEPTAN-f6c57f6a0a6e.json",
+      "last_updated": "2026-04-21T05:45:41+00:00"
+    },
+    "medical_devices::product::PRODUCT-4d15672a5342": {
+      "file_name": "021_PRODUCT-4d15672a5342.json",
+      "entity_type": "product",
+      "domain": [
+        "medical_devices",
+        "cardiology",
+        "mri"
+      ],
+      "path": "product/medical_devices/021_PRODUCT-4d15672a5342.json",
+      "last_updated": "2026-04-21T05:45:41+00:00"
+    },
+    "medical_devices::pattern::PATTERN-01a4cfdbbadc": {
+      "file_name": "022_PATTERN-01a4cfdbbadc.json",
+      "entity_type": "pattern",
+      "domain": [
+        "medical_devices",
+        "cardiology",
+        "mri"
+      ],
+      "path": "pattern/medical_devices/022_PATTERN-01a4cfdbbadc.json",
+      "last_updated": "2026-04-21T05:45:41+00:00"
+    },
+    "medical_devices::negative_boundary::NEGATIVE-629ef533c988": {
+      "file_name": "023_NEGATIVE-629ef533c988.json",
+      "entity_type": "negative_boundary",
+      "domain": [
+        "medical_devices",
+        "mri"
+      ],
+      "path": "negative_boundary/medical_devices/023_NEGATIVE-629ef533c988.json",
+      "last_updated": "2026-04-21T05:45:41+00:00"
+    },
+    "medical_devices::negative_boundary::NEGATIVE-8adee20be67f": {
+      "file_name": "024_NEGATIVE-8adee20be67f.json",
+      "entity_type": "negative_boundary",
+      "domain": [
+        "medical_devices",
+        "mri"
+      ],
+      "path": "negative_boundary/medical_devices/024_NEGATIVE-8adee20be67f.json",
+      "last_updated": "2026-04-21T05:45:41+00:00"
+    },
+    "medical_devices::negative_boundary::NEGATIVE-623368aba97f": {
+      "file_name": "025_NEGATIVE-623368aba97f.json",
+      "entity_type": "negative_boundary",
+      "domain": [
+        "medical_devices",
+        "mri"
+      ],
+      "path": "negative_boundary/medical_devices/025_NEGATIVE-623368aba97f.json",
+      "last_updated": "2026-04-21T05:45:41+00:00"
     }
   }
 }

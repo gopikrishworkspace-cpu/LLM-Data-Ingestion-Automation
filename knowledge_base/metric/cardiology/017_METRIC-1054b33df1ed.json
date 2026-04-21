@@ -1,0 +1,24 @@
+{
+  "entity_id": "METRIC-1054b33df1ed",
+  "entity_type": "metric",
+  "name": "Reactive ATP algorithm clinical outcomes",
+  "description": "Clinical outcome metrics from the MINERVA trial for the reactive ATP algorithm, including a 61% reduction in progression to permanent AF, 42% reduction in AF-related hospitalizations, 68% reduction in emergency room visits, and 45% reduction in AF cardioversions. These results are bounded by trial inclusion criteria and patient adherence, and may not generalize to all populations.",
+  "domain": [
+    "cardiology",
+    "analytics"
+  ],
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "PATTERN-19470df97dbd"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.757,
+  "last_updated": "2026-04-21T05:45:41+00:00"
+}

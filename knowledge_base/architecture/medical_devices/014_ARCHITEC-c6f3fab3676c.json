@@ -1,0 +1,32 @@
+{
+  "entity_id": "ARCHITEC-c6f3fab3676c",
+  "entity_type": "architecture",
+  "name": "Optimized hardware circuitry for current reduction",
+  "description": "A hardware architecture within the Astra MRI SureScan pacemaker that minimizes current drain to extend device longevity, specifically supporting a dual-chamber configuration rated for 15.3 years. This optimization is limited to physical hardware and does not address software or algorithmic efficiency, and its benefits are constrained by the underlying hardware design.",
+  "domain": [
+    "medical_devices",
+    "hardware"
+  ],
+  "relationships": [
+    {
+      "type": "enables",
+      "target": "PRODUCT-76a01a7c248c"
+    },
+    {
+      "type": "constrains",
+      "target": "METRIC-cbd661176829"
+    },
+    {
+      "type": "enables",
+      "target": "PRODUCT-4d15672a5342"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.923,
+  "last_updated": "2026-04-21T05:45:41+00:00"
+}

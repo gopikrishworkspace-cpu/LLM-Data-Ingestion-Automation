@@ -1,0 +1,28 @@
+{
+  "entity_id": "NEGATIVE-8adee20be67f",
+  "entity_type": "negative_boundary",
+  "name": "Patient height restriction removal for MRI scanning",
+  "description": "A limitation removal for the Astra MRI pacemaker and SureScan leads, allowing MRI scanning of patients regardless of height. This is explicitly stated and dependent on adherence to MR conditions for use; it does not apply if MR safety criteria are not met.",
+  "domain": [
+    "medical_devices",
+    "mri"
+  ],
+  "relationships": [
+    {
+      "type": "enables",
+      "target": "PRODUCT-4d15672a5342"
+    },
+    {
+      "type": "contrasts_with",
+      "target": "ACCEPTAN-f6c57f6a0a6e"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.85
+  },
+  "status": "canonical",
+  "_quality_score": 0.84,
+  "last_updated": "2026-04-21T05:45:41+00:00"
+}

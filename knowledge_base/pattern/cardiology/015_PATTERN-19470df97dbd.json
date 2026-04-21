@@ -1,0 +1,32 @@
+{
+  "entity_id": "PATTERN-19470df97dbd",
+  "entity_type": "pattern",
+  "name": "Reactive atrial antitachycardia pacing (ATP) algorithm",
+  "description": "A pacing algorithm implemented in the Astra MRI SureScan pacemaker to deliver targeted interventions that reduce progression to permanent atrial fibrillation (AF). Demonstrated in clinical trials to lower AF progression, hospitalizations, emergency visits, and cardioversions, its effectiveness is limited by patient eligibility and device programming, and it is not suitable for all arrhythmia types.",
+  "domain": [
+    "cardiology",
+    "medical_devices"
+  ],
+  "relationships": [
+    {
+      "type": "refines",
+      "target": "PRODUCT-76a01a7c248c"
+    },
+    {
+      "type": "constrains",
+      "target": "METRIC-1054b33df1ed"
+    },
+    {
+      "type": "contrasts_with",
+      "target": "PATTERN-8003a525c4f6"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.923,
+  "last_updated": "2026-04-21T05:45:41+00:00"
+}

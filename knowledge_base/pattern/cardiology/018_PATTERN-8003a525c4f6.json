@@ -1,0 +1,28 @@
+{
+  "entity_id": "PATTERN-8003a525c4f6",
+  "entity_type": "pattern",
+  "name": "Managed ventricular pacing (MVP) algorithm",
+  "description": "An algorithm designed to minimize unnecessary right ventricular (RV) pacing by controlling the maximum atrioventricular (AV) interval, achieving up to 99% reduction in unnecessary RV pacing. This reduces the risk of atrial fibrillation and heart failure hospitalization, but its effectiveness depends on device programming and patient conduction characteristics.",
+  "domain": [
+    "cardiology",
+    "medical_devices"
+  ],
+  "relationships": [
+    {
+      "type": "constrains",
+      "target": "METRIC-9a77983edca6"
+    },
+    {
+      "type": "contrasts_with",
+      "target": "PATTERN-19470df97dbd"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.84,
+  "last_updated": "2026-04-21T05:45:41+00:00"
+}

@@ -1,0 +1,29 @@
+{
+  "entity_id": "PATTERN-01a4cfdbbadc",
+  "entity_type": "pattern",
+  "name": "SureScan device and lead universal compatibility",
+  "description": "A compatibility pattern allowing SureScan devices and leads to be paired in any combination for MRI-safe cardiac pacing, provided MR conditions are satisfied. This eliminates constraints on device-lead matching, streamlining clinical workflows and reducing the risk of mismatched components. The pattern is limited to SureScan-branded components and does not apply to non-compatible systems.",
+  "domain": [
+    "medical_devices",
+    "cardiology",
+    "mri"
+  ],
+  "relationships": [
+    {
+      "type": "refines",
+      "target": "PRODUCT-4d15672a5342"
+    },
+    {
+      "type": "enables",
+      "target": "NEGATIVE-629ef533c988"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.887,
+  "last_updated": "2026-04-21T05:45:41+00:00"
+}
