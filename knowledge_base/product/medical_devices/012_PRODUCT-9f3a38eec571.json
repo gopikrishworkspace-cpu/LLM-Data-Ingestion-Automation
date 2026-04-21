@@ -1,0 +1,30 @@
+{
+  "entity_id": "PRODUCT-9f3a38eec571",
+  "entity_type": "product",
+  "name": "BlueSync technology",
+  "description": "Integrated within Azure devices, this technology enables secure, wireless communication by providing encrypted connectivity for device monitoring and programming. It is constrained to devices equipped with BlueSync hardware, ensuring remote management capabilities while maintaining patient data security. Not applicable to devices lacking the required hardware.",
+  "domain": [
+    "medical_devices",
+    "security"
+  ],
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "ARCHITEC-3eec7a341127",
+      "_auto_generated": true
+    },
+    {
+      "type": "refines",
+      "target": "PRODUCT-89edab6a9a20",
+      "_auto_generated": true
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.5
+  },
+  "status": "canonical",
+  "_quality_score": 0.887,
+  "last_updated": "2026-04-21T05:08:25+00:00"
+}

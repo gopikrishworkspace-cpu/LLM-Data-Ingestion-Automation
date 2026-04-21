@@ -1,0 +1,29 @@
+{
+  "entity_id": "METRIC-1b902a43c171",
+  "entity_type": "metric",
+  "name": "AF episode detection positive predictive value (PPV)",
+  "description": "A metric quantifying the positive predictive value (PPV) of the pacemaker's AF episode detection algorithm, with published accuracy rates of 95–96%. Derived from clinical studies, it serves as a benchmark for evaluating detection performance and is bounded by referenced study results.",
+  "domain": [
+    "medical_devices",
+    "cardiology",
+    "analytics"
+  ],
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "ANALYTIC-001fe1cb6a1f"
+    },
+    {
+      "type": "constrains",
+      "target": "PRODUCT-89edab6a9a20"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.84,
+  "last_updated": "2026-04-21T05:08:25+00:00"
+}

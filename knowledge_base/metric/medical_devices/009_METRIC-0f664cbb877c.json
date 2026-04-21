@@ -1,0 +1,29 @@
+{
+  "entity_id": "METRIC-0f664cbb877c",
+  "entity_type": "metric",
+  "name": "RV pacing-associated AF risk increase",
+  "description": "A metric describing the linear relationship between cumulative right ventricular (RV) pacing and atrial fibrillation (AF) risk: each 1% increase in RV pacing results in a 1% increase in AF risk. Used to guide pacing strategies and assess patient risk profiles, with boundaries defined by clinical evidence.",
+  "domain": [
+    "medical_devices",
+    "cardiology",
+    "analytics"
+  ],
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "PATTERN-0caf4e1c0595"
+    },
+    {
+      "type": "constrains",
+      "target": "PRODUCT-89edab6a9a20"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.95
+  },
+  "status": "canonical",
+  "_quality_score": 0.84,
+  "last_updated": "2026-04-21T05:08:25+00:00"
+}

@@ -1,1 +1,134 @@
-{"current_count": 0, "registry": {}}
+{
+  "current_count": 12,
+  "registry": {
+    "medical_devices::product::PRODUCT-89edab6a9a20": {
+      "file_name": "001_PRODUCT-89edab6a9a20.json",
+      "entity_type": "product",
+      "domain": [
+        "medical_devices",
+        "cardiology",
+        "pacemaker"
+      ],
+      "path": "product/medical_devices/001_PRODUCT-89edab6a9a20.json",
+      "last_updated": "2026-04-21T05:08:25+00:00"
+    },
+    "medical_devices::architecture::ARCHITEC-3eec7a341127": {
+      "file_name": "002_ARCHITEC-3eec7a341127.json",
+      "entity_type": "architecture",
+      "domain": [
+        "medical_devices",
+        "pacemaker",
+        "connectivity"
+      ],
+      "path": "architecture/medical_devices/002_ARCHITEC-3eec7a341127.json",
+      "last_updated": "2026-04-21T05:08:25+00:00"
+    },
+    "medical_devices::pattern::PATTERN-bbe6a9dae6be": {
+      "file_name": "003_PATTERN-bbe6a9dae6be.json",
+      "entity_type": "pattern",
+      "domain": [
+        "medical_devices",
+        "workflow",
+        "pacemaker"
+      ],
+      "path": "pattern/medical_devices/003_PATTERN-bbe6a9dae6be.json",
+      "last_updated": "2026-04-21T05:08:25+00:00"
+    },
+    "medical_devices::pattern::PATTERN-aa809f9fc852": {
+      "file_name": "004_PATTERN-aa809f9fc852.json",
+      "entity_type": "pattern",
+      "domain": [
+        "medical_devices",
+        "remote_monitoring",
+        "pacemaker"
+      ],
+      "path": "pattern/medical_devices/004_PATTERN-aa809f9fc852.json",
+      "last_updated": "2026-04-21T05:08:25+00:00"
+    },
+    "medical_devices::analytics::ANALYTIC-001fe1cb6a1f": {
+      "file_name": "005_ANALYTIC-001fe1cb6a1f.json",
+      "entity_type": "analytics",
+      "domain": [
+        "medical_devices",
+        "analytics",
+        "cardiology"
+      ],
+      "path": "analytics/medical_devices/005_ANALYTIC-001fe1cb6a1f.json",
+      "last_updated": "2026-04-21T05:08:25+00:00"
+    },
+    "medical_devices::metric::METRIC-1b902a43c171": {
+      "file_name": "006_METRIC-1b902a43c171.json",
+      "entity_type": "metric",
+      "domain": [
+        "medical_devices",
+        "cardiology",
+        "analytics"
+      ],
+      "path": "metric/medical_devices/006_METRIC-1b902a43c171.json",
+      "last_updated": "2026-04-21T05:08:25+00:00"
+    },
+    "medical_devices::analytics::ANALYTIC-98d74da9127c": {
+      "file_name": "007_ANALYTIC-98d74da9127c.json",
+      "entity_type": "analytics",
+      "domain": [
+        "medical_devices",
+        "cardiology",
+        "analytics"
+      ],
+      "path": "analytics/medical_devices/007_ANALYTIC-98d74da9127c.json",
+      "last_updated": "2026-04-21T05:08:25+00:00"
+    },
+    "medical_devices::pattern::PATTERN-0caf4e1c0595": {
+      "file_name": "008_PATTERN-0caf4e1c0595.json",
+      "entity_type": "pattern",
+      "domain": [
+        "medical_devices",
+        "cardiology",
+        "pacemaker"
+      ],
+      "path": "pattern/medical_devices/008_PATTERN-0caf4e1c0595.json",
+      "last_updated": "2026-04-21T05:08:25+00:00"
+    },
+    "medical_devices::metric::METRIC-0f664cbb877c": {
+      "file_name": "009_METRIC-0f664cbb877c.json",
+      "entity_type": "metric",
+      "domain": [
+        "medical_devices",
+        "cardiology",
+        "analytics"
+      ],
+      "path": "metric/medical_devices/009_METRIC-0f664cbb877c.json",
+      "last_updated": "2026-04-21T05:08:25+00:00"
+    },
+    "medical_devices::pattern::PATTERN-fb3a2775da14": {
+      "file_name": "010_PATTERN-fb3a2775da14.json",
+      "entity_type": "pattern",
+      "domain": [
+        "medical_devices",
+        "cardiology"
+      ],
+      "path": "pattern/medical_devices/010_PATTERN-fb3a2775da14.json",
+      "last_updated": "2026-04-21T05:08:25+00:00"
+    },
+    "medical_devices::architecture::ARCHITEC-9435cc4e50bb": {
+      "file_name": "011_ARCHITEC-9435cc4e50bb.json",
+      "entity_type": "architecture",
+      "domain": [
+        "medical_devices",
+        "hardware"
+      ],
+      "path": "architecture/medical_devices/011_ARCHITEC-9435cc4e50bb.json",
+      "last_updated": "2026-04-21T05:08:25+00:00"
+    },
+    "medical_devices::product::PRODUCT-9f3a38eec571": {
+      "file_name": "012_PRODUCT-9f3a38eec571.json",
+      "entity_type": "product",
+      "domain": [
+        "medical_devices",
+        "security"
+      ],
+      "path": "product/medical_devices/012_PRODUCT-9f3a38eec571.json",
+      "last_updated": "2026-04-21T05:08:25+00:00"
+    }
+  }
+}
