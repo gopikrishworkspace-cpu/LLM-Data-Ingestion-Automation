@@ -1,0 +1,261 @@
+[
+  {
+    "_comment": "TYPE: product — Top-level system/application/platform",
+    "entity_id": "orion:product:orion",
+    "entity_type": "product",
+    "name": "Orion",
+    "aliases": ["Orion Platform", "Orion Cloud Platform Services"],
+    "description": "Enterprise-grade digital platform providing shared identity, security, session, and audit capabilities for medical-device-adjacent applications. Orion is invisible to clinicians and serves as the common substrate upon which multiple Medtronic products are built. It does not implement clinical logic or device interaction.",
+    "product_type": "platform_service",
+    "orion_tier": "platform",
+    "deployment_model": "hybrid",
+    "status": "active",
+    "primary_domain": "medical_device_platform",
+    "primary_users": ["product_applications", "engineering_teams", "security_compliance_stakeholders"],
+    "user_visibility": "invisible",
+    "purpose": "Orion exists to solve the structural problem of fragmented, duplicated infrastructure across medical device products. It centralizes identity, security, session management, and audit so products do not re-solve these safety-critical concerns independently.",
+    "what_breaks_without": "Each product would re-implement identity, security, and session management independently. Inconsistencies would increase compliance risk. Cloud adoption would fragment. Architectural reasoning would become product-specific rather than system-level.",
+    "relationships": [
+      {"type": "enables", "target_id": "orion:product:carelink_smartsync_azure_astra_application", "context": "Provides session, identity, authorization, and audit services consumed by SmartSync Astra"},
+      {"type": "enables", "target_id": "orion:product:carelink_network_remote_monitoring_services", "context": "Provides governance, identity, and audit infrastructure for remote monitoring"}
+    ],
+    "source_document": "2. orion multi-run data",
+    "confidence": 0.95
+  },
+
+  {
+    "_comment": "TYPE: component — Named functional unit within a product",
+    "entity_id": "orion:component:edge_safety_enforcement_module",
+    "entity_type": "component",
+    "name": "Edge Safety Enforcement Module",
+    "aliases": [],
+    "description": "Local guardrail component that enforces immediate safety constraints before actions reach the implanted device. Operates independently of cloud availability to ensure safety checks never depend on network connectivity.",
+    "owner": "orion:product:carelink_smartsync_azure_astra_application",
+    "execution_context": "edge",
+    "responsibilities": [
+      "Performing pre-command safety checks",
+      "Validating timing and sequencing constraints",
+      "Halting unsafe operations locally",
+      "Enforcing fail-safe behavior under uncertainty",
+      "Supporting safe abort operations",
+      "Providing immediate clinician feedback",
+      "Ensuring cloud unavailability does not compromise safety"
+    ],
+    "non_responsibilities": [
+      "Clinical decision logic",
+      "Long-term audit policies",
+      "Authorization rules"
+    ],
+    "depends_on": ["orion:component:device_communication_mediator"],
+    "why_exists": "Safety checks must not depend on network availability. Cloud latency is unacceptable for immediate safety enforcement.",
+    "relationships": [
+      {"type": "uses", "target_id": "orion:component:device_communication_mediator", "context": "Validates commands before they reach the device mediator"}
+    ],
+    "source_document": "3. azure astra data",
+    "confidence": 0.90
+  },
+
+  {
+    "_comment": "TYPE: capability — Named platform service (cross-product)",
+    "entity_id": "orion:capability:authorization_policy_enforcement",
+    "entity_type": "capability",
+    "name": "Authorization and Policy Enforcement",
+    "aliases": ["Authorization & Policy Enforcement Domain"],
+    "description": "Platform domain that decides what an authenticated actor is allowed to do. Centralizes policy definition, evaluation, and least-privilege enforcement. Products enforce outcomes locally but the platform decides outcomes. Does not own identity issuance or workflow logic.",
+    "owner": "orion:product:orion",
+    "responsibility_class": "Determine what an authenticated actor is allowed to do under specific conditions",
+    "what_it_owns": [
+      "Policy definition and evaluation",
+      "Role and attribute interpretation",
+      "Least-privilege enforcement rules",
+      "Context-aware authorization logic",
+      "Policy versioning and evolution",
+      "Explainable authorization outcomes"
+    ],
+    "what_it_does_not_own": [
+      "Identity issuance",
+      "Workflow sequencing",
+      "Product feature logic",
+      "UI feedback behavior"
+    ],
+    "consumed_by": [
+      "orion:product:carelink_smartsync_azure_astra_application",
+      "orion:product:carelink_network_remote_monitoring_services"
+    ],
+    "enforcement_model": "Products submit action context to the platform policy engine, receive allow/deny decisions, and enforce them locally. Products must never define authorization rules or infer permission from past actions.",
+    "relationships": [
+      {"type": "depends_on", "target_id": "orion:capability:identity_authentication_services", "context": "Authorization requires verified identity as input"}
+    ],
+    "source_document": "4. orion cloud data",
+    "confidence": 0.95
+  },
+
+  {
+    "_comment": "TYPE: workflow — Named end-to-end behavioral sequence",
+    "entity_id": "orion:workflow:controlled_device_programming",
+    "entity_type": "workflow",
+    "name": "Controlled Device Programming Workflow",
+    "aliases": [],
+    "description": "End-to-end workflow for safely applying clinician-intended device configuration changes in SmartSync Astra. Separates intent capture from execution and enforces multiple safety gates before any device modification occurs.",
+    "owner": "orion:product:carelink_smartsync_azure_astra_application",
+    "trigger": "Clinician initiates a device configuration change",
+    "steps": [
+      "Confirm clinician intent explicitly",
+      "Verify authorization for programming",
+      "Validate proposed changes against safety constraints",
+      "Perform pre-command safety checks at edge",
+      "Execute programming command locally",
+      "Await device acknowledgment",
+      "Verify post-change device state",
+      "Record programming action for audit"
+    ],
+    "completion_condition": "Device state verified after acknowledged programming command and audit record persisted",
+    "safety_gates": [
+      "Failed validation blocks execution",
+      "Loss of connectivity mid-command halts safely",
+      "No session means no device interaction"
+    ],
+    "failure_handling": [
+      "Partial execution triggers abort and state verification",
+      "Any ambiguity resolved to conservative outcome",
+      "Failure state is auditable"
+    ],
+    "invariants": [
+      "No action without verified identity",
+      "No device interaction outside a session",
+      "No sensitive operation without audit"
+    ],
+    "relationships": [
+      {"type": "uses", "target_id": "orion:component:device_communication_mediator", "context": "Commands are routed through the device mediator"},
+      {"type": "uses", "target_id": "orion:component:edge_safety_enforcement_module", "context": "Pre-command safety checks enforced at the edge"}
+    ],
+    "source_document": "3. azure astra data",
+    "confidence": 0.90
+  },
+
+  {
+    "_comment": "TYPE: decision — Named architectural choice with trade-offs",
+    "entity_id": "orion:decision:hybrid_edge_cloud_architecture",
+    "entity_type": "decision",
+    "name": "Hybrid Edge-Cloud Architecture",
+    "aliases": ["Cloud-First Not Cloud-Only"],
+    "description": "Architectural decision to adopt a hybrid architecture with safety-critical execution at the edge and governance/orchestration in the cloud, rather than a pure cloud or pure local model.",
+    "owner": "orion:product:carelink_smartsync_azure_astra_application",
+    "decision_statement": "Adopt a hybrid architecture with safety-critical execution at the edge and governance/orchestration in the cloud",
+    "rationale": [
+      "Device interaction requires deterministic low-latency execution",
+      "Cloud connectivity cannot be assumed in clinical settings",
+      "Safety checks must not depend on network availability",
+      "Governance, audit, and consistency benefit from centralization",
+      "Legacy workflows require local continuity"
+    ],
+    "tradeoffs_accepted": [
+      "Increased architectural complexity",
+      "Need for reconciliation logic between edge and cloud",
+      "More sophisticated failure handling required"
+    ],
+    "alternatives_rejected": [
+      {"option": "Cloud-only device interaction", "rejection_reason": "Unsafe under latency or connectivity loss in clinical environments"},
+      {"option": "Fully local systems", "rejection_reason": "Poor scalability, weak governance, inconsistent cross-product behavior"}
+    ],
+    "relationships": [
+      {"type": "constrains", "target_id": "orion:product:carelink_smartsync_azure_astra_application", "context": "All safety-critical steps must execute at the edge, cloud is for governance only"},
+      {"type": "solves", "target_id": "orion:problem:tension_between_cloud_adoption_and_safety", "context": "Hybrid approach directly resolves the cloud vs safety tension"}
+    ],
+    "source_document": "3. azure astra data",
+    "confidence": 0.95
+  },
+
+  {
+    "_comment": "TYPE: constraint — Named boundary, non-goal, or limitation",
+    "entity_id": "orion:constraint:carelink_network_does_not_control_devices",
+    "entity_type": "constraint",
+    "name": "CareLink Network Does Not Program or Control Devices",
+    "aliases": [],
+    "description": "CareLink Network is strictly observational, not interventional. It never modifies device state, executes commands, or interacts with device firmware. This boundary is absolute and safety-critical.",
+    "owner": "orion:product:carelink_network_remote_monitoring_services",
+    "constraint_type": "boundary",
+    "what_is_prevented": [
+      "No device programming",
+      "No therapy adjustments",
+      "No firmware interaction",
+      "No command execution",
+      "No safety-critical control paths"
+    ],
+    "why_it_exists": "Remote monitoring lacks clinician presence and real-time safety guarantees. Device control without these safeguards would be unsafe and violate regulatory constraints.",
+    "contrast_with": "SmartSync Astra executes controlled device programming within session-bounded, safety-gated workflows with clinician present.",
+    "relationships": [
+      {"type": "constrains", "target_id": "orion:product:carelink_network_remote_monitoring_services", "context": "Absolute boundary preventing any device modification capability"}
+    ],
+    "source_document": "4. orion cloud data",
+    "confidence": 0.95
+  },
+
+  {
+    "_comment": "TYPE: data_concept — Named data entity, metric, or lifecycle state",
+    "entity_id": "orion:data_concept:clinical_session",
+    "entity_type": "data_concept",
+    "name": "Clinical Session",
+    "aliases": ["Session"],
+    "description": "A bounded in-clinic interaction episode that serves as the primary correlation key across all SmartSync Astra product data. All meaningful actions, devices, and clinicians are bound within a session context. No meaningful data exists outside a session.",
+    "owner": "orion:product:carelink_smartsync_azure_astra_application",
+    "concept_type": "entity",
+    "represents": "A bounded, traceable, in-clinic interaction between a clinician and an implanted cardiac device",
+    "key_attributes": [
+      "Unique session identifier",
+      "Start and end markers",
+      "Participating clinician(s)",
+      "Associated device(s)",
+      "Workflow state",
+      "Session outcome classification"
+    ],
+    "data_constraints": [
+      "No meaningful data exists outside a session context",
+      "Session identity binding is immutable",
+      "Session context cannot be transferred between actors",
+      "Concurrent sessions are isolated from each other",
+      "Abnormal termination is explicitly recorded"
+    ],
+    "lifecycle_states": ["transient", "session_bound", "persisted", "archived", "disposed"],
+    "relationships": [
+      {"type": "depends_on", "target_id": "orion:capability:session_semantics_context", "context": "Session definition and invariants come from Orion platform semantics"}
+    ],
+    "source_document": "3. azure astra data",
+    "confidence": 0.95
+  },
+
+  {
+    "_comment": "TYPE: problem — Named problem domain that a product/platform solves",
+    "entity_id": "orion:problem:fragmentation_of_device_centric_systems",
+    "entity_type": "problem",
+    "name": "Fragmentation of Device-Centric Digital Systems",
+    "aliases": [],
+    "description": "Historically, device-centric software systems evolved independently across product lines, each optimizing locally. This resulted in multiple incompatible approaches to device communication, identity, trust, and data handling across the ecosystem.",
+    "owner": "orion:product:orion",
+    "problem_domain": "architecture",
+    "why_hard": [
+      "Each product team optimized independently for local needs",
+      "Device communication approaches diverged across product lines",
+      "Identity, trust, and session assumptions were inconsistent",
+      "Integration complexity between products grew non-linearly",
+      "No single team had authority to unify approaches"
+    ],
+    "consequences_without": [
+      "Multiple incompatible approaches to device communication",
+      "Divergent assumptions about identity, trust, and session state",
+      "Inconsistent data representations for similar concepts",
+      "Reduced ability to reason about the ecosystem as a whole",
+      "Increased integration complexity between products"
+    ],
+    "how_solved": [
+      "Provides shared abstractions for common device-adjacent concerns",
+      "Encourages consistent patterns across products via platform enforcement",
+      "Acts as a unifying layer that aligns architectural assumptions"
+    ],
+    "relationships": [
+      {"type": "solves", "target_id": "orion:product:orion", "context": "Orion platform was created specifically to address ecosystem fragmentation"}
+    ],
+    "source_document": "2. orion multi-run data",
+    "confidence": 0.90
+  }
+]

@@ -1,0 +1,496 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Orion Knowledge Base Entity",
+  "description": "Universal schema for all entity types in the Orion LLM knowledge base. Shared base structure with type-specific extensions discriminated by entity_type. Designed for weak LLM extraction: simple fields, closed enums, deterministic IDs.",
+
+  "type": "object",
+
+  "required": [
+    "entity_id",
+    "entity_type",
+    "name",
+    "description",
+    "relationships",
+    "source_document",
+    "confidence"
+  ],
+
+  "properties": {
+    "entity_id": {
+      "type": "string",
+      "pattern": "^orion:(product|component|capability|workflow|decision|constraint|data_concept|problem):[a-z0-9_]+$",
+      "description": "Deterministic globally unique identifier. Format: orion:{entity_type}:{normalized_key}. Never changes once assigned."
+    },
+    "entity_type": {
+      "type": "string",
+      "enum": [
+        "product",
+        "component",
+        "capability",
+        "workflow",
+        "decision",
+        "constraint",
+        "data_concept",
+        "problem"
+      ],
+      "description": "Discriminator that selects type-specific required fields."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 200,
+      "description": "Canonical display name. Title case. Trademark symbols stripped."
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "default": [],
+      "description": "Alternative names, abbreviations, internal codenames. Used for dedup matching."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 50,
+      "maxLength": 1000,
+      "description": "2-4 sentence factual description. Must include: what it is, one boundary or constraint. No marketing language."
+    },
+    "owner": {
+      "type": "string",
+      "pattern": "^orion:product:[a-z0-9_]+$",
+      "description": "entity_id of the product or platform this entity belongs to. Required for all types except product."
+    },
+    "relationships": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/relationship" },
+      "maxItems": 15,
+      "default": [],
+      "description": "Typed directed edges to other entities. Maximum 15 per entity."
+    },
+    "source_document": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Document(s) this entity was extracted from. Comma-separated if multiple sources."
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Extraction confidence. 0.95=explicit heading, 0.90=bullet list, 0.80=prose, 0.60=implied."
+    }
+  },
+
+  "id_strategy": {
+    "description": "Rules for generating deterministic entity_id from entity name. Applied by pipeline, not by JSON Schema validation.",
+    "steps": [
+      "Take the entity name",
+      "Lowercase everything",
+      "Remove trademark symbols: ™ ® ©",
+      "Replace spaces, hyphens, slashes, ampersands with underscore",
+      "Remove all other special characters (parentheses, dots, commas, colons)",
+      "Collapse consecutive underscores",
+      "Strip leading and trailing underscores",
+      "Truncate to 60 characters"
+    ],
+    "format": "orion:{entity_type}:{normalized_key}",
+    "stability": "Once assigned, entity_id NEVER changes even if name is corrected. Corrections go in aliases."
+  },
+
+  "allOf": [
+    {
+      "if": {
+        "properties": { "entity_type": { "const": "product" } },
+        "required": ["entity_type"]
+      },
+      "then": {
+        "required": [
+          "product_type",
+          "orion_tier",
+          "deployment_model",
+          "status",
+          "purpose"
+        ],
+        "properties": {
+          "product_type": {
+            "type": "string",
+            "enum": ["application", "platform_service", "legacy_system"],
+            "description": "Coarse classification of what kind of product this is."
+          },
+          "orion_tier": {
+            "type": "string",
+            "enum": ["platform", "tier_1", "tier_2", "stub"],
+            "description": "Position in the Orion platform hierarchy."
+          },
+          "deployment_model": {
+            "type": "string",
+            "enum": ["cloud", "edge", "hybrid"],
+            "description": "Primary deployment topology."
+          },
+          "status": {
+            "type": "string",
+            "enum": ["active", "legacy", "transitional"],
+            "description": "Operational lifecycle status."
+          },
+          "primary_domain": {
+            "type": "string",
+            "description": "Primary clinical or technical domain. E.g., cardiac_rhythm_management."
+          },
+          "primary_users": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Primary user categories. E.g., clinicians, engineering_teams."
+          },
+          "user_visibility": {
+            "type": "string",
+            "enum": ["direct", "indirect", "invisible"],
+            "description": "How visible this product is to end users."
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 50,
+            "description": "2-3 sentences using causal language: why this product exists. Start with the problem it solves."
+          },
+          "what_breaks_without": {
+            "type": "string",
+            "description": "Consequences if this product did not exist. 1-3 sentences."
+          }
+        }
+      }
+    },
+
+    {
+      "if": {
+        "properties": { "entity_type": { "const": "component" } },
+        "required": ["entity_type"]
+      },
+      "then": {
+        "required": [
+          "owner",
+          "responsibilities",
+          "non_responsibilities"
+        ],
+        "properties": {
+          "execution_context": {
+            "type": "string",
+            "enum": ["edge", "cloud", "hybrid"],
+            "description": "Where this component executes."
+          },
+          "responsibilities": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1,
+            "description": "What this component owns. One responsibility per item. Copy from source bullets."
+          },
+          "non_responsibilities": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1,
+            "description": "What this component explicitly does NOT own. Critical for anti-hallucination."
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^orion:(component|capability):[a-z0-9_]+$"
+            },
+            "description": "entity_ids of components or capabilities this component requires."
+          },
+          "why_exists": {
+            "type": "string",
+            "description": "1-2 sentences explaining why this component is needed."
+          }
+        }
+      }
+    },
+
+    {
+      "if": {
+        "properties": { "entity_type": { "const": "capability" } },
+        "required": ["entity_type"]
+      },
+      "then": {
+        "required": [
+          "owner",
+          "responsibility_class",
+          "what_it_owns",
+          "what_it_does_not_own"
+        ],
+        "properties": {
+          "responsibility_class": {
+            "type": "string",
+            "description": "One sentence: what class of problems this platform service solves."
+          },
+          "what_it_owns": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1,
+            "description": "Capabilities this domain is responsible for."
+          },
+          "what_it_does_not_own": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1,
+            "description": "Capabilities explicitly outside this domain."
+          },
+          "consumed_by": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^orion:product:[a-z0-9_]+$"
+            },
+            "description": "entity_ids of products that consume this capability."
+          },
+          "enforcement_model": {
+            "type": "string",
+            "description": "How products interact with this capability. E.g., 'Products submit context, receive allow/deny, enforce locally.'"
+          }
+        }
+      }
+    },
+
+    {
+      "if": {
+        "properties": { "entity_type": { "const": "workflow" } },
+        "required": ["entity_type"]
+      },
+      "then": {
+        "required": [
+          "owner",
+          "trigger",
+          "steps",
+          "completion_condition"
+        ],
+        "properties": {
+          "trigger": {
+            "type": "string",
+            "description": "What initiates this workflow. One sentence."
+          },
+          "steps": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 2,
+            "description": "Ordered sequence of workflow steps. One step per item. Preserve source order."
+          },
+          "completion_condition": {
+            "type": "string",
+            "description": "What defines successful completion of this workflow."
+          },
+          "safety_gates": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Safety or validation checks that must pass during this workflow."
+          },
+          "failure_handling": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "What happens when this workflow fails at any step."
+          },
+          "invariants": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Conditions that are always true during this workflow."
+          }
+        }
+      }
+    },
+
+    {
+      "if": {
+        "properties": { "entity_type": { "const": "decision" } },
+        "required": ["entity_type"]
+      },
+      "then": {
+        "required": [
+          "owner",
+          "decision_statement",
+          "rationale",
+          "tradeoffs_accepted",
+          "alternatives_rejected"
+        ],
+        "properties": {
+          "decision_statement": {
+            "type": "string",
+            "description": "What was decided. One clear sentence."
+          },
+          "rationale": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1,
+            "description": "Why this decision was made. One reason per item."
+          },
+          "tradeoffs_accepted": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1,
+            "description": "What was sacrificed or accepted as cost. One tradeoff per item."
+          },
+          "alternatives_rejected": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["option", "rejection_reason"],
+              "properties": {
+                "option": {
+                  "type": "string",
+                  "description": "The rejected alternative."
+                },
+                "rejection_reason": {
+                  "type": "string",
+                  "description": "Why it was rejected. One sentence."
+                }
+              }
+            },
+            "minItems": 1,
+            "description": "Alternatives explicitly considered and rejected."
+          }
+        }
+      }
+    },
+
+    {
+      "if": {
+        "properties": { "entity_type": { "const": "constraint" } },
+        "required": ["entity_type"]
+      },
+      "then": {
+        "required": [
+          "owner",
+          "constraint_type",
+          "what_is_prevented",
+          "why_it_exists"
+        ],
+        "properties": {
+          "constraint_type": {
+            "type": "string",
+            "enum": ["boundary", "non_goal", "limitation", "regulatory"],
+            "description": "Category of constraint. boundary=hard limit, non_goal=intentionally excluded, limitation=structural restriction, regulatory=compliance-driven."
+          },
+          "what_is_prevented": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1,
+            "description": "Explicit list of things this constraint prevents. One item per 'does NOT' statement."
+          },
+          "why_it_exists": {
+            "type": "string",
+            "description": "1-2 sentences explaining the rationale for this constraint."
+          },
+          "contrast_with": {
+            "type": "string",
+            "description": "How another product handles this differently. Optional."
+          }
+        }
+      }
+    },
+
+    {
+      "if": {
+        "properties": { "entity_type": { "const": "data_concept" } },
+        "required": ["entity_type"]
+      },
+      "then": {
+        "required": [
+          "owner",
+          "concept_type",
+          "represents"
+        ],
+        "properties": {
+          "concept_type": {
+            "type": "string",
+            "enum": ["entity", "metric", "lifecycle_state"],
+            "description": "What kind of data concept. entity=modeled object, metric=measured signal, lifecycle_state=state machine position."
+          },
+          "represents": {
+            "type": "string",
+            "description": "What real-world thing this concept models. One sentence."
+          },
+          "key_attributes": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Important conceptual properties of this data concept."
+          },
+          "data_constraints": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Rules and invariants governing this data. E.g., 'immutable after session end'."
+          },
+          "lifecycle_states": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Valid lifecycle states this data moves through. E.g., transient, session_bound, persisted, archived, disposed."
+          }
+        }
+      }
+    },
+
+    {
+      "if": {
+        "properties": { "entity_type": { "const": "problem" } },
+        "required": ["entity_type"]
+      },
+      "then": {
+        "required": [
+          "owner",
+          "why_hard",
+          "consequences_without",
+          "how_solved"
+        ],
+        "properties": {
+          "problem_domain": {
+            "type": "string",
+            "description": "Problem category. E.g., security, architecture, scalability, data_flow, governance, identity."
+          },
+          "why_hard": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1,
+            "description": "What makes this problem difficult. One reason per item."
+          },
+          "consequences_without": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1,
+            "description": "What goes wrong if this problem is not solved. One consequence per item."
+          },
+          "how_solved": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1,
+            "description": "Approach taken to address this problem. One approach per item."
+          }
+        }
+      }
+    }
+  ],
+
+  "$defs": {
+    "relationship": {
+      "type": "object",
+      "required": ["type", "target_id", "context"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "depends_on",
+            "enables",
+            "constrains",
+            "owns",
+            "solves",
+            "uses",
+            "contrasts_with",
+            "rejects"
+          ],
+          "description": "depends_on=A requires B. enables=A makes B possible. constrains=A limits B. owns=A contains B. solves=A addresses problem B. uses=A consumes B. contrasts_with=A and B are deliberately different. rejects=decision A rejected alternative B."
+        },
+        "target_id": {
+          "type": "string",
+          "pattern": "^orion:(product|component|capability|workflow|decision|constraint|data_concept|problem):[a-z0-9_]+$",
+          "description": "entity_id of the target entity."
+        },
+        "context": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "One sentence explaining why this relationship exists."
+        }
+      }
+    }
+  }
+}

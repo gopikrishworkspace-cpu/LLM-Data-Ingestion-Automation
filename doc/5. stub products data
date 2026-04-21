@@ -1,0 +1,83 @@
+4. Legacy Programmer‑Centric Systems (Pre‑Orion)
+What This Refers To (Canonical Stub Definition)
+“Legacy Programmer‑Centric Systems” refers to pre‑Orion generations of in‑clinic device management systems that were:
+tightly coupled to specific programmer hardware
+primarily on‑premises or locally installed
+largely isolated from cloud services
+product‑specific in architecture and implementation
+These systems existed before Orion introduced a platformized, cloud‑governed approach.
+
+Why These Systems Existed
+They were designed in an era where:
+Cloud infrastructure was immature or unavailable
+Regulatory comfort favored local execution
+Network connectivity could not be assumed
+Product teams optimized independently
+Scale and cross‑product consistency were secondary concerns
+They solved real clinical needs, but created long‑term structural constraints.
+
+Why Include Them in Orion GPT (Even Lightly)
+Legacy systems must exist in the LLM’s knowledge because they enable:
+Clear explanation of why Orion exists at all
+Correct answers to:
+“Why did Medtronic move to a platform?”
+“What problems did legacy systems have?”
+Migration and evolution discussions
+Historical context without romanticizing the past
+Understanding of backward‑compatibility pressures
+Without this stub, the LLM will:
+assume Orion was inevitable
+undervalue legacy constraints
+mischaracterize migration complexity
+
+What These Systems Are NOT (Critical Non‑Goals)
+For MVP, the LLM must not:
+Describe internal architecture of legacy systems
+Name specific legacy implementations or versions
+Treat them as current or recommended solutions
+Compare their performance numerically
+Assume feature parity with Orion products
+They are context, not reference architecture.
+
+Canonical One‑Sentence Framing (LLM‑Safe)
+“Legacy programmer‑centric systems were earlier, locally bound device‑management solutions that solved in‑clinic needs but lacked the scalability, governance, and consistency that Orion now provides.”
+That sentence alone is enough for MVP reasoning.
+
+5. Other Orion‑Aligned Clinical Applications (If Any)
+How These Should Exist in the LLM
+Other Orion‑aligned clinical applications should exist as named but bounded entities, described only as:
+“Another Orion‑based application with product‑specific workflows built on shared platform services.”
+No deeper modeling is required for MVP.
+
+What These Applications Typically Represent (Generic)
+They may represent:
+different clinical domains
+different workflows
+different interaction models
+But they share Orion platform services for:
+identity
+authorization
+audit
+governance
+
+Why Include Them at All
+They help the LLM:
+Avoid assuming only SmartSync and CareLink Network exist
+Understand Orion as an ecosystem, not a pair of products
+Answer questions like:
+“Are there other Orion‑based products?”
+“Does Orion support multiple clinical workflows?”
+They should not be used for deep reasoning.
+
+What NOT to Do (Critical)
+For MVP, the LLM must not:
+Invent product names
+Describe detailed workflows
+Assume capabilities transfer across products
+Treat them as Tier‑1 or Tier‑2 equivalents
+Infer architectural specifics
+These are existence placeholders only.
+
+Canonical One‑Paragraph Stub (Reusable)
+“In addition to flagship products like CareLink SmartSync™ and CareLink™ Network, Medtronic has other Orion‑aligned clinical applications. These applications use shared Orion platform services for identity, authorization, audit, and governance, while implementing their own product‑specific workflows and constraints. For MVP purposes, they are treated as Orion‑based products with defined scope and boundaries, rather than full reference architectures.”
+That is sufficient and safe.

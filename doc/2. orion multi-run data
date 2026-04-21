@@ -1,0 +1,1807 @@
+0. Product Identity (Platform‑Level Grounding)
+Product Name: Orion
+Product Type: Enterprise‑grade digital platform supporting medical‑device‑adjacent applications
+Classification: Foundational platform (not a clinician‑facing product)
+Deployment Model: Hybrid architecture combining:
+edge‑resident components (e.g., programmer‑side or locally executed logic)
+cloud‑native services hosted in a regulated cloud environment
+Primary Role in Ecosystem:
+Orion serves as the common digital substrate upon which multiple Medtronic clinical and operational applications are built. It provides shared capabilities that would otherwise need to be re‑implemented separately by each product team.
+Stability Expectation:
+Orion is designed to be:
+long‑lived
+evolution‑tolerant
+backward‑compatible where possible
+Applications may change frequently; Orion is expected to change cautiously and deliberately.
+Visibility to End Users:
+Orion is largely invisible to clinicians. Its presence is inferred through the reliability, consistency, and security of Orion‑based applications rather than through direct interaction.
+
+1. Purpose & Context — Why Orion Exists (Exhaustive)
+Orion exists to solve a structural problem in how complex medical‑device ecosystems evolve in a modern, cloud‑enabled world.
+1.1 Historical Context and Pre‑Orion Limitations
+Before the introduction of Orion, many device‑related digital workflows exhibited the following characteristics:
+Tight coupling between hardware and software
+Application logic was often bound directly to specific programmer hardware or local environments.
+This coupling limited portability and reuse.
+Product‑specific infrastructure
+Each product team implemented its own mechanisms for identity, security, logging, and data persistence.
+This led to duplication, inconsistency, and uneven maturity.
+Limited scalability
+Systems were often designed for a fixed clinical or geographic context.
+Expanding to new regions or products required significant re‑engineering.
+Inconsistent security postures
+Security mechanisms varied across products.
+This increased operational risk and audit complexity.
+Fragmented data flows
+Device data, session data, and audit data often lived in separate systems with limited interoperability.
+End‑to‑end traceability was difficult to guarantee.
+High cost of change
+Even small enhancements required extensive validation because core infrastructure was intertwined with application logic.
+Orion was created to address these systemic issues at the platform level, rather than repeatedly at the product level.
+
+1.2 The Core Mission of Orion
+At its core, Orion’s mission is to:
+Enable safe, secure, scalable, and evolvable digital workflows for medical devices by abstracting shared concerns into a governed platform.
+This mission has several concrete implications:
+Safety remains paramount
+Orion must never compromise device or patient safety in pursuit of agility or scalability.
+Cloud enablement is intentional, not incidental
+Cloud services are used where they add value, but only within a controlled and compliant framework.
+Applications should focus on clinical workflows
+Orion absorbs infrastructure complexity so application teams can focus on domain‑specific problems.
+Consistency across products is a feature
+Uniform patterns are preferred over bespoke solutions, even if they feel more restrictive initially.
+
+1.3 Problem Domains Orion Is Designed to Address
+Orion exists because multiple difficult problem domains intersect in medical device ecosystems:
+Secure device interaction
+Managing communication between implanted devices, edge systems, and backend services.
+Identity and trust management
+Ensuring that users, systems, and devices are authenticated and authorized appropriately.
+Session‑based workflows
+Representing clinical or technical interactions as bounded, auditable sessions.
+Regulated data handling
+Supporting traceability, retention, and audit requirements without constraining product innovation.
+Scalability across products and regions
+Enabling multiple products to operate on shared infrastructure without interfering with one another.
+Orion exists to centralize solutions to these domains so they are solved once, correctly, and consistently.
+
+1.4 Who Orion Serves (Multi‑Layer Perspective)
+Orion is intentionally designed to serve multiple constituencies simultaneously:
+Clinical product applications
+Orion provides the digital foundation they rely on but does not dictate clinical logic.
+Engineering teams
+Orion offers standardized patterns, reducing cognitive load and implementation risk.
+Security and compliance stakeholders
+Orion enforces uniform controls, simplifying audits and governance.
+Enterprise systems
+Orion exposes controlled integration points for downstream systems.
+Patients (indirectly)
+By improving reliability, consistency, and safety of the systems clinicians rely on.
+Crucially, Orion does not optimize for a single user persona. It optimizes for system‑level correctness.
+
+1.5 Why Orion Is Explicitly a Platform (Not an App)
+Orion is intentionally positioned as a platform for several reasons:
+Cross‑product reuse
+Multiple applications share foundational needs that should not diverge.
+Risk reduction
+Centralized, well‑reviewed implementations reduce the chance of latent defects.
+Controlled evolution
+Platform changes can be introduced in a governed manner, rather than ad hoc.
+Regulatory leverage
+Platform‑level compliance artifacts can be reused across products.
+Operational observability
+Centralized logging and monitoring enable system‑wide visibility.
+This platform mindset is a deliberate trade‑off:
+some flexibility is sacrificed to gain safety, consistency, and scale.
+
+1.6 Consequences of Orion Not Existing
+If Orion did not exist, the ecosystem would regress in several ways:
+Each product would need to re‑solve identity, security, and session management.
+Inconsistencies across products would increase operational and compliance risk.
+Cloud adoption would be fragmented and harder to govern.
+Architectural reasoning would be product‑specific rather than system‑level.
+Long‑term maintainability would degrade as products diverged.
+In this sense, Orion is not optional infrastructure — it is structural infrastructure.
+
+1.7 Summary Framing (For LLM Grounding)
+Orion should be understood as:
+a shared digital backbone
+designed for regulated, safety‑critical environments
+enabling modern, cloud‑connected workflows
+while enforcing consistency, traceability, and trust
+It is the foundation upon which Orion‑based applications can evolve without repeatedly re‑solving foundational problems.
+
+2. Core Problems Solved by Orion (Exhaustive)
+Orion exists to solve a specific and difficult class of problems that emerge at the intersection of medical devices, software systems, cloud platforms, and regulated clinical workflows.
+These problems are systemic, meaning they cannot be fully or safely solved by individual applications acting alone.
+
+2.1 Fragmentation of Device‑Centric Digital Systems
+Problem Description
+Historically, device‑centric software systems evolved independently across product lines. Each system optimized locally for its own needs, resulting in fragmentation.
+Consequences Without Orion
+Multiple incompatible approaches to device communication
+Divergent assumptions about identity, trust, and session state
+Inconsistent data representations for similar concepts
+Increased integration complexity between products
+Reduced ability to reason about the ecosystem as a whole
+How Orion Solves This
+Provides shared abstractions for common device‑adjacent concerns
+Encourages consistent patterns across products
+Acts as a unifying layer that aligns architectural assumptions
+
+2.2 Repeated Re‑Implementation of Safety‑Critical Infrastructure
+Problem Description
+Safety‑critical capabilities (e.g., authentication, authorization, session tracking) were historically re‑implemented by individual product teams.
+Consequences Without Orion
+Increased probability of subtle defects
+Uneven security maturity across products
+Higher validation and re‑validation costs
+Knowledge silos within individual teams
+Difficulty proving consistent compliance across the enterprise
+How Orion Solves This
+Centralizes safety‑critical infrastructure
+Promotes reuse of vetted, validated mechanisms
+Reduces the number of unique implementations that must be maintained and audited
+
+2.3 Lack of a Coherent Trust and Identity Model
+Problem Description
+Complex ecosystems require a shared understanding of:
+who is acting
+what they are allowed to do
+under what conditions
+Without a platform, trust models tend to diverge.
+Consequences Without Orion
+Inconsistent authentication mechanisms
+Ad hoc authorization logic embedded in applications
+Difficulty enforcing least‑privilege access
+Weak guarantees around system‑to‑system trust
+Elevated security and compliance risk
+How Orion Solves This
+Establishes platform‑level identity and access patterns
+Separates identity concerns from application logic
+Enables consistent enforcement of trust boundaries
+
+2.4 Inadequate Representation of Session‑Based Workflows
+Problem Description
+Many clinical and technical interactions are session‑oriented, meaning they have:
+a clear start
+bounded duration
+defined participants
+explicit completion or termination
+Historically, sessions were often implicit rather than explicit.
+Consequences Without Orion
+Ambiguous system state during failures
+Limited auditability of clinical interactions
+Difficulty correlating actions across systems
+Increased risk during partial or interrupted workflows
+How Orion Solves This
+Treats sessions as first‑class concepts
+Encourages explicit lifecycle management
+Enables traceability across system boundaries
+
+2.5 Constraints Imposed by Regulated Environments
+Problem Description
+Medical device ecosystems operate under strict regulatory and compliance constraints that affect software design choices.
+Consequences Without Orion
+Each product must independently interpret regulatory expectations
+Inconsistent documentation and traceability
+Higher compliance burden for product teams
+Increased risk during audits and inspections
+How Orion Solves This
+Encodes compliance‑aware patterns at the platform level
+Provides shared mechanisms for audit logging and traceability
+Reduces interpretive variance across products
+
+2.6 Tension Between Cloud Adoption and Safety Requirements
+Problem Description
+Cloud technologies offer scalability and flexibility but introduce concerns around:
+latency
+reliability
+data sovereignty
+failure modes
+Without a platform, these tensions are resolved inconsistently.
+Consequences Without Orion
+Over‑conservative designs that underutilize cloud benefits
+Over‑aggressive designs that introduce safety risk
+Inconsistent deployment and operational models
+Difficulty reasoning about system‑wide failure scenarios
+How Orion Solves This
+Defines where cloud services are appropriate
+Establishes safe patterns for hybrid (edge + cloud) systems
+Makes trade‑offs explicit and reusable
+
+2.7 Poor Observability and System‑Level Insight
+Problem Description
+Without centralized infrastructure, visibility into system behavior is fragmented.
+Consequences Without Orion
+Limited ability to diagnose cross‑system issues
+Inconsistent logging and metrics
+Reactive rather than proactive issue management
+Incomplete understanding of operational risk
+How Orion Solves This
+Enables consistent observability patterns
+Supports correlation across components and workflows
+Facilitates system‑level reasoning and monitoring
+
+2.8 Difficulty Supporting Multiple Products at Scale
+Problem Description
+As the number of digital products grows, unmanaged diversity becomes a liability.
+Consequences Without Orion
+Each product becomes an architectural snowflake
+Operational costs grow non‑linearly
+Knowledge transfer between teams becomes difficult
+Strategic alignment erodes over time
+How Orion Solves This
+Provides a shared foundation that products build upon
+Encourages architectural convergence
+Enables scale without proportional complexity growth
+
+2.9 High Cost and Risk of Change
+Problem Description
+When infrastructure and application logic are tightly coupled, change becomes risky.
+Consequences Without Orion
+Small changes require large validation efforts
+Fear of change inhibits improvement
+Technical debt accumulates silently
+Innovation slows despite available technology
+How Orion Solves This
+Separates concerns between platform and application layers
+Allows infrastructure evolution without destabilizing clinical logic
+Reduces blast radius of change
+
+2.10 Lack of Explicit System Boundaries and Responsibilities
+Problem Description
+In complex systems, ambiguity about responsibility leads to errors.
+Consequences Without Orion
+Overlapping or duplicated functionality
+Gaps in ownership
+Conflicting assumptions between components
+Increased likelihood of integration failures
+How Orion Solves This
+Makes boundaries explicit
+Clarifies platform vs application responsibilities
+Establishes shared mental models across teams
+
+2.11 Summary Framing (For LLM Reasoning)
+Orion solves problems that are:
+cross‑cutting
+safety‑critical
+organizationally difficult
+unsuitable for ad hoc application‑level solutions
+By addressing these problems centrally, Orion enables product teams to build complex, regulated digital applications without repeatedly re‑solving foundational system challenges.
+
+3. High‑Level Architecture Overview (Exhaustive)
+Orion is architected as a layered, responsibility‑segregated platform designed to operate safely in a hybrid environment that spans implanted devices, edge systems, and cloud services.
+The architecture is intentionally conceptual rather than technology‑specific, so that it can evolve without invalidating core system assumptions.
+
+3.1 Architectural Philosophy and Guiding Principles
+Before describing layers, it is important to understand the principles shaping Orion’s architecture:
+Separation of concerns
+Platform responsibilities are separated from application logic.
+Safety‑critical mechanisms are isolated from rapidly changing features.
+Explicit boundaries
+Every layer has clearly defined responsibilities and non‑responsibilities.
+Ambiguous ownership is treated as a design defect.
+Fail‑safe behavior
+Failure modes are assumed and designed for.
+Partial failures must not result in unsafe system states.
+Least privilege and minimal trust
+Components trust each other only as much as necessary.
+Trust relationships are explicit and auditable.
+Evolvability under regulation
+The architecture supports change while minimizing re‑validation impact.
+Stable interfaces are preferred over deep coupling.
+
+3.2 Layered View of the Orion Architecture
+At a high level, Orion can be understood as a set of logical layers, each responsible for a distinct class of concerns.
+These layers are conceptual, not necessarily physical deployments.
+
+3.2.1 Device Layer (Outside Orion, but Integral)
+Role in the Architecture
+Comprises implanted medical devices and their firmware.
+Generates telemetry, diagnostics, and device state.
+Accepts commands and configuration changes.
+Relationship to Orion
+Orion does not control device firmware.
+Orion assumes devices are safety‑certified and operate under strict constraints.
+Device behavior defines the outer boundary of Orion’s responsibility.
+Architectural Implication
+Orion must adapt to device constraints rather than impose assumptions on devices.
+
+3.2.2 Edge Layer (Orion‑Adjacent Execution Environment)
+Role in the Architecture
+Acts as the immediate interaction point with devices.
+Hosts logic that must execute close to the device for safety or latency reasons.
+Manages real‑time interactions during sessions.
+Responsibilities
+Device discovery and pairing
+Secure local communication
+Temporary state handling
+Enforcement of safety checks that cannot rely on cloud connectivity
+Architectural Implication
+Edge components are state‑aware but carefully bounded.
+They bridge the physical and digital domains.
+
+3.2.3 Orion Platform Core (Shared Services Layer)
+Role in the Architecture
+This is the conceptual heart of Orion.
+Provides shared services consumed by multiple applications.
+Core Responsibilities
+Identity and access abstractions
+Session orchestration concepts
+Policy enforcement patterns
+Audit and traceability mechanisms
+Standardized integration interfaces
+Key Architectural Property
+Platform services are designed to be application‑agnostic.
+
+3.2.4 Application Layer (Orion‑Based Products)
+Role in the Architecture
+Implements product‑specific workflows and user experiences.
+Consumes Orion platform services rather than re‑implementing them.
+Responsibilities
+Clinical or operational logic
+User interaction patterns
+Domain‑specific validation
+Product‑level configuration
+Architectural Implication
+Applications are constrained by Orion, not independent of it.
+This constraint is intentional and protective.
+
+3.2.5 Integration Layer (Enterprise & External Systems)
+Role in the Architecture
+Facilitates controlled data exchange with enterprise systems.
+Enforces governance over what data flows where.
+Responsibilities
+Data transformation and normalization
+Contract‑based integrations
+Versioned interfaces
+Isolation of external system failures
+Architectural Implication
+External systems never directly depend on device or edge behavior.
+
+3.3 Responsibility Distribution Across Layers
+Orion’s architecture deliberately distributes responsibility to avoid overloading any single layer.
+Examples:
+Safety‑critical real‑time checks → edge layer
+Identity and authorization policy → platform core
+Clinical workflow logic → application layer
+Long‑term persistence and audit → platform/integration layers
+This distribution reduces coupling and improves fault isolation.
+
+3.4 Trust and Control Boundaries
+Orion’s architecture defines explicit trust boundaries:
+Device ↔ Edge
+Assumes authenticated, constrained communication
+Minimal trust beyond defined protocols
+Edge ↔ Platform
+Secure, authenticated channels
+Explicit session context required
+Platform ↔ Application
+Platform enforces policies
+Applications operate within granted capabilities
+Platform ↔ Enterprise Systems
+Contractual trust via versioned interfaces
+No implicit privileges
+These boundaries are critical for both security and regulatory reasoning.
+
+3.5 Data Flow at a Conceptual Level
+While implementations vary, Orion’s architecture enforces several invariants:
+Data originates at the device or edge
+Data is contextualized within a session
+Data moves through validated interfaces
+Data persistence is intentional and governed
+Audit trails accompany meaningful actions
+This ensures that data movement is traceable and defensible.
+
+3.6 Handling Failure in the Architecture
+The architecture assumes failure is normal, not exceptional.
+Key failure‑handling principles:
+Edge components must fail safely if cloud connectivity is lost
+Platform services must degrade gracefully
+Partial failures must not corrupt session state
+Recovery paths must be deterministic and auditable
+These principles influence placement of logic across layers.
+
+3.7 Why This Architecture Matters (LLM Framing)
+This architecture enables Orion to:
+support multiple products without fragmentation
+evolve incrementally under regulatory constraints
+maintain consistent security and compliance posture
+reason about system behavior end‑to‑end
+For an LLM, this architectural understanding is essential to answering:
+“Where does X happen?”
+“Why is Y not allowed here?”
+“What would fail if Z changed?”
+
+4. Key System Components & Responsibilities (Exhaustive)
+Orion is composed of a set of logical platform components, each designed to own a well‑defined responsibility.
+These components are conceptual building blocks — individual products may realize them using different technologies, but the responsibilities remain stable.
+
+4.1 Identity & Authentication Component
+Primary Responsibility
+Establish and verify the identity of users, systems, and services interacting with Orion.
+What It Is Responsible For
+Authenticating human users and system actors
+Issuing and validating identity assertions
+Supporting role‑ and attribute‑based identity models
+Enabling secure system‑to‑system authentication
+Providing a consistent identity abstraction across products
+What It Is NOT Responsible For
+Clinical authorization decisions
+Device‑level authentication protocols
+User interface for identity management
+Why This Component Exists Without a centralized identity abstraction, trust decisions become inconsistent and error‑prone across applications.
+
+4.2 Authorization & Policy Enforcement Component
+Primary Responsibility
+Determine what an authenticated actor is allowed to do under specific conditions.
+What It Is Responsible For
+Enforcing least‑privilege access
+Evaluating authorization policies
+Supporting context‑aware decisions (role, session, environment)
+Decoupling authorization logic from application code
+Enabling auditability of access decisions
+What It Is NOT Responsible For
+User authentication
+Business or clinical workflow design
+Persisting application data
+Why This Component Exists Authorization rules change more frequently than identity mechanisms and must be governed centrally.
+
+4.3 Session Management Component
+Primary Responsibility
+Represent and manage bounded interactions between actors, devices, and systems.
+What It Is Responsible For
+Session creation and termination
+Maintaining session state and context
+Correlating actions within a session
+Enforcing session‑scoped rules
+Supporting recovery and reconciliation
+What It Is NOT Responsible For
+Device communication protocols
+Clinical decision logic
+Long‑term data analytics
+Why This Component Exists Sessions provide the backbone for traceability, safety, and reasoning about system behavior.
+
+4.4 Device Interaction Abstraction
+Primary Responsibility
+Provide a consistent way for applications to interact with devices without embedding device‑specific assumptions.
+What It Is Responsible For
+Abstracting device communication patterns
+Normalizing device responses and states
+Enforcing compatibility checks
+Mediating commands and telemetry
+Isolating applications from device variability
+What It Is NOT Responsible For
+Device firmware behavior
+Physical communication mechanisms
+Device safety certification
+Why This Component Exists It reduces coupling between applications and a heterogeneous device ecosystem.
+
+4.5 Edge Coordination Component
+Primary Responsibility
+Coordinate logic that must execute close to devices due to latency, safety, or availability constraints.
+What It Is Responsible For
+Managing real‑time device interactions
+Handling transient connectivity issues
+Enforcing local safety checks
+Synchronizing with platform services
+Preserving session continuity during disruptions
+What It Is NOT Responsible For
+Long‑term persistence
+Enterprise integrations
+Product‑specific workflows
+Why This Component Exists Not all decisions can safely depend on cloud connectivity.
+
+4.6 Data Persistence & Lifecycle Management Component
+Primary Responsibility
+Manage the controlled storage and lifecycle of Orion‑related data.
+What It Is Responsible For
+Persisting session artifacts
+Managing data retention policies
+Supporting data integrity and immutability
+Enabling traceability and reconstruction
+Enforcing governance rules
+What It Is NOT Responsible For
+Real‑time analytics
+Business intelligence dashboards
+Raw device data interpretation
+Why This Component Exists Data persistence must be deliberate, auditable, and compliant.
+
+4.7 Audit & Traceability Component
+Primary Responsibility
+Provide a verifiable record of significant system actions and decisions.
+What It Is Responsible For
+Recording security‑relevant events
+Capturing session‑level activity
+Supporting regulatory audits
+Ensuring log integrity
+Enabling forensic analysis
+What It Is NOT Responsible For
+Operational monitoring alerts
+Performance optimization
+User behavior analytics
+Why This Component Exists Traceability is a regulatory and safety requirement, not an optional feature.
+
+4.8 Integration & API Gateway Component
+Primary Responsibility
+Expose controlled interfaces for interaction with external systems.
+What It Is Responsible For
+Contract‑based API exposure
+Request validation and normalization
+Version management
+Traffic shaping and isolation
+Protecting internal components from external failures
+What It Is NOT Responsible For
+Internal business logic
+Data interpretation
+Device communication
+Why This Component Exists Direct coupling to external systems increases risk and reduces evolvability.
+
+4.9 Configuration & Policy Management Component
+Primary Responsibility
+Manage platform‑level configuration and policy definitions.
+What It Is Responsible For
+Centralized configuration control
+Policy versioning
+Safe rollout of changes
+Consistency across environments
+Enabling audit of configuration changes
+What It Is NOT Responsible For
+Product‑specific UI configuration
+Runtime session decisions
+Data storage
+Why This Component Exists Configuration drift is a major source of system instability.
+
+4.10 Observability & Monitoring Component
+Primary Responsibility
+Enable visibility into the health and behavior of Orion components.
+What It Is Responsible For
+Collecting metrics and logs
+Supporting correlation across components
+Enabling diagnostics and troubleshooting
+Providing operational insight
+Supporting reliability engineering
+What It Is NOT Responsible For
+Clinical decision support
+Security authorization
+Regulatory audit logging (distinct from audit logs)
+Why This Component Exists System‑level visibility is essential for safe operation at scale.
+
+4.11 Dependency Relationships Between Components
+Key dependency patterns include:
+Applications depend on platform components, not vice versa
+Authorization depends on identity, but identity is independent
+Session management depends on identity and policy
+Persistence and audit consume outputs from multiple components
+Integration gateways depend on platform controls
+These dependencies are intentionally one‑directional to prevent cycles.
+
+4.12 Summary Framing (For LLM Reasoning)
+Orion’s components are:
+narrowly scoped
+responsibility‑driven
+explicitly bounded
+Each component exists to:
+reduce duplication
+improve safety
+enable consistent reasoning
+For an LLM, this component model enables accurate answers to:
+“Which part of Orion does X?”
+“Why is Y not handled here?”
+“What breaks if this component fails?”
+
+5. Core Workflows (Platform Behavior — Exhaustive)
+Core workflows describe how Orion operates dynamically when real interactions occur.
+They define system behavior over time, including normal operation, coordination between components, and failure handling.
+Orion workflows are platform‑level, meaning they apply consistently across Orion‑based applications.
+
+5.1 Actor Authentication & System Entry Workflow
+Trigger
+A human user or system actor attempts to interact with an Orion‑based application or service.
+Primary Objectives
+Establish a verifiable identity
+Create a trusted context for subsequent actions
+Prevent unauthorized access
+Workflow Steps
+An actor initiates a request through an Orion‑based application.
+The identity component validates credentials or assertions.
+Authentication outcomes are bound to a secure context.
+Identity information is propagated in a controlled manner.
+Authentication events are recorded for traceability.
+Completion Condition
+A trusted identity context is established or access is denied.
+Failure Handling
+Invalid credentials result in denial without side effects.
+Partial authentication does not grant limited access.
+Failures are logged for security analysis.
+
+5.2 Authorization & Policy Evaluation Workflow
+Trigger
+An authenticated actor attempts an action requiring permission.
+Primary Objectives
+Enforce least‑privilege access
+Ensure consistent policy application
+Provide auditable decisions
+Workflow Steps
+The requested action is evaluated against authorization policies.
+Contextual attributes (role, session, environment) are considered.
+A decision is rendered (allow or deny).
+The decision is enforced before action execution.
+Authorization decisions are recorded.
+Completion Condition
+Action is either permitted and executed or denied.
+Failure Handling
+Policy evaluation failures default to denial.
+Ambiguous or missing context prevents execution.
+
+5.3 Session Initialization Workflow
+Trigger
+A bounded interaction (clinical, technical, or operational) begins.
+Primary Objectives
+Establish a traceable interaction context
+Bind actors, devices, and systems together
+Define session scope and constraints
+Workflow Steps
+A request to initiate a session is received.
+Identity and authorization contexts are validated.
+A unique session context is created.
+Session metadata is captured (participants, purpose).
+Session state becomes authoritative for related actions.
+Completion Condition
+A valid session exists and is active.
+Failure Handling
+Session creation fails if prerequisites are unmet.
+No partial sessions are persisted.
+
+5.4 Device Interaction Workflow
+Trigger
+A session requires communication with a device.
+Primary Objectives
+Enable safe and controlled device interaction
+Maintain session integrity
+Enforce compatibility and safety checks
+Workflow Steps
+Device availability and compatibility are verified.
+Secure communication channels are established.
+Commands or data requests are issued.
+Responses are validated and contextualized.
+Interaction results are associated with the session.
+Completion Condition
+Device interaction completes successfully or fails safely.
+Failure Handling
+Communication failures halt further commands.
+Device state remains unchanged on failure.
+Errors are surfaced without ambiguity.
+
+5.5 Edge‑Cloud Coordination Workflow
+Trigger
+A workflow spans both edge and cloud components.
+Primary Objectives
+Balance latency, safety, and scalability
+Preserve continuity during connectivity changes
+Workflow Steps
+Determine which logic executes at the edge versus cloud.
+Edge components perform time‑sensitive operations.
+Platform services provide orchestration and persistence.
+State synchronization occurs as connectivity allows.
+Consistency checks reconcile edge and cloud views.
+Completion Condition
+Workflow reaches a stable, reconciled state.
+Failure Handling
+Edge continues in a constrained mode if cloud is unavailable.
+Cloud services tolerate delayed or out‑of‑order updates.
+
+5.6 Data Persistence & Lifecycle Workflow
+Trigger
+Data generated during a session must be stored or retained.
+Primary Objectives
+Preserve data integrity
+Enforce retention and governance rules
+Enable traceability
+Workflow Steps
+Data is classified based on type and sensitivity.
+Persistence rules are applied.
+Data is stored in governed repositories.
+Retention metadata is attached.
+Access constraints are enforced.
+Completion Condition
+Data is safely persisted or explicitly discarded per policy.
+Failure Handling
+Persistence failures do not corrupt existing data.
+Retries follow deterministic rules.
+
+5.7 Audit & Traceability Workflow
+Trigger
+A significant security, session, or system event occurs.
+Primary Objectives
+Provide an immutable record of activity
+Support compliance and investigation
+Workflow Steps
+Events are captured at the point of action.
+Contextual metadata is attached.
+Records are persisted securely.
+Integrity protections are applied.
+Records become available for authorized review.
+Completion Condition
+Audit record is durably stored.
+Failure Handling
+Audit failures block sensitive actions.
+Missing audit records invalidate workflows.
+
+5.8 Integration & External Data Exchange Workflow
+Trigger
+An Orion‑based product exchanges data with an external system.
+Primary Objectives
+Enforce governance
+Protect internal systems
+Ensure contract compliance
+Workflow Steps
+Integration request is validated against contracts.
+Data is normalized and filtered.
+Security and authorization checks are applied.
+Data is transmitted or received.
+Outcomes are logged and monitored.
+Completion Condition
+Data exchange completes within contractual constraints.
+Failure Handling
+External failures are isolated.
+Internal state remains consistent.
+
+5.9 Failure Detection, Recovery & Degradation Workflow
+Trigger
+A component, dependency, or connectivity failure occurs.
+Primary Objectives
+Maintain safety
+Preserve system integrity
+Enable recovery
+Workflow Steps
+Failure is detected via monitoring or timeouts.
+Impact is assessed within session context.
+Safe degradation modes are activated.
+Recovery actions are attempted.
+Post‑failure state is reconciled and audited.
+Completion Condition
+System reaches a safe, known state.
+Failure Handling
+Unsafe continuation is prevented.
+Recovery paths are deterministic.
+
+5.10 Workflow Invariants (Always True)
+Across all workflows, Orion enforces these invariants:
+No action without identity
+No sensitive action without authorization
+No device interaction outside a session
+No silent failure
+No untraceable state change
+These invariants are central to Orion’s design.
+
+5.11 Summary Framing (For LLM Reasoning)
+These workflows define how Orion behaves as a living system.
+For an LLM, understanding these workflows enables:
+causal reasoning
+“what happens if” analysis
+safe explanation of failure scenarios
+accurate system behavior descriptions
+
+6. Data Concepts & Metrics (Exhaustive)
+Orion does not treat data as an incidental by‑product of system operation.
+Instead, data is intentionally modeled, contextualized, and governed to support safety, traceability, and reasoning.
+This section defines conceptual data entities and metric meanings, not physical storage or schemas.
+
+6.1 Core Data Modeling Principles
+Before enumerating data concepts, Orion follows several foundational principles:
+Context before content
+Data is meaningless without session, actor, and purpose context.
+Explicit lifecycle
+Data has a defined creation, usage, retention, and disposition model.
+Traceability over convenience
+Data must support reconstruction of what happened and why.
+Immutability where safety matters
+Certain records are append‑only by design.
+Minimal necessary persistence
+Not all transient data is retained.
+These principles shape all data concepts that follow.
+
+6.2 Core Conceptual Data Entities
+6.2.1 Actor
+What It Represents
+An entity that initiates or participates in actions within Orion.
+Includes
+Human users
+System services
+Authorized applications
+Key Characteristics
+Has an identity context
+Acts within authorization constraints
+Participates in sessions
+Why It Matters Every meaningful action in Orion must be attributable to an actor.
+
+6.2.2 Identity Context
+What It Represents
+The verified identity attributes associated with an actor.
+Includes
+Authentication state
+Roles or attributes
+Trust assertions
+Key Characteristics
+Time‑bound
+Non‑transferable
+Used for authorization decisions
+Why It Matters Separates “who someone is” from “what they are allowed to do.”
+
+6.2.3 Session
+What It Represents
+A bounded, traceable interaction context.
+Includes
+Session identifier
+Start and end markers
+Associated actors and systems
+Purpose or intent
+Key Characteristics
+Explicit lifecycle
+Correlation anchor for data and actions
+Safety‑critical construct
+Why It Matters Sessions provide the backbone for auditability and reasoning.
+
+6.2.4 Device
+What It Represents
+A physical medical device participating in an interaction.
+Includes
+Device identity
+Compatibility attributes
+State summaries
+Key Characteristics
+Operates under strict constraints
+Generates telemetry and accepts commands
+Exists outside Orion’s control boundary
+Why It Matters Device data must always be interpreted within context.
+
+6.2.5 Interaction / Action
+What It Represents
+A discrete operation performed by an actor within a session.
+Includes
+Action type
+Initiator
+Target (device, system, data)
+Outcome
+Key Characteristics
+Always session‑scoped
+Subject to authorization
+May generate data or events
+Why It Matters Actions form the causal chain of system behavior.
+
+6.2.6 Event
+What It Represents
+A recorded occurrence of significance.
+Includes
+Security events
+System state changes
+Workflow milestones
+Key Characteristics
+Timestamped
+Context‑rich
+Often immutable
+Why It Matters Events enable reconstruction and monitoring.
+
+6.2.7 Data Artifact
+What It Represents
+Persisted data produced as a result of interactions.
+Includes
+Session summaries
+Device reports
+Configuration snapshots
+Key Characteristics
+Governed lifecycle
+Access‑controlled
+Retained per policy
+Why It Matters Artifacts support downstream use and compliance.
+
+6.2.8 Audit Record
+What It Represents
+An authoritative record of a security‑ or compliance‑relevant action.
+Includes
+Actor
+Action
+Context
+Outcome
+Key Characteristics
+Append‑only
+Integrity‑protected
+Non‑repudiable
+Why It Matters Audit records are foundational to regulatory compliance.
+
+6.3 Relationships Between Data Concepts
+Orion data concepts are intentionally relational at a conceptual level:
+Actors operate within identity contexts
+Sessions bind actors, devices, and systems
+Actions occur within sessions
+Actions generate events
+Events produce data artifacts
+Audit records capture critical actions and decisions
+This relational model enables end‑to‑end traceability.
+
+6.4 Data Lifecycle States
+Data in Orion typically moves through these states:
+Transient
+Exists only during active workflows
+Session‑bound
+Retained for the duration of a session
+Persisted
+Stored beyond session termination
+Archived
+Retained for compliance or historical purposes
+Disposed
+Removed per policy
+Each transition is governed by explicit rules.
+
+6.5 Platform‑Level Metrics (Meaning, Not Computation)
+Orion metrics are designed to indicate system health, safety, and reliability, not business performance.
+
+6.5.1 Authentication Metrics
+Examples
+Authentication success rate
+Authentication failure frequency
+What They Mean
+Effectiveness of identity mechanisms
+Early indicators of security issues
+
+6.5.2 Authorization Metrics
+Examples
+Authorization denials by category
+Policy evaluation errors
+What They Mean
+Correctness of policy definitions
+Potential misconfigurations or abuse attempts
+
+6.5.3 Session Metrics
+Examples
+Session initiation success rate
+Session duration distribution
+Abnormal session termination frequency
+What They Mean
+Stability of workflows
+User or system friction
+Reliability of coordination
+
+6.5.4 Device Interaction Metrics
+Examples
+Successful device communication rate
+Interaction failure frequency
+What They Mean
+Health of edge‑device integration
+Environmental or compatibility issues
+
+6.5.5 Data Integrity Metrics
+Examples
+Persistence success rate
+Data reconciliation discrepancies
+What They Mean
+Trustworthiness of stored data
+Risk of incomplete records
+
+6.5.6 Audit Coverage Metrics
+Examples
+Percentage of sensitive actions audited
+Audit record completeness
+What They Mean
+Compliance posture
+Risk exposure during inspections
+
+6.5.7 Platform Reliability Metrics
+Examples
+Component availability
+Error rates by component class
+What They Mean
+Operational stability
+Need for corrective action
+
+6.6 What Orion Metrics Are NOT
+Explicitly, Orion metrics do not represent:
+clinical outcomes
+user productivity
+financial performance
+device efficacy
+Those belong to application or enterprise layers.
+
+6.7 Summary Framing (For LLM Reasoning)
+For an LLM, Orion data concepts and metrics provide:
+semantic grounding for explanations
+a basis for correctness reasoning
+clarity about what can and cannot be inferred from data
+Understanding what data means is more important than knowing how it is stored.
+
+7. Design Decisions & Trade‑Offs (Exhaustive)
+Orion’s architecture is the result of explicit, intentional design decisions made in the context of safety‑critical, regulated medical device ecosystems.
+This section captures the reasoning behind those decisions, not just the outcomes.
+Understanding these “why” decisions is essential for deep explanation and non‑hallucinatory reasoning.
+
+7.1 Platformization Instead of Product‑Specific Infrastructure
+Decision
+Build Orion as a shared platform rather than allowing each product to build its own infrastructure stack.
+Rationale
+Reduces duplication of safety‑critical logic
+Improves consistency across products
+Lowers long‑term validation and maintenance costs
+Enables reuse of compliance artifacts
+Encourages architectural convergence
+Trade‑Offs Accepted
+Reduced flexibility for individual products
+Slower introduction of novel patterns
+Need for stronger governance and prioritization
+Alternatives Considered
+Independent product stacks (rejected due to fragmentation risk)
+Loose libraries instead of a platform (rejected due to weak enforcement)
+
+7.2 Cloud‑First, Not Cloud‑Only Architecture
+Decision
+Adopt a cloud‑first approach while retaining critical edge execution.
+Rationale
+Cloud enables scalability and centralized governance
+Edge execution is necessary for latency and safety
+Hybrid architecture balances innovation with reliability
+Allows gradual migration from legacy systems
+Supports global operations
+Trade‑Offs Accepted
+Increased architectural complexity
+Need for synchronization and reconciliation logic
+More complex failure modes
+Alternatives Considered
+Cloud‑only architecture (rejected due to safety and availability risks)
+Edge‑only architecture (rejected due to scalability limitations)
+
+7.3 Explicit Session Modeling
+Decision
+Make sessions a first‑class concept in the platform.
+Rationale
+Enables traceability of interactions
+Supports safety‑critical workflows
+Simplifies audit and compliance
+Provides a natural unit of reasoning
+Improves failure recovery logic
+Trade‑Offs Accepted
+Increased upfront modeling effort
+Additional state management overhead
+More constraints on application design
+Alternatives Considered
+Implicit or inferred sessions (rejected due to ambiguity)
+Stateless interaction models (rejected due to traceability gaps)
+
+7.4 Centralized Identity and Authorization
+Decision
+Centralize identity and authorization rather than embedding them in applications.
+Rationale
+Ensures consistent security posture
+Enables least‑privilege enforcement
+Simplifies audits and reviews
+Reduces duplicated logic
+Improves incident response
+Trade‑Offs Accepted
+Dependency on shared services
+Potential bottlenecks if poorly governed
+Need for robust availability guarantees
+Alternatives Considered
+Application‑managed authorization (rejected due to inconsistency)
+Hard‑coded role checks (rejected due to inflexibility)
+
+7.5 Strong Separation Between Platform and Application Logic
+Decision
+Strictly separate platform responsibilities from application responsibilities.
+Rationale
+Allows platform evolution without destabilizing products
+Protects safety‑critical mechanisms
+Encourages clean architectural boundaries
+Reduces change blast radius
+Supports multiple applications with shared infrastructure
+Trade‑Offs Accepted
+Additional abstraction layers
+Learning curve for application teams
+Perceived rigidity
+Alternatives Considered
+Mixed platform/application logic (rejected due to coupling risk)
+
+7.6 Safety‑First Failure Handling
+Decision
+Design all workflows to fail safe, even at the cost of availability.
+Rationale
+Patient safety outweighs system uptime
+Partial or ambiguous state is unacceptable
+Predictable failure modes reduce risk
+Supports regulatory defensibility
+Builds clinical trust
+Trade‑Offs Accepted
+Reduced functionality during failures
+Conservative behavior in uncertain states
+Possible user frustration
+Alternatives Considered
+Fail‑open strategies (rejected due to safety risk)
+
+7.7 Immutability and Append‑Only Audit Records
+Decision
+Treat audit and certain system records as append‑only and immutable.
+Rationale
+Prevents tampering
+Enables forensic reconstruction
+Meets regulatory expectations
+Simplifies integrity guarantees
+Builds trust in system records
+Trade‑Offs Accepted
+Increased storage requirements
+Complexity in correcting errors
+Need for compensating records
+Alternatives Considered
+Mutable audit logs (rejected due to integrity risk)
+
+7.8 Explicit Governance Over Configuration and Change
+Decision
+Centralize configuration and policy management with strict governance.
+Rationale
+Prevents configuration drift
+Enables controlled rollouts
+Supports traceability of changes
+Reduces operational risk
+Aligns with compliance needs
+Trade‑Offs Accepted
+Slower configuration changes
+Increased process overhead
+Need for change management discipline
+Alternatives Considered
+Decentralized configuration (rejected due to instability)
+
+7.9 Observability as a First‑Class Concern
+Decision
+Build observability into the platform rather than treating it as an add‑on.
+Rationale
+Enables proactive risk detection
+Supports cross‑system troubleshooting
+Improves reliability engineering
+Provides operational confidence
+Aids incident response
+Trade‑Offs Accepted
+Performance overhead
+Additional data handling
+Operational complexity
+Alternatives Considered
+Minimal logging (rejected due to blind spots)
+
+7.10 Controlled Integration with External Systems
+Decision
+Use contract‑based, versioned integrations for all external interactions.
+Rationale
+Protects internal stability
+Enables backward compatibility
+Reduces impact of external failures
+Supports governance and audit
+Enables evolution over time
+Trade‑Offs Accepted
+Slower onboarding of integrations
+Increased upfront design effort
+Contract maintenance overhead
+Alternatives Considered
+Direct database or internal access (rejected due to risk)
+
+7.11 Bias Toward Explicitness Over Convenience
+Decision
+Prefer explicit models, workflows, and constraints even when they increase complexity.
+Rationale
+Reduces ambiguity
+Improves explainability
+Supports safe reasoning
+Enables consistent mental models
+Reduces hidden coupling
+Trade‑Offs Accepted
+More verbose designs
+Higher learning curve
+Slower initial development
+Alternatives Considered
+Implicit conventions (rejected due to fragility)
+
+7.12 Summary Framing (For LLM Reasoning)
+These design decisions reflect a consistent philosophy:
+Safety over speed
+Consistency over customization
+Explicitness over convenience
+Platform leverage over local optimization
+For an LLM, understanding these trade‑offs enables:
+accurate “why” explanations
+correct handling of edge‑case questions
+resistance to over‑generalization or hallucination
+
+8. Security, Privacy & Compliance Principles (TRUE EXHAUSTIVE MODE)
+Orion operates in an environment where software behavior can have clinical, regulatory, and legal consequences.
+As a result, security, privacy, and compliance are structural properties of the platform, not optional features or configurable behaviors.
+This section captures all meaningful principles and constraints, including secondary and tertiary implications that are often omitted in high‑level documentation.
+
+8.1 Security Is a System Property, Not a Feature
+Principle
+Security in Orion is treated as an intrinsic property of the system, comparable to correctness or safety.
+Implications
+Security considerations shape architecture before functionality
+Features that weaken security are rejected regardless of business value
+Security is evaluated continuously, not only during release
+Platform changes are assessed for systemic risk, not local impact
+Security debt is treated as real technical debt
+Security failures invalidate otherwise “successful” workflows
+Security posture must be explainable under scrutiny
+Security behavior must be deterministic under failure
+Security controls must survive partial outages
+Convenience is never a sufficient justification for weakening controls
+
+8.2 Explicit and Minimal Trust Model
+Principle
+Trust relationships must be explicit, minimal, and justified.
+Implications
+No component is implicitly trusted
+Trust must be established through verifiable mechanisms
+Trust relationships are directional, not mutual by default
+Trust scope is limited in time and capability
+Transitive trust is avoided wherever possible
+Trust assumptions are documented and reviewable
+Trust boundaries are treated as security boundaries
+Violation of trust assumptions is treated as a failure condition
+New trust relationships require explicit design review
+Legacy trust assumptions are periodically re‑evaluated
+
+8.3 Identity as the Root of Accountability
+Principle
+Every meaningful action must be attributable to a verified identity.
+Implications
+Anonymous actions are prohibited for sensitive operations
+Identity must be established before authorization
+Identity context is propagated securely
+Identity assertions are time‑bound
+Identity is non‑transferable between actors
+System actors are treated as first‑class identities
+Identity loss invalidates active privileges
+Identity ambiguity blocks action execution
+Identity spoofing is considered a critical failure
+Identity management is separated from application logic
+Identity state changes are auditable
+
+8.4 Authorization Is Contextual, Not Static
+Principle
+Authorization decisions depend on context, not just roles.
+Implications
+Authorization is evaluated per action
+Session context influences authorization
+Environment and state may constrain access
+Authorization rules are centrally governed
+Hard‑coded permissions are avoided
+Authorization failures default to denial
+Partial authorization is not permitted
+Authorization logic is auditable
+Authorization changes are controlled and reviewed
+Authorization rules are explainable to auditors
+Privilege escalation is explicitly constrained
+Emergency access is tightly controlled and logged
+
+8.5 Least Privilege as a Continuous Discipline
+Principle
+Actors receive only the minimum privileges required, for the minimum time necessary.
+Implications
+Broad permissions are treated as risk indicators
+Elevated privileges are time‑limited
+Privileges are scoped by function and context
+Default privilege is none
+Privilege creep is actively monitored
+Revocation is as important as granting
+Dormant privileges are removed
+Privilege boundaries are reviewed regularly
+Least privilege applies to systems as well as users
+Privilege violations trigger investigation
+
+8.6 Defense‑in‑Depth Across Layers
+Principle
+No single security control is sufficient.
+Implications
+Multiple independent safeguards are employed
+Edge, platform, and application layers enforce controls
+Authentication and authorization are not conflated
+Network security does not replace application security
+Logging complements prevention
+Detection mechanisms exist for control failure
+Assumed compromise scenarios are considered
+Lateral movement is restricted
+Failure of one layer must not expose critical assets
+Defense‑in‑depth is periodically reassessed
+
+8.7 Secure‑by‑Default and Fail‑Closed Behavior
+Principle
+The safest behavior is the default behavior.
+Implications
+Access is denied unless explicitly allowed
+Ambiguous states resolve to safe outcomes
+Missing configuration blocks sensitive actions
+Partial failures do not grant access
+System defaults are conservative
+Misconfiguration favors safety over availability
+Explicit opt‑in is required for risky operations
+Fail‑open behavior is explicitly disallowed
+Recovery paths preserve security guarantees
+
+8.8 Component Isolation and Blast‑Radius Control
+Principle
+Compromise or failure of one component must not compromise the system.
+Implications
+Components have clearly bounded responsibilities
+Direct access to internal state is prohibited
+Interfaces are controlled and validated
+Privileges are compartmentalized
+Lateral access is restricted
+Fault isolation is a design requirement
+Component boundaries align with trust boundaries
+Shared resources are carefully governed
+Isolation failures are treated as critical defects
+
+8.9 Secure Communication and Cryptographic Discipline
+Principle
+Sensitive data must be protected against interception, tampering, and misuse.
+Implications
+Data is protected in transit
+Data is protected at rest
+Integrity is verified where required
+Communication endpoints are authenticated
+Cryptographic standards are centrally governed
+Weak or deprecated mechanisms are avoided
+Key management is treated as critical infrastructure
+Secrets are never hard‑coded
+Internal traffic is not assumed safe
+Cryptographic failures invalidate workflows
+
+8.10 Privacy by Design and Default
+Principle
+Privacy considerations are embedded into system design from the outset.
+Implications
+Data collection is purpose‑limited
+Data usage aligns with stated intent
+Sensitive data exposure is minimized
+Access is role‑ and context‑restricted
+Privacy impact is assessed during design
+Privacy is considered during failure scenarios
+Data linkage is controlled
+Secondary use requires governance
+Privacy controls are auditable
+Privacy violations are treated as serious incidents
+
+8.11 Data Minimization and Retention Governance
+Principle
+Only necessary data is retained, and only for as long as required.
+Implications
+Transient data is not persisted by default
+Retention periods are explicitly defined
+Retention policies are enforced automatically
+Excess data increases risk and cost
+Data disposal is deliberate and auditable
+Retention exceptions require justification
+Historical data access is controlled
+Retention logic is decoupled from applications
+Data hoarding is actively discouraged
+
+8.12 Auditability and Non‑Repudiation
+Principle
+Security‑ and compliance‑relevant actions must be reconstructable and defensible.
+Implications
+Significant actions generate audit records
+Audit records are append‑only
+Audit integrity is protected
+Context accompanies audit entries
+Missing audit data invalidates workflows
+Audit access is controlled
+Audit data supports forensic analysis
+Audit behavior is consistent across products
+Audit mechanisms are validated
+Audit failures block sensitive actions
+
+8.13 Regulatory Alignment as a Hard Constraint
+Principle
+Regulatory requirements are non‑negotiable system constraints.
+Implications
+Platform behavior must be explainable to regulators
+Design artifacts support validation
+Compliance requirements influence architecture
+Platform reuse supports consistent compliance
+Regulatory changes trigger impact analysis
+Non‑compliance risk is treated as system risk
+Platform behavior must be predictable
+Informal or undocumented behavior is unacceptable
+Compliance is continuous, not episodic
+
+8.14 Separation of Duties and Oversight
+Principle
+No single actor or component should control critical operations unchecked.
+Implications
+Privileged actions require elevated controls
+Administrative functions are constrained
+Oversight mechanisms exist
+Sensitive operations are logged
+Insider risk is explicitly considered
+Role separation reduces systemic risk
+Emergency access is tightly governed
+Oversight gaps are treated as defects
+
+8.15 Secure Incident Handling and Recovery
+Principle
+Security incidents are inevitable and must be handled safely.
+Implications
+Incidents trigger containment first
+Recovery preserves auditability
+Evidence is preserved
+Post‑incident analysis is supported
+Lessons feed back into design
+Incident response does not bypass controls
+Emergency measures are logged
+Recovery paths are deterministic
+
+8.16 Transparency, Explainability, and Defensibility
+Principle
+Security and compliance behavior must be explainable, not opaque.
+Implications
+Decisions can be reasoned about
+Policies align with documented intent
+Behavior can be justified during audits
+“Magic” behavior is avoided
+Platform reasoning is consistent
+Explanations do not rely on tribal knowledge
+LLM explanations must align with platform reality
+
+8.17 Explicit Security Non‑Goals (Critical)
+Orion explicitly does not:
+Replace device‑level safety controls
+Override regulatory obligations
+Grant implicit trust to applications
+Optimize for speed over safety
+Bypass governance for convenience
+Assume internal environments are safe
+Hide security behavior behind abstractions
+These non‑goals are intentional and binding.
+
+8.18 Summary Framing (For LLM Training)
+This section defines:
+what Orion will always protect
+where Orion will be conservative
+why certain requests must be denied
+how to reason safely under uncertainty
+For Orion GPT, this is the primary hallucination‑control layer.
+
+9. Boundaries, Constraints & Non‑Goals (TRUE EXHAUSTIVE)
+Orion is intentionally constrained.
+Those constraints are not shortcomings — they are design decisions made to preserve safety, compliance, and long‑term system integrity.
+This section defines:
+what Orion does not do
+what Orion cannot do due to structural or regulatory limits
+where responsibility explicitly lies outside the platform
+
+9.1 Boundary: Orion Is Not a Clinical Decision‑Making System
+Definition
+Orion does not provide clinical judgment, diagnosis, or therapy recommendations.
+Implications
+Orion does not interpret clinical meaning of data
+Orion does not suggest therapy changes
+Orion does not rank or prioritize clinical actions
+Orion does not replace clinician expertise
+Orion does not embed clinical guidelines
+Orion does not infer patient conditions
+Orion does not assess patient risk
+Orion does not perform outcome prediction
+Orion does not automate clinical decisions
+Why This Boundary Exists Clinical decision‑making introduces regulatory, ethical, and liability obligations that Orion is not designed to assume.
+
+9.2 Boundary: Orion Does Not Control Device Firmware or Therapy Logic
+Definition
+Orion does not own or alter device firmware behavior.
+Implications
+Orion cannot change device safety limits
+Orion cannot override device‑level safeguards
+Orion cannot modify therapy algorithms
+Orion cannot bypass firmware validation
+Orion cannot compensate for firmware defects
+Orion cannot assume device correctness
+Orion must adapt to device constraints
+Why This Boundary Exists Firmware operates under separate safety and regulatory regimes.
+
+9.3 Boundary: Orion Is Not a User Experience or UI Platform
+Definition
+Orion does not define or control end‑user interfaces.
+Implications
+Orion does not design clinician workflows
+Orion does not control UI layout or interaction
+Orion does not dictate user experience decisions
+Orion does not handle localization or accessibility
+Orion does not manage UI performance tuning
+Why This Boundary Exists Separating platform from UI enables product differentiation and faster iteration.
+
+9.4 Boundary: Orion Is Not a General‑Purpose Data Analytics Platform
+Definition
+Orion is not designed for exploratory analytics or business intelligence.
+Implications
+Orion does not provide dashboards
+Orion does not support ad‑hoc querying
+Orion does not perform statistical analysis
+Orion does not generate business insights
+Orion does not support data science workflows
+Orion does not optimize data for analytics tools
+Why This Boundary Exists Analytics workloads have fundamentally different performance and governance requirements.
+
+9.5 Boundary: Orion Is Not a Source of Truth for Enterprise Business Data
+Definition
+Orion is not the authoritative system for enterprise business records.
+Implications
+Orion does not own customer master data
+Orion does not manage financial records
+Orion does not define enterprise KPIs
+Orion does not reconcile enterprise systems
+Orion does not enforce enterprise reporting logic
+Why This Boundary Exists Enterprise data governance belongs to dedicated enterprise platforms.
+
+9.6 Constraint: Regulatory and Compliance Obligations
+Definition
+Orion operates under non‑negotiable regulatory constraints.
+Implications
+Behavior must be explainable to regulators
+Changes require impact analysis
+Informal behavior is unacceptable
+Documentation must be maintained
+Validation evidence must exist
+Some optimizations are disallowed
+Risk tolerance is low
+Effect on Design Regulation constrains speed, flexibility, and autonomy.
+
+9.7 Constraint: Safety‑First Behavior
+Definition
+Safety overrides availability and convenience.
+Implications
+Failures default to safe states
+Partial functionality may be disabled
+Conservative decisions are favored
+Ambiguity halts workflows
+Recovery paths are controlled
+Effect on Design Some user frustration is accepted to preserve safety.
+
+9.8 Constraint: Latency and Real‑Time Limits
+Definition
+Certain interactions have strict timing requirements.
+Implications
+Not all logic can run in the cloud
+Edge execution is required
+Round‑trip delays are constrained
+Cloud outages must be tolerated
+Real‑time guarantees are limited
+Effect on Design Hybrid architecture is mandatory.
+
+9.9 Constraint: Data Residency and Sovereignty
+Definition
+Data location and movement may be restricted by law or policy.
+Implications
+Data cannot freely cross regions
+Storage locations are governed
+Replication is constrained
+Some features vary by region
+Architecture must accommodate locality
+Effect on Design Global uniformity is limited.
+
+9.10 Constraint: Backward Compatibility
+Definition
+Orion must support legacy devices and workflows.
+Implications
+Architectural purity is constrained
+Deprecation is slow
+Multiple patterns may coexist
+Legacy behaviors must be understood
+Migration is incremental
+Effect on Design Complexity is accepted to preserve continuity.
+
+9.11 Non‑Goal: Rapid Experimentation at the Platform Level
+Definition
+Orion is not a playground for fast experimentation.
+Implications
+Platform changes are deliberate
+Experiments occur at application level
+Platform stability is prioritized
+Feature flags are tightly governed
+Rollbacks must be safe
+
+9.12 Non‑Goal: Optimizing for Developer Convenience
+Definition
+Developer convenience does not override platform guarantees.
+Implications
+Explicitness is preferred over shortcuts
+Boilerplate is tolerated
+Constraints are enforced
+Learning curve is accepted
+Guardrails are mandatory
+
+9.13 Non‑Goal: Solving All Product‑Specific Needs
+Definition
+Orion is not designed to satisfy every product’s unique requirement.
+Implications
+Some needs remain product‑local
+Platform scope is intentionally limited
+Exceptions are rare and reviewed
+Product teams adapt to Orion
+Orion does not become a “catch‑all”
+
+9.14 Boundary: Orion Does Not Eliminate Organizational Responsibility
+Definition
+Orion does not replace governance, training, or oversight.
+Implications
+Human accountability remains
+Process discipline is required
+Misuse is possible without controls
+Orion enforces, but does not educate
+Culture matters
+
+9.15 Summary Framing (For LLM Anti‑Hallucination)
+This section defines:
+where Orion stops
+what Orion refuses to do
+what Orion cannot safely do
+who is responsible instead
+For Orion GPT, these constraints are as important as capabilities.
+They prevent over‑claiming, unsafe reasoning, and speculative answers.
+
+10. Relationship to Orion Products & Version Awareness (TRUE EXHAUSTIVE)
+This section explains how Orion relates to products built on it, how responsibilities are divided, and how Orion evolves over time without breaking its foundational role.
+This is critical for preventing:
+product/platform confusion
+incorrect capability attribution
+time‑based hallucinations
+
+10.1 Orion as a Platform vs Orion‑Based Products
+Core Distinction
+Orion is a platform.
+Orion‑based products are applications that consume platform capabilities.
+This distinction is structural, not semantic.
+
+What Orion Owns
+Orion owns:
+Identity and access abstractions
+Session concepts and lifecycle patterns
+Platform‑level security and compliance enforcement
+Shared architectural patterns
+Cross‑product consistency guarantees
+Audit and traceability mechanisms
+Integration governance patterns
+Orion does not own:
+product‑specific workflows
+clinical logic
+user experience
+product feature roadmaps
+
+What Orion‑Based Products Own
+Products built on Orion own:
+Clinical or operational workflows
+Product‑specific rules and constraints
+UI/UX design decisions
+Domain‑specific validation logic
+Product lifecycle and feature evolution
+They consume Orion; they do not redefine it.
+
+10.2 Canonical Relationship Pattern
+The relationship between Orion and its products follows a strict dependency direction:
+Products depend on Orion. Orion does not depend on products.
+Implications:
+Orion cannot assume the presence of any specific product
+Orion must remain application‑agnostic
+Product failure must not destabilize Orion
+Platform evolution must consider downstream impact
+Product innovation occurs within Orion’s constraints
+This pattern is enforced architecturally and organizationally.
+
+10.3 Classes of Orion‑Based Products
+Orion supports multiple classes of products, each using the platform differently.
+
+10.3.1 In‑Clinic Interaction Products
+(e.g., programmer‑centric or session‑driven tools)
+Relationship to Orion
+Use Orion for session management
+Rely on identity and authorization
+Leverage audit and traceability
+Coordinate edge and cloud behavior
+What They Add
+Clinician workflows
+Device‑specific interaction logic
+Real‑time user interaction
+
+10.3.2 Remote Monitoring / Cloud‑First Products
+Relationship to Orion
+Use Orion identity and trust model
+Rely on data governance and audit
+Consume platform integration patterns
+What They Add
+Longitudinal workflows
+Asynchronous interactions
+Product‑specific analytics layers
+
+10.3.3 Platform‑Adjacent Services
+Relationship to Orion
+Consume Orion APIs and policies
+Do not define clinical behavior
+Extend operational capabilities
+What They Add
+Specialized processing
+Domain‑specific services
+Scoped functionality
+
+10.4 Shared vs Product‑Specific Responsibilities
+Shared (Platform‑Level)
+Security posture
+Compliance enforcement
+Identity semantics
+Session invariants
+Audit expectations
+These must be uniform across all products.
+
+Product‑Specific
+Workflow sequencing
+Feature enablement
+UX choices
+Domain‑specific data interpretation
+Product KPIs
+These are intentionally allowed to diverge.
+
+10.5 How Orion Enables Product Evolution
+Orion enables products to evolve by:
+Providing stable interfaces
+Abstracting volatile infrastructure concerns
+Centralizing compliance mechanisms
+Reducing duplicated effort
+Allowing feature innovation above a stable core
+This allows products to change without destabilizing the ecosystem.
+
+10.6 How Orion Constrains Product Behavior (Intentionally)
+Orion intentionally constrains products by:
+Enforcing security boundaries
+Requiring explicit session usage
+Restricting unsafe patterns
+Governing integrations
+Preventing shortcut implementations
+These constraints are protective, not limiting.
+
+10.7 Platform Evolution Model (Version Awareness)
+Orion evolves under a controlled, conservative model.
+Key Characteristics
+Backward compatibility is prioritized
+Breaking changes are rare and deliberate
+Evolution is incremental, not revolutionary
+Legacy coexistence is expected
+Deprecation is slow and governed
+
+What “Version Awareness” Means for Orion GPT
+Orion GPT should:
+Distinguish current vs deprecated patterns at a high level
+Avoid assuming uniform behavior across all time
+Use language like:
+“In current Orion implementations…”
+“Historically, some Orion‑based products…”
+Avoid specific version numbers unless explicitly provided
+Avoid roadmap speculation
+
+10.8 Handling Legacy and Transitional Products
+Orion must support products at different maturity levels.
+Implications:
+Not all products use all platform features
+Legacy patterns may persist
+Migration is gradual
+Mixed architectures are tolerated temporarily
+Platform purity is balanced with continuity
+Orion GPT must acknowledge variability without normalizing it.
+
+10.9 What Orion GPT Must Never Do (Critical)
+Orion GPT must never:
+Treat Orion as a single application
+Attribute product features to the platform
+Assume all products are identical
+Invent future platform capabilities
+Collapse legacy behavior into current design
+This section directly guards against those failures.
+
+10.10 Summary Framing (For LLM Reasoning)
+This section teaches Orion GPT:
+how to reason across products
+how to separate platform vs application
+how to handle time and evolution
+how to avoid roadmap hallucination
+It completes the gold‑standard Orion platform reference.
+
+
