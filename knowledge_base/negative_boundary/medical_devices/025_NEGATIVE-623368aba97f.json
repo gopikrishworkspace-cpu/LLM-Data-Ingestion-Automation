@@ -1,0 +1,28 @@
+{
+  "entity_id": "NEGATIVE-623368aba97f",
+  "entity_type": "negative_boundary",
+  "name": "MRI scan duration restriction removal",
+  "description": "A boundary removal in the Astra MRI pacemaker system, permitting extended or repeated MRI scans without time-based restrictions, provided MR conditions for use are met. This distinguishes the system from prior devices with scan duration limitations and is not applicable if MR safety criteria are not satisfied.",
+  "domain": [
+    "medical_devices",
+    "mri"
+  ],
+  "relationships": [
+    {
+      "type": "enables",
+      "target": "PRODUCT-4d15672a5342"
+    },
+    {
+      "type": "contrasts_with",
+      "target": "ACCEPTAN-f6c57f6a0a6e"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.85
+  },
+  "status": "canonical",
+  "_quality_score": 0.84,
+  "last_updated": "2026-04-21T05:45:41+00:00"
+}

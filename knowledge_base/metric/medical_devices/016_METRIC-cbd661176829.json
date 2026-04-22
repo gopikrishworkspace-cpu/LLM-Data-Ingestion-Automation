@@ -1,0 +1,28 @@
+{
+  "entity_id": "METRIC-cbd661176829",
+  "entity_type": "metric",
+  "name": "Dual-chamber pacemaker longevity: 15.3 years",
+  "description": "A benchmark for device longevity in the Astra MRI SureScan dual-chamber pacemaker, rated at 15.3 years based on optimized hardware circuitry and reduced current drain. This metric is contingent on typical usage and device settings, and may vary with patient-specific pacing requirements, serving as a guide for device replacement planning.",
+  "domain": [
+    "medical_devices",
+    "cardiology"
+  ],
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "ARCHITEC-c6f3fab3676c"
+    },
+    {
+      "type": "constrains",
+      "target": "PRODUCT-76a01a7c248c"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.84,
+  "last_updated": "2026-04-21T05:45:41+00:00"
+}

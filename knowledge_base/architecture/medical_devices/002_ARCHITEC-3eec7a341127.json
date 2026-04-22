@@ -1,0 +1,33 @@
+{
+  "entity_id": "ARCHITEC-3eec7a341127",
+  "entity_type": "architecture",
+  "name": "BlueSync wireless communication architecture",
+  "description": "A secure wireless communication architecture enabling tablet-based programming and app-based remote monitoring for the Azure MRI SureScan pacemaker. It allows clinicians and patients to interact with the device remotely, but requires compatible tablets and apps, restricting use to settings with appropriate technology.",
+  "domain": [
+    "medical_devices",
+    "pacemaker",
+    "connectivity"
+  ],
+  "relationships": [
+    {
+      "type": "enables",
+      "target": "PATTERN-bbe6a9dae6be"
+    },
+    {
+      "type": "enables",
+      "target": "PATTERN-aa809f9fc852"
+    },
+    {
+      "type": "depends_on",
+      "target": "PRODUCT-89edab6a9a20"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.95
+  },
+  "status": "canonical",
+  "_quality_score": 0.923,
+  "last_updated": "2026-04-21T05:08:25+00:00"
+}

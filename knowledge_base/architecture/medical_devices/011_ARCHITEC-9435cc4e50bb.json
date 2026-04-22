@@ -1,0 +1,28 @@
+{
+  "entity_id": "ARCHITEC-9435cc4e50bb",
+  "entity_type": "architecture",
+  "name": "Optimized hardware architecture for circuitry efficiency",
+  "description": "A hardware architecture incorporating optimized circuitry to reduce current drain and improve device longevity. Targets electrical efficiency, with boundaries set by physical circuit design and battery capacity limitations. Implemented in newer device models to extend operational lifespan.",
+  "domain": [
+    "medical_devices",
+    "hardware"
+  ],
+  "relationships": [
+    {
+      "type": "enables",
+      "target": "PATTERN-fb3a2775da14"
+    },
+    {
+      "type": "constrains",
+      "target": "PRODUCT-89edab6a9a20"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.887,
+  "last_updated": "2026-04-21T05:08:25+00:00"
+}

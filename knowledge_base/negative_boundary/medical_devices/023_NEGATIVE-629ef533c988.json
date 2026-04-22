@@ -1,0 +1,28 @@
+{
+  "entity_id": "NEGATIVE-629ef533c988",
+  "entity_type": "negative_boundary",
+  "name": "MRI exclusion zone limitation removal",
+  "description": "A boundary removal in the Astra MRI pacemaker and SureScan system, allowing patients to undergo full body MRI scans without geographic restrictions on the scanned area. This is contingent on meeting MR conditions for use and distinguishes the system from prior devices with scan region limitations.",
+  "domain": [
+    "medical_devices",
+    "mri"
+  ],
+  "relationships": [
+    {
+      "type": "contrasts_with",
+      "target": "PATTERN-01a4cfdbbadc"
+    },
+    {
+      "type": "enables",
+      "target": "PRODUCT-4d15672a5342"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.84,
+  "last_updated": "2026-04-21T05:45:41+00:00"
+}

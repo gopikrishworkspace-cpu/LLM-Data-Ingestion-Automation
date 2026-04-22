@@ -1,0 +1,29 @@
+{
+  "entity_id": "ACCEPTAN-f6c57f6a0a6e",
+  "entity_type": "acceptance_criteria",
+  "name": "MRI conditional approval for Astra MRI SureScan pacemaker",
+  "description": "Approval criteria for the Astra MRI SureScan pacemaker's use in MRI environments, requiring strict adherence to device indications, safety warnings, and operational protocols. The approval is limited to MRI settings and does not extend to other imaging modalities; failure to meet these criteria may result in patient harm or device malfunction.",
+  "domain": [
+    "medical_devices",
+    "mri",
+    "security"
+  ],
+  "relationships": [
+    {
+      "type": "constrains",
+      "target": "PRODUCT-76a01a7c248c"
+    },
+    {
+      "type": "constrains",
+      "target": "PRODUCT-4d15672a5342"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.95
+  },
+  "status": "canonical",
+  "_quality_score": 0.84,
+  "last_updated": "2026-04-21T05:45:41+00:00"
+}

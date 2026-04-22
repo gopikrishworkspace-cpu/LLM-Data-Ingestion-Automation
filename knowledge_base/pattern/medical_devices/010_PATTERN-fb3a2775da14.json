@@ -1,0 +1,28 @@
+{
+  "entity_id": "PATTERN-fb3a2775da14",
+  "entity_type": "pattern",
+  "name": "MVP algorithm for RV pacing minimization",
+  "description": "A pacing pattern designed to minimize unnecessary right ventricular (RV) pacing, achieving up to 99% reduction in pacing events. Effectiveness is bounded by the algorithm's ability to distinguish necessary from unnecessary pacing, with implications for reducing pacing-induced complications and extending device longevity.",
+  "domain": [
+    "medical_devices",
+    "cardiology"
+  ],
+  "relationships": [
+    {
+      "type": "refines",
+      "target": "PATTERN-0caf4e1c0595"
+    },
+    {
+      "type": "constrains",
+      "target": "ARCHITEC-9435cc4e50bb"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.9,
+    "relationships": 0.85
+  },
+  "status": "canonical",
+  "_quality_score": 0.84,
+  "last_updated": "2026-04-21T05:08:25+00:00"
+}

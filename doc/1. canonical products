@@ -1,0 +1,152 @@
+Below is a locked, canonical product structure you should use for every Orion product in your LLM knowledge base.
+This structure is optimized for:
+deep explanation
+technical reasoning
+consistent follow‑ups
+hallucination resistance
+This is not documentation structure — this is LLM cognition structure.
+
+✅ Canonical Orion Product Structure (LOCK THIS)
+Use this exact structure, in this order, for each Orion product (starting with CareLink SmartSync™ Azure Astra Application).
+
+0. Product Identity (Metadata – Very Short)
+Purpose: grounding + retrieval accuracy.
+Include:
+Product Name
+Product Type (Application / Platform Service / Legacy System)
+Orion Tier (Platform / Tier‑1 / Tier‑2 / Stub)
+Deployment Model (Cloud / Edge / Hybrid)
+Current Status (Active / Legacy / Transitional)
+This section should be factual, minimal, and stable.
+
+1. Purpose & Context (WHY IT EXISTS)
+This is the most important section for explanation quality.
+Answer explicitly:
+What problem this product exists to solve
+Who it is for (clinicians, systems, enterprise)
+Why Orion needed this product
+What would break or regress if it didn’t exist
+✅ Use causal language
+❌ Avoid marketing or feature lists
+Example style:
+“This product exists because legacy systems could not…”
+
+2. Core Problems Solved (BOUNDARY OF VALUE)
+Define what it does solve vs what it does not try to solve.
+Include:
+Primary problem domains (e.g., device communication, session management)
+Secondary problems it supports
+Problems intentionally out of scope (brief mention)
+This teaches the LLM where to stop.
+
+3. High‑Level Architecture Overview (TEXT‑ONLY)
+Explain the architecture in words, not components lists.
+Include:
+Major layers (device, edge, cloud, integration)
+Responsibility of each layer
+How responsibilities are separated
+Where trust boundaries exist
+✅ Narrative form
+❌ “Component A → Component B” lists without explanation
+
+4. Key System Components & Responsibilities
+Now you may enumerate components, but always with responsibility framing.
+For each component:
+What it is responsible for
+What it explicitly does NOT do
+What it depends on
+This section enables:
+deep follow‑ups
+“what happens if X fails?” questions
+
+5. Core Workflows (SYSTEM BEHAVIOR)
+Describe end‑to‑end workflows, not features.
+Examples:
+Session lifecycle
+Authentication & authorization flow
+Data ingestion and persistence flow
+Error or failure handling (high level)
+Each workflow should explain:
+Trigger
+Major steps
+Completion condition
+Safety or validation checks
+This is where Orion becomes understandable.
+
+6. Data Concepts & Metrics (CONCEPTUAL ONLY)
+Explain:
+Key data entities (sessions, devices, users, events)
+How they relate conceptually
+Important metrics and what they mean
+❌ No schemas
+❌ No queries
+✅ Mental models only
+This supports correctness without overfitting.
+
+7. Design Decisions & Trade‑Offs (WHY DATA ⭐)
+This section is mandatory.
+Include:
+Major architectural decisions
+Trade‑offs considered
+Alternatives rejected (and why)
+Safety, compliance, or scalability drivers
+Teach the LLM how Orion engineers think.
+
+8. Security, Privacy & Compliance Principles
+Explain:
+Security posture (not implementation secrets)
+Trust assumptions
+Compliance constraints shaping the design
+What Orion refuses to do for safety reasons
+This prevents dangerous hallucinations.
+
+9. Boundaries, Constraints & Non‑Goals (ANTI‑HALLUCINATION)
+Be explicit:
+What this product does NOT do
+Known limitations
+Constraints imposed by regulation or architecture
+This section dramatically improves answer reliability.
+
+10. Relationship to Other Orion Products
+Explain:
+How this product fits into the Orion ecosystem
+What it depends on
+What depends on it
+What is shared vs unique
+This enables cross‑product reasoning without confusion.
+
+11. Version Awareness (LIGHT)
+Only include:
+Current vs deprecated behaviors (high‑level)
+Major shifts (e.g., legacy → cloud)
+No timelines, no roadmap.
+
+✅ Why This Structure Works for an LLM
+This structure ensures the model can:
+Explain what Orion is
+Explain why it works this way
+Handle “what if” questions
+Avoid over‑claiming capabilities
+Stay consistent across products
+Scale later to new Orion products
+It also cleanly maps to your MVP data categories:
+Product & Theory ✅
+Architecture ✅
+Data & Metrics ✅
+Decision Rationale ✅
+Boundaries ✅
+Terminology (embedded)
+Version awareness ✅
+
+✅ Next Step (Strong Recommendation)
+Next, we should instantiate this structure once as a gold‑standard reference for:
+CareLink SmartSync™ Azure Astra Application
+That single, perfect instance becomes:
+Your highest‑quality training sample
+The template for all other Orion products
+The anchor for Orion GPT’s behavior
+If you want, next I can:
+Write the full SmartSync Astra entry using this structure, or
+Define chunking rules for fine‑tuning based on these sections, or
+Create LLM evaluation questions to validate explanation depth.
+

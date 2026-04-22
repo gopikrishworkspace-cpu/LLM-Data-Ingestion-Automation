@@ -1,0 +1,33 @@
+{
+  "entity_id": "PRODUCT-4d15672a5342",
+  "entity_type": "product",
+  "name": "Astra XT DR MRI SureScan dual-chamber pacemaker",
+  "description": "A dual-chamber pacemaker designed for MRI environments, supporting both 1.5T and 3T full body MRI scans without restrictions on scan duration, patient height, or exclusion zones. Identified by item number X2DR01, it is compatible with SureScan leads in any combination. Use is contingent on meeting MR conditions for safety and compatibility.",
+  "domain": [
+    "medical_devices",
+    "cardiology",
+    "mri"
+  ],
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "ARCHITEC-c6f3fab3676c"
+    },
+    {
+      "type": "enables",
+      "target": "PATTERN-01a4cfdbbadc"
+    },
+    {
+      "type": "constrains",
+      "target": "ACCEPTAN-f6c57f6a0a6e"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.95
+  },
+  "status": "canonical",
+  "_quality_score": 0.97,
+  "last_updated": "2026-04-21T05:45:41+00:00"
+}

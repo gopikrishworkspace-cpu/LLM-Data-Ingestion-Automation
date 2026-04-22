@@ -1,0 +1,33 @@
+{
+  "entity_id": "PATTERN-0caf4e1c0595",
+  "entity_type": "pattern",
+  "name": "MVP feature for right ventricular pacing reduction",
+  "description": "A pacing pattern implemented in the Azure MRI SureScan pacemaker to minimize unnecessary right ventricular (RV) pacing, reducing risk of heart failure hospitalization and AF. Operates by selectively reducing RV pacing, with impact bounded by the finding that each 1% increase in cumulative RV pacing raises AF risk by 1%.",
+  "domain": [
+    "medical_devices",
+    "cardiology",
+    "pacemaker"
+  ],
+  "relationships": [
+    {
+      "type": "refines",
+      "target": "PATTERN-fb3a2775da14"
+    },
+    {
+      "type": "constrains",
+      "target": "METRIC-0f664cbb877c"
+    },
+    {
+      "type": "depends_on",
+      "target": "ANALYTIC-98d74da9127c"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.923,
+  "last_updated": "2026-04-21T05:08:25+00:00"
+}

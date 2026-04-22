@@ -1,0 +1,147 @@
+{
+  "title": "Orion Knowledge Base Merge Rules",
+  "description": "Rules for deduplication, identity resolution, conflict resolution, and incremental enrichment of entities across pipeline runs. Consumed by Step 2 (normalize) and Step 3 (deduplicate/store).",
+
+  "identity_resolution": {
+    "description": "How to determine if two extracted entities represent the same concept.",
+    "rules": [
+      {
+        "priority": 1,
+        "method": "exact_id_match",
+        "description": "Same entity_id → same entity. Always merge.",
+        "action": "merge"
+      },
+      {
+        "priority": 2,
+        "method": "alias_match",
+        "description": "Incoming name matches any existing entity's aliases (case-insensitive, after normalization) → same entity.",
+        "action": "merge"
+      },
+      {
+        "priority": 3,
+        "method": "fuzzy_name_match",
+        "description": "Same entity_type AND Jaccard similarity on normalized name tokens >= 0.75 → candidate for merge.",
+        "action": "flag_for_review",
+        "threshold": 0.75
+      }
+    ],
+    "name_normalization_for_matching": [
+      "Lowercase",
+      "Remove trademark symbols: ™ ® ©",
+      "Replace hyphens, slashes, ampersands with spaces",
+      "Remove all other special characters",
+      "Split into word tokens",
+      "Sort tokens alphabetically for Jaccard comparison"
+    ],
+    "precondition": "entity_type MUST match for any merge. Cross-type merges are never allowed."
+  },
+
+  "field_merge_strategies": {
+    "description": "How each field is merged when two entities are combined. Strategies are applied field-by-field.",
+
+    "base_fields": {
+      "entity_id":       { "strategy": "keep_existing", "note": "ID never changes once assigned." },
+      "entity_type":     { "strategy": "must_match", "note": "Types must be identical to merge. Mismatch → reject." },
+      "name":            { "strategy": "prefer_longer", "note": "Keep the more complete name." },
+      "aliases":         { "strategy": "union_dedup_ci", "note": "Merge all aliases, deduplicate case-insensitively." },
+      "description":     { "strategy": "prefer_higher_confidence_then_longer", "note": "Higher confidence wins. Tie: longer description wins." },
+      "owner":           { "strategy": "prefer_higher_confidence", "note": "Higher confidence wins. Tie: incoming wins." },
+      "relationships":   { "strategy": "union_by_composite_key", "key": ["type", "target_id"], "note": "Deduplicate by (type + target_id). On conflict, keep higher-confidence context." },
+      "source_document": { "strategy": "comma_join_dedup", "note": "Concatenate unique sources. No duplicates." },
+      "confidence":      { "strategy": "max", "note": "Always keep the higher value." }
+    },
+
+    "enum_fields": {
+      "applies_to": [
+        "product_type", "orion_tier", "deployment_model", "status",
+        "user_visibility", "execution_context", "constraint_type", "concept_type"
+      ],
+      "strategy": "prefer_higher_confidence",
+      "tiebreaker": "incoming_wins",
+      "note": "For enum fields, higher confidence wins. Equal confidence: incoming (later) extraction wins."
+    },
+
+    "prose_fields": {
+      "applies_to": [
+        "purpose", "what_breaks_without", "why_exists", "responsibility_class",
+        "enforcement_model", "trigger", "completion_condition", "decision_statement",
+        "why_it_exists", "contrast_with", "represents", "problem_domain", "primary_domain"
+      ],
+      "strategy": "prefer_higher_confidence_then_longer",
+      "note": "Higher confidence wins. Tie: longer value wins."
+    },
+
+    "list_fields": {
+      "applies_to": [
+        "responsibilities", "non_responsibilities", "what_it_owns", "what_it_does_not_own",
+        "what_is_prevented", "safety_gates", "failure_handling", "invariants",
+        "rationale", "tradeoffs_accepted", "why_hard", "consequences_without", "how_solved",
+        "key_attributes", "data_constraints", "lifecycle_states",
+        "consumed_by", "depends_on", "primary_users"
+      ],
+      "strategy": "union_dedup",
+      "note": "Merge all items. Deduplicate by normalized string match (lowercase, trimmed)."
+    },
+
+    "ordered_list_fields": {
+      "applies_to": ["steps"],
+      "strategy": "prefer_more_items",
+      "note": "Keep the version with more steps. Order matters — do not merge item-by-item."
+    },
+
+    "structured_list_fields": {
+      "applies_to": ["alternatives_rejected"],
+      "strategy": "union_by_key",
+      "key": "option",
+      "note": "Merge by option name. On conflict, keep higher-confidence rejection_reason."
+    }
+  },
+
+  "conflict_resolution": {
+    "description": "Rules for handling conflicts that cannot be auto-resolved.",
+    "rules": [
+      {
+        "condition": "Two descriptions directly contradict each other",
+        "action": "Flag for human review. Preserve both with source_document attribution.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Enum field has different values with equal confidence",
+        "action": "Incoming value wins (later extraction assumed more refined).",
+        "severity": "info"
+      },
+      {
+        "condition": "Entity exists in knowledge_base but incoming has entity_type mismatch",
+        "action": "Reject merge. Log as potential extraction error. Store as separate entity.",
+        "severity": "error"
+      },
+      {
+        "condition": "Incoming entity has lower confidence than existing on all fields",
+        "action": "Still merge additive fields (aliases, relationships, list fields). Never overwrite with weaker data.",
+        "severity": "info"
+      }
+    ]
+  },
+
+  "preservation_guarantees": {
+    "description": "Invariants that must hold across all merge operations.",
+    "rules": [
+      "No field value is ever deleted during merge",
+      "Original source_document values are always preserved",
+      "Confidence never decreases during merge",
+      "Relationships are append-only by composite key (type + target_id)",
+      "Aliases grow monotonically (never removed)",
+      "entity_id never changes after first assignment",
+      "List fields only grow (items are added, never removed)"
+    ]
+  },
+
+  "versioning": {
+    "description": "How entity versions are tracked across merges.",
+    "rules": [
+      "Each merge increments a version counter on the entity (tracked in knowledge_base/index/state.json)",
+      "Merge timestamp is recorded",
+      "Previous field values are not stored (merge is destructive-forward, but additive)"
+    ]
+  }
+}

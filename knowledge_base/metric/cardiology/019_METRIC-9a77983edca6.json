@@ -1,0 +1,24 @@
+{
+  "entity_id": "METRIC-9a77983edca6",
+  "entity_type": "metric",
+  "name": "Right ventricular pacing risk increment",
+  "description": "A clinical risk metric indicating that each 1% increase in right ventricular (RV) pacing correlates with a 1% increase in atrial fibrillation (AF) risk, and is also associated with higher risk of heart failure hospitalization. This metric is bounded by patient-specific pacing requirements and device settings, and is used to guide pacing strategy.",
+  "domain": [
+    "cardiology",
+    "analytics"
+  ],
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "PATTERN-8003a525c4f6"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.9
+  },
+  "status": "canonical",
+  "_quality_score": 0.757,
+  "last_updated": "2026-04-21T05:45:41+00:00"
+}

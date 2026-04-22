@@ -1,0 +1,33 @@
+{
+  "entity_id": "PRODUCT-76a01a7c248c",
+  "entity_type": "product",
+  "name": "Astra MRI SureScan dual-chamber pacemaker",
+  "description": "A dual-chamber cardiac pacemaker engineered for extended longevity through optimized hardware circuitry that reduces current drain. The device is approved for MRI use under specific MR conditions, expanding MRI access for patients with cardiac implants. Its advanced pacing algorithms and architecture require strict adherence to MR safety indications and warnings; use outside these boundaries may compromise safety or device function.",
+  "domain": [
+    "medical_devices",
+    "cardiology",
+    "mri"
+  ],
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "ARCHITEC-c6f3fab3676c"
+    },
+    {
+      "type": "enables",
+      "target": "PATTERN-19470df97dbd"
+    },
+    {
+      "type": "constrains",
+      "target": "ACCEPTAN-f6c57f6a0a6e"
+    }
+  ],
+  "confidence_scores": {
+    "classification": 1.0,
+    "description": 0.95,
+    "relationships": 0.95
+  },
+  "status": "canonical",
+  "_quality_score": 0.97,
+  "last_updated": "2026-04-21T05:45:41+00:00"
+}
